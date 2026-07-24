@@ -295,18 +295,39 @@
   gap: 8px;
 }
 
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--table-pagination-select-color);
+  border-bottom: 2px solid var(--table-pagination-select-color);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none; /* lets clicks pass through to select box */
+}
+
 .pagination-left select {
   font-family: inherit;
   font-size: 0.8125rem;
   font-weight: 500;
   border: 1px solid var(--table-row-border);
   border-radius: 8px;
-  padding: 6px 12px;
+  padding: 6px 30px 6px 12px; /* room for custom chevron */
   background: #FFFFFF;
-  color: var(--table-pagination-color);
+  color: var(--table-pagination-select-color);
   cursor: pointer;
   outline: none;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  appearance: none; /* hides browser default chevron */
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .pagination-pages {

@@ -53,8 +53,9 @@
   --table-title-color:     #21236A;                /* [Title card text color] Text color of the "Recent Exam List" title */
   --table-pagination-bg:   #DBDCE4;                /* [Pagination card background] Background of the bottom page selection footer card */
   --table-pagination-color: #21236A;               /* [Pagination text color] Color of show-limit dropdown text and footer labels */
-  --table-pagination-info-color:     #21236A;      /* [Pagination info text color] Text color of '1-10 of 52' info label */
-  --table-pagination-label-color:    #21236A;      /* [Pagination label text color] Text color of 'Show per page' label */
+  --table-pagination-select-color: #999BA3;
+  --table-pagination-info-color:     #999BA3;      /* [Pagination info text color] Text color of '1-10 of 52' info label */
+  --table-pagination-label-color:    #999BA3;      /* [Pagination label text color] Text color of 'Show per page' label */
   --table-pagination-active-bg:      #21236A;      /* [Active page background] Circle color for active page button 1 */
   --table-pagination-active-color:   #FFFFFF;      /* [Active page text color] Number text color for active page button */
   --table-pagination-active-border-width: 4px;     /* [Active page ring size] The thickness of the outer border ring */
