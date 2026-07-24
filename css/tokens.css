@@ -34,10 +34,12 @@
   --sidebar-width:        320px;
   --sidebar-bg:           var(--color-navy);
   --sidebar-text-size:    0.875rem;
-  --sidebar-text-color:   rgba(255,255,255,0.75);
+  --sidebar-text-color:   #FFFFFF;
   --sidebar-section-size: 0.75rem;
   --sidebar-active-bg:    var(--color-red);
   --sidebar-icon-size:    18px;
+  --sidebar-icon-opacity: 1.0;
+  --sidebar-logout-icon-size: 18px;
 
   /* ── Table ──────────────────────────────────────────────── */
   --table-header-bg:       var(--color-navy);      /* [Header background] The dark blue background of the table header card */

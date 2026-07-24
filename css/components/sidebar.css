@@ -98,7 +98,7 @@
   height: var(--sidebar-icon-size);
   object-fit: contain;
   flex-shrink: 0;
-  filter: brightness(0) invert(1) opacity(0.8);
+  filter: brightness(0) invert(1) opacity(var(--sidebar-icon-opacity));
 }
 
 .nav-item.active img {
@@ -120,6 +120,11 @@
 /* ── Footer (Log Out) ────────────────────────────────────── */
 .nav-item.logout {
   margin-top: 40px; /* Gap separating Log Out from main sections list */
+}
+
+.nav-item.logout img {
+  width: var(--sidebar-logout-icon-size);
+  height: var(--sidebar-logout-icon-size);
 }
 
 /* ── Hamburger button (hidden on desktop) ────────────────── */
