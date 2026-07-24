@@ -356,21 +356,21 @@
 .page-btn.arrow {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
-  border: 1px solid var(--table-row-border);
+  border-radius: var(--table-pagination-arrow-radius);
+  border: var(--table-pagination-arrow-border-width) solid var(--table-pagination-arrow-color);
   background: #FFFFFF;
   color: var(--table-pagination-arrow-color);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
   font-weight: 600;
 }
 
 .page-btn.arrow:hover {
   background: #F0F1F1;
-  border-color: var(--table-pagination-arrow-color);
+  opacity: 0.85;
 }
 
 .pagination-info {
