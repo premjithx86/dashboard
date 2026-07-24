@@ -1,124 +1,225 @@
 /*
  * components/table.css
  * ─────────────────────────────────────────────────────────────
- * Recent Exam List: data table grid layout, alternating stripes,
- * squircle status badges, circular action buttons, and a themed
- * card footer pagination bar matching figma mockup screenshots.
+ * Recent Exam List Table Component.
+ * Redesigned to match the Figma mockup exactly:
+ * - Card-based structure with rounded corners and shadows.
+ * - Pill-shaped header block with independent depth shadow.
+ * - Alternating row background colors (white and #F0F1F1).
+ * - No grid-lines (only subtle row borders).
+ * - Rounded pill badges and circular action icons.
  * ─────────────────────────────────────────────────────────────
  */
 
-/* ── Table container ─────────────────────────────────────── */
-.table-wrapper {
-  overflow-x: auto;
-  border-radius: 0;
-}
-
-table {
+/* ── Container Layout ────────────────────────────────────── */
+.table-section-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  border-collapse: collapse;
-  font-size: var(--table-row-size);
-  border: 1px solid #DBDCE4; /* Border grid outline */
 }
 
-/* ── Header row ──────────────────────────────────────────── */
-thead tr {
-  background: #21236A; /* Deep navy header */
-  color: var(--table-header-color);
+/* Floating table section title */
+.table-section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #21236A;
+  margin: 0 0 16px 0;
 }
 
-thead th {
+/* The cohesive white card container that holds rows and pagination */
+.table-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* premium card depth shadow */
+  border: 1px solid #DBDCE4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ── Flex-based Table Layout ──────────────────────────────── */
+.exam-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-collapse: separate;
+  border: none;
+}
+
+/* ── Distinct Pill-shaped Header ─────────────────────────── */
+.exam-table thead {
+  display: block;
+  background: #21236A; /* dark navy */
+  border-radius: 12px; /* rounded pill card shape */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle depth shadow underneath the header */
+  margin: 12px 12px 16px 12px; /* separate pill card from the main rows container */
+  overflow: hidden;
+}
+
+.exam-table thead tr {
+  display: flex;
+  width: 100%;
+}
+
+.exam-table thead th {
+  color: #FFFFFF;
   font-size: var(--table-header-size);
-  font-weight: 600;
-  padding: 12px 16px;
+  font-weight: 700;
+  padding: 16px 20px;
   text-align: left;
-  white-space: nowrap;
-  border: 1px solid #DBDCE4; /* Table header grid columns */
+  border: none; /* No vertical borders between columns */
+  box-sizing: border-box;
 }
 
-thead th .sort-icon {
+.exam-table th .sort-icon {
   display: inline-block;
   margin-left: 6px;
+  color: #FFFFFF;
   opacity: 0.8;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   cursor: pointer;
 }
 
-/* ── Body rows ───────────────────────────────────────────── */
-tbody tr {
-  border-bottom: 1px solid #DBDCE4;
-  color: var(--table-row-color);
-  transition: background 0.1s;
+/* ── alternating Row Body ────────────────────────────────── */
+.exam-table tbody {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.exam-table tbody tr {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #DBDCE4; /* subtle separator between rows */
+  transition: opacity 0.15s;
+  box-sizing: border-box;
+}
+
+.exam-table tbody tr:last-child {
+  border-bottom: none; /* Remove last separator inside the card wrapper */
+}
+
+/* Alternating Row Colors: Odd white, Even light grey */
+.exam-table tbody tr:nth-child(odd) {
   background: #FFFFFF;
 }
 
-/* Alternate row stripes */
-tbody tr:nth-child(even) {
-  background: rgba(29, 36, 101, 0.025);
+.exam-table tbody tr:nth-child(even) {
+  background: #F0F1F1;
 }
 
-tbody tr:hover {
-  background: rgba(29, 36, 101, 0.04);
+.exam-table tbody td {
+  padding: 18px 20px; /* generous luxury padding */
+  color: #21236A;     /* dark navy row text */
+  border: none;       /* no vertical column dividers */
+  box-sizing: border-box;
 }
 
-td {
-  padding: 12px 16px;
-  vertical-align: middle; /* Vertically centered contents */
-  border: 1px solid #DBDCE4; /* Grid cells borders */
-}
+/* ── Column Alignments (using :nth-child for clean structure) ─ */
 
-td.td-num {
-  color: #21236A;
-  font-weight: 500;
+/* Column 1: Row Numbers (#) */
+.exam-table th:nth-child(1),
+.exam-table td:nth-child(1) {
+  width: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  font-weight: 600;
 }
 
-/* Schedule Column & Name Column Typography */
+/* Column 2: Name (which contains Date/Time in swapped order) */
+.exam-table th:nth-child(2),
+.exam-table td:nth-child(2) {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Column 3: Schedule (which contains Exam Name/Code in swapped order) */
+.exam-table th:nth-child(3),
+.exam-table td:nth-child(3) {
+  flex: 2 1 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Column 4: Status */
+.exam-table th:nth-child(4),
+.exam-table td:nth-child(4) {
+  width: 130px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Column 5: Action (Right-aligned icon circles) */
+.exam-table th:nth-child(5),
+.exam-table td:nth-child(5) {
+  width: 160px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* ── Typography & Data Details ────────────────────────────── */
 .exam-date {
   font-weight: 700;
   color: #21236A;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .exam-time {
-  font-size: 0.75rem;
-  color: #666;
-  margin-top: 2px;
+  font-size: 0.78rem;
+  color: rgba(33, 35, 106, 0.7); /* muted navy */
+  margin-top: 3px;
 }
 
 .exam-name {
   font-weight: 700;
   color: #21236A;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .exam-code {
-  font-size: 0.75rem;
-  color: #666;
-  margin-top: 2px;
+  font-size: 0.78rem;
+  color: rgba(33, 35, 106, 0.7); /* muted navy */
+  margin-top: 3px;
 }
 
-/* ── Status badges (Squircle Rectangles) ──────────────────── */
+/* ── Status Badges (Small Rounded Pills) ─────────────────── */
 .status-badge {
   display: inline-block;
-  padding: 5px 12px;
-  border-radius: 6px; /* Squircle design instead of capsule pill */
+  padding: 5px 14px;
+  border-radius: 99px; /* Small Rounded Pills */
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
   text-align: center;
 }
 
 .status-scheduled {
-  background: #E1FCE9; /* Soft green */
-  color: #1E6B47;      /* Dark green text */
+  background: #E1FCE9; /* light green */
+  color: #10B981;      /* green text */
 }
 
 .status-live {
-  background: #FFEAEE; /* Soft red */
-  color: #DF001B;      /* Dark red text */
+  background: #FFEAEE; /* light pink/red */
+  color: #DF001B;      /* red text */
 }
 
-/* ── Action icon buttons (Circular Outline) ───────────────── */
+/* ── Action circular buttons ──────────────────────────────── */
 .action-icons {
   display: flex;
   align-items: center;
@@ -126,9 +227,9 @@ td.td-num {
 }
 
 .action-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%; /* Circle outline shape */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   border: 1px solid #DBDCE4;
   background: #FFFFFF;
   display: flex;
@@ -141,29 +242,30 @@ td.td-num {
 }
 
 .action-btn:hover {
-  background: #F7F8FA;
+  background: #F0F1F1; /* light gray hover background */
   border-color: #21236A;
 }
 
 .action-btn img {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   object-fit: contain;
 }
 
-/* ── Pagination bar (Themed Footer Container) ─────────────── */
+/* ── Pagination bar (Unified Card Footer) ─────────────────── */
 .pagination-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px var(--space-lg);
+  padding: 16px 20px;
   border-top: 1px solid #DBDCE4;
-  background: #F0F1F1; /* Soft grey background footer */
+  background: #F0F1F1; /* light gray footer */
   font-size: 0.8125rem;
   color: #21236A;
   font-weight: 500;
   flex-wrap: wrap;
   gap: 8px;
+  box-sizing: border-box;
 }
 
 .pagination-left {
@@ -192,11 +294,11 @@ td.td-num {
   gap: 8px;
 }
 
-/* Active number: Solid Circle */
+/* Active Page Indicator: Solid Navy Circle */
 .page-btn.active {
-  background: #21236A; /* Deep navy circle background */
+  background: #21236A;
   color: #FFFFFF;
-  border-radius: 50%; /* Solid circle indicator */
+  border-radius: 50%;
   border: none;
   width: 32px;
   height: 32px;
@@ -206,12 +308,12 @@ td.td-num {
   justify-content: center;
 }
 
-/* Inactive numbers: Plain text */
+/* Inactive page links */
 .page-btn:not(.active):not(.arrow) {
   border: none;
   background: transparent;
   color: #21236A;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   width: 32px;
   height: 32px;
@@ -225,11 +327,11 @@ td.td-num {
   opacity: 0.7;
 }
 
-/* Arrow buttons: Rounded square border boxes */
+/* Arrow buttons: Rounded white squares */
 .page-btn.arrow {
   width: 32px;
   height: 32px;
-  border-radius: 8px; /* Rounded square shapes */
+  border-radius: 8px;
   border: 1px solid #DBDCE4;
   background: #FFFFFF;
   color: #21236A;
@@ -242,12 +344,12 @@ td.td-num {
 }
 
 .page-btn.arrow:hover {
-  background: #F7F8FA;
+  background: #F0F1F1;
   border-color: #21236A;
 }
 
 .pagination-info {
-  color: rgba(33, 35, 106, 0.7); /* Muted navy text color */
+  color: rgba(33, 35, 106, 0.7);
   font-weight: 500;
   font-size: 0.8125rem;
 }

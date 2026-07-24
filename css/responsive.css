@@ -105,12 +105,29 @@
   .quadrant      { max-width: 240px; }
   .q-label-text  { font-size: 0.8rem; }
 
-  /* Tighten table cells */
-  thead th,
-  td { padding: 8px 10px; }
+  /* Tighten table cells and margins */
+  .exam-table thead th,
+  .exam-table tbody td {
+    padding: 10px 12px;
+  }
+  .exam-table thead {
+    margin: 8px 8px 12px 8px;
+  }
+  .exam-table th:nth-child(1),
+  .exam-table td:nth-child(1) { width: 50px; }
+  .exam-table th:nth-child(4),
+  .exam-table td:nth-child(4) { width: 100px; }
+  .exam-table th:nth-child(5),
+  .exam-table td:nth-child(5) { width: 130px; }
 
   /* Stack pagination controls */
-  .pagination-bar { flex-direction: column; align-items: flex-start; }
+  .pagination-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 16px 12px;
+  }
 
   /* Smaller tab buttons */
   .tab-btn { padding: 4px 12px; font-size: 0.75rem; }
