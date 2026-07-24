@@ -282,7 +282,7 @@
   margin-top: 8px; /* space/gap above the pagination card footer */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   font-size: 0.8125rem;
-  color: var(--table-pagination-color);
+  color: var(--table-pagination-label-color);
   font-weight: 500;
   flex-wrap: wrap;
   gap: 8px;
@@ -374,8 +374,7 @@
 }
 
 .pagination-info {
-  color: var(--table-pagination-color);
-  opacity: 0.8;
+  color: var(--table-pagination-info-color);
   font-weight: 500;
   font-size: 0.8125rem;
 }
