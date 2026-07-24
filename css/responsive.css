@@ -96,8 +96,8 @@
 
   /* Keep 2-column cards but let rows size naturally */
   .stats-cards {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: repeat(2, minmax(0, var(--stat-card-max-width)));
+    justify-content: center;
   }
 
   /* Tighten quadrant */

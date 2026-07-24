@@ -111,9 +111,9 @@
   /* ── KPI Stat Cards ─────────────────────────────────────── */
   --stat-card-radius:       20px;
   --stat-card-icon-size:    72px;
-  --stat-card-height:       auto;
-  --stat-card-max-width:    none;
+  --stat-card-height:       166px;
+  --stat-card-max-width:    300px;
   --stat-card-padding-top:  52px;
   --stat-card-gap-x:        24px;
-  --stat-card-gap-y:        40px;
+  --stat-card-gap-y:        60px;
 }
