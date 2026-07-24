@@ -317,18 +317,20 @@
   transition: transform 0.2s ease;
 }
 
-/* Active page number: Solid circle */
+/* Active page number: Solid circle with outer border ring */
 .page-btn.active {
   background: var(--table-pagination-active-bg);
   color: var(--table-pagination-active-color);
   border-radius: 50%;
-  border: none;
+  border: var(--table-pagination-active-border-width) solid var(--table-pagination-active-border-color);
+  background-clip: padding-box; /* Confines background color inside the border ring */
   width: 32px;
   height: 32px;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: content-box; /* Allows border ring to expand outwards, matching figma ring size */
 }
 
 /* Inactive numbers */

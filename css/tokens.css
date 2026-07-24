@@ -55,6 +55,8 @@
   --table-pagination-color: #21236A;               /* [Pagination text color] Color of show-limit dropdown text and footer labels */
   --table-pagination-active-bg:      #21236A;      /* [Active page background] Circle color for active page button 1 */
   --table-pagination-active-color:   #FFFFFF;      /* [Active page text color] Number text color for active page button */
+  --table-pagination-active-border-width: 4px;     /* [Active page ring size] The thickness of the outer border ring */
+  --table-pagination-active-border-color: #ACAEC5; /* [Active page ring color] The light purple-grey color of the ring */
   --table-pagination-inactive-color: #21236A;      /* [Inactive page text color] Color for links to other pages (2, 3, 4, 5) */
   --table-pagination-arrow-color:    #21236A;      /* [Arrow icons color] Icon and border color for navigation arrows (< and >) */
   --table-pagination-pages-shift:    0px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */
