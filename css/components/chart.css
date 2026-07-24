@@ -276,6 +276,8 @@
   gap: var(--space-sm);
   padding: var(--exams-item-padding);
   border-bottom: 1px solid var(--exams-card-border-color);
+  flex: 1; /* Let rows shrink/grow dynamically to prevent cutting off at smaller heights */
+  box-sizing: border-box;
 }
 
 .exam-stat-item:last-child {

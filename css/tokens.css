@@ -107,7 +107,7 @@
   --quadrant-shapes-scale: 1;
 
   /* ── Student Added Chart ────────────────────────────────── */
-  --chart-wrapper-height: auto;
+  --chart-wrapper-height: 310px;
   --chart-wrapper-padding: 24px;
   --chart-card-margin-right: 0px;
   --chart-title-size: 16px;
@@ -153,7 +153,7 @@
   --exams-card-bg: #FFFFFF;
   --exams-card-border-color: #DBDCE4;
   --exams-card-padding: 0px;
-  --exams-item-padding: 14px 16px;
+  --exams-item-padding: 8px 16px;
   --exams-dot-size: 12px;
   --exams-icon-size: 22px;
   --exams-count-size: 1.5rem;
