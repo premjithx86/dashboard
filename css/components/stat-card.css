@@ -1,15 +1,12 @@
 /*
  * components/stat-card.css
  * ─────────────────────────────────────────────────────────────
- * 2×2 grid of KPI cards, each with an icon, a large number,
- * and a coloured label bar at the bottom.
- *
- * Adjustable tokens (in tokens.css):
- *   --stat-number-size, --stat-number-weight, --stat-number-color,
- *   --stat-label-size, --stat-label-weight, --stat-label-color
- *
- * Colour modifiers on .stat-label-bar:
- *   (default) blue-mid  |  .navy  |  .red
+ * 2×2 grid of KPI cards.
+ * Redesigned to match the Figma mockup exactly:
+ * - Circular overlapping icons (centered on the top border edge)
+ * - Highly rounded corners and custom drop shadow
+ * - Reusable theme modifiers for color matching
+ * - Sizing customizable via single variables in tokens.css
  * ─────────────────────────────────────────────────────────────
  */
 
@@ -18,67 +15,104 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: var(--space-md);
-  grid-column: 1 / 3;         /* occupies first 2 columns of stats-grid */
+  gap: var(--space-xl) var(--space-md); /* Vertical gap increased for overlapping icons */
+  grid-column: 1 / 3;                   /* Occupies first 2 columns of stats-grid */
+  margin-top: 24px;                     /* Spacing at top to offset overlapping icons of the first row */
 }
 
 /* ── Individual card ─────────────────────────────────────── */
 .stat-card {
   background: var(--color-white);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  border-radius: var(--stat-card-radius);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--space-lg) var(--space-md) 0;
+  padding: var(--stat-card-padding-top) 0 0 0;
   position: relative;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  height: var(--stat-card-height);
+  max-width: var(--stat-card-max-width);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Premium floating drop shadow */
+  border: 1px solid rgba(220, 220, 225, 0.4);   /* Subtle light border */
+  box-sizing: border-box;
 }
 
-/* Circular icon badge */
+/* Circular overlapping icon badge */
 .stat-card-icon {
-  width: 56px;
-  height: 56px;
+  width: var(--stat-card-icon-size);
+  height: var(--stat-card-icon-size);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-sm);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Shifts the circle to overlap the top border perfectly */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
+  z-index: 10;
 }
 
 .stat-card-icon img {
-  width: 30px;
-  height: 30px;
+  width: calc(var(--stat-card-icon-size) * 0.45); /* Scales icon proportionally */
+  height: calc(var(--stat-card-icon-size) * 0.45);
   object-fit: contain;
+  filter: brightness(0) invert(1); /* Forces SVG outlines to render in white */
 }
-
-/* Colour variants for the icon badge */
-.stat-card-icon.blue { background: var(--color-blue-mid); }
-.stat-card-icon.navy { background: var(--color-navy); }
-.stat-card-icon.red  { background: var(--color-red); }
 
 /* Large metric number */
 .stat-number {
   font-size: var(--stat-number-size);
-  font-weight: var(--stat-number-weight);
-  color: var(--stat-number-color);
-  line-height: 1.1;
-  margin-bottom: var(--space-sm);
+  font-weight: 700;
+  color: var(--color-navy); /* #1D2465 */
+  line-height: 1;
+  margin-bottom: 24px;
 }
 
 /* Coloured footer strip */
 .stat-label-bar {
-  background: var(--color-blue-mid);  /* default */
   color: var(--stat-label-color);
   font-size: var(--stat-label-size);
-  font-weight: var(--stat-label-weight);
+  font-weight: 500;
   text-align: center;
-  padding: 8px var(--space-md);
+  padding: 12px var(--space-md);
   margin-top: auto;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-radius: 0 0 var(--stat-card-radius) var(--stat-card-radius); /* Matches bottom corner radius exactly */
   width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 0.02em;
 }
 
-.stat-label-bar.navy { background: var(--color-navy); }
-.stat-label-bar.red  { background: var(--color-red); }
+/* ── Theme Modifiers (Academics / Enrolled / Exams / Courses) ── */
+
+/* Theme: Academics */
+.stat-card.theme-academics .stat-card-icon {
+  background: #707FD3;
+}
+.stat-card.theme-academics .stat-label-bar {
+  background: #707FD3;
+}
+
+/* Theme: Enrolled Students */
+.stat-card.theme-enrolled .stat-card-icon {
+  background: #232C6E;
+}
+.stat-card.theme-enrolled .stat-label-bar {
+  background: #38478C;
+}
+
+/* Theme: Exam Conducted */
+.stat-card.theme-conducted .stat-card-icon {
+  background: #171B48;
+}
+.stat-card.theme-conducted .stat-label-bar {
+  background: #171B48;
+}
+
+/* Theme: Courses */
+.stat-card.theme-courses .stat-card-icon {
+  background: #D0021B;
+}
+.stat-card.theme-courses .stat-label-bar {
+  background: #D0021B;
+}

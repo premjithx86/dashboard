@@ -73,4 +73,11 @@
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 16px;
+
+  /* ── KPI Stat Cards ─────────────────────────────────────── */
+  --stat-card-radius:       20px;
+  --stat-card-icon-size:    72px;
+  --stat-card-height:       auto;
+  --stat-card-max-width:    none;
+  --stat-card-padding-top:  52px;
 }
