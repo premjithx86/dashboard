@@ -40,24 +40,24 @@
   --sidebar-icon-size:    18px;
 
   /* ── Table ──────────────────────────────────────────────── */
-  --table-header-bg:       var(--color-navy);
-  --table-header-color:    var(--color-white);
-  --table-header-size:     0.8125rem;
-  --table-row-size:        0.8125rem;
-  --table-row-color:       #21236A;
-  --table-row-odd-bg:      #F0F1F1;
-  --table-row-even-bg:     #DBDCE4;
-  --table-row-hover-bg:    rgba(29, 36, 101, 0.04);
-  --table-row-border:      #DBDCE4;
-  --table-title-bg:        #DBDCE4;
-  --table-title-color:     #21236A;
-  --table-pagination-bg:   #DBDCE4;
-  --table-pagination-color: #21236A;
-  --table-pagination-active-bg:      #21236A;
-  --table-pagination-active-color:   #FFFFFF;
-  --table-pagination-inactive-color: #21236A;
-  --table-pagination-arrow-color:    #21236A;
-  --table-pagination-pages-shift:    0px;
+  --table-header-bg:       var(--color-navy);      /* [Header background] The dark blue background of the table header card */
+  --table-header-color:    var(--color-white);     /* [Header text color] Color of the text in the table header card */
+  --table-header-size:     0.8125rem;              /* [Header font size] Size of header labels */
+  --table-row-size:        0.8125rem;              /* [Body cell font size] Size of table body text */
+  --table-row-color:       #21236A;                /* [Table cell text color] Text color of body cells (navy by default) */
+  --table-row-odd-bg:      #F0F1F1;                /* [Odd rows background] Background color for rows 1, 3, 5 */
+  --table-row-even-bg:     #DBDCE4;                /* [Even rows background] Background color for rows 2, 4 */
+  --table-row-hover-bg:    rgba(29, 36, 101, 0.04); /* [Row hover background] Highlight color when cursor hovers over a row */
+  --table-row-border:      #DBDCE4;                /* [Table border color] Cell borders, outline borders, and gridlines */
+  --table-title-bg:        #DBDCE4;                /* [Title card background] Background of the floating "Recent Exam List" top card */
+  --table-title-color:     #21236A;                /* [Title card text color] Text color of the "Recent Exam List" title */
+  --table-pagination-bg:   #DBDCE4;                /* [Pagination card background] Background of the bottom page selection footer card */
+  --table-pagination-color: #21236A;               /* [Pagination text color] Color of show-limit dropdown text and footer labels */
+  --table-pagination-active-bg:      #21236A;      /* [Active page background] Circle color for active page button 1 */
+  --table-pagination-active-color:   #FFFFFF;      /* [Active page text color] Number text color for active page button */
+  --table-pagination-inactive-color: #21236A;      /* [Inactive page text color] Color for links to other pages (2, 3, 4, 5) */
+  --table-pagination-arrow-color:    #21236A;      /* [Arrow icons color] Icon and border color for navigation arrows (< and >) */
+  --table-pagination-pages-shift:    0px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;
