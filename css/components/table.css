@@ -313,12 +313,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  transform: translateX(var(--table-pagination-pages-shift)); /* Move left/right dynamically */
+  transition: transform 0.2s ease;
 }
 
-/* Active page number: Solid navy circle */
+/* Active page number: Solid circle */
 .page-btn.active {
-  background: var(--table-pagination-color);
-  color: #FFFFFF;
+  background: var(--table-pagination-active-bg);
+  color: var(--table-pagination-active-color);
   border-radius: 50%;
   border: none;
   width: 32px;
@@ -333,7 +335,7 @@
 .page-btn:not(.active):not(.arrow) {
   border: none;
   background: transparent;
-  color: var(--table-pagination-color);
+  color: var(--table-pagination-inactive-color);
   font-weight: 600;
   cursor: pointer;
   width: 32px;
@@ -355,7 +357,7 @@
   border-radius: 8px;
   border: 1px solid var(--table-row-border);
   background: #FFFFFF;
-  color: var(--table-pagination-color);
+  color: var(--table-pagination-arrow-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -366,7 +368,7 @@
 
 .page-btn.arrow:hover {
   background: #F0F1F1;
-  border-color: var(--table-pagination-color);
+  border-color: var(--table-pagination-arrow-color);
 }
 
 .pagination-info {

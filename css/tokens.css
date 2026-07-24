@@ -49,10 +49,15 @@
   --table-row-even-bg:     #DBDCE4;
   --table-row-hover-bg:    rgba(29, 36, 101, 0.04);
   --table-row-border:      #DBDCE4;
-  --table-title-bg:        #F0F1F1;
+  --table-title-bg:        #DBDCE4;
   --table-title-color:     #21236A;
-  --table-pagination-bg:   #F0F1F1;
+  --table-pagination-bg:   #DBDCE4;
   --table-pagination-color: #21236A;
+  --table-pagination-active-bg:      #21236A;
+  --table-pagination-active-color:   #FFFFFF;
+  --table-pagination-inactive-color: #21236A;
+  --table-pagination-arrow-color:    #21236A;
+  --table-pagination-pages-shift:    0px;
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;
