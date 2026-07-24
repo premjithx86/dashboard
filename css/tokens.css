@@ -71,6 +71,14 @@
   --action-btn-radius-1: 14px;
   --action-btn-radius-2: 14px;
   --action-btn-radius-3: 50%;
+  --academies-header-bg: #DBDCE4;
+  --academies-header-color: #21236A;
+  --academies-card-bg: #FFFFFF;
+  --academies-name-color: #21236A;
+  --academies-students-color: #888888;
+  --academies-divider-color: #DBDCE4;
+  --academies-view-all-color: #21236A;
+  --academies-view-all-dot-color: #2A8BC9;
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;

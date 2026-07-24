@@ -1,32 +1,73 @@
 /*
  * components/academies.css
  * ─────────────────────────────────────────────────────────────
- * Top Academies panel: scrollable list of academy rows and
- * the "View All" footer link.
+ * Top Academies panel stylesheet.
+ * Redesigned to match the Recent Exam List columns:
+ * - Separated heading card with matching corners, borders, and gaps.
+ * - Dynamic flex stretching to match left column table height.
+ * - Borderless item rows (dividers removed).
+ * - Solid line above the "View All" footer.
+ * - Dotted link underline under the "View All" text.
  * ─────────────────────────────────────────────────────────────
  */
 
-/* ── List ────────────────────────────────────────────────── */
-.academies-list {
-  padding: var(--space-sm) 0;
+/* ── Container Layout ────────────────────────────────────── */
+.academies-section-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-/* Single academy row */
+/* Heading card matching Recent Exam List title card */
+.academies-section-header {
+  background: var(--academies-header-bg);
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--academies-header-color);
+  border: 1px solid var(--table-row-border);
+  margin-bottom: 8px; /* space gap before content card */
+  box-sizing: border-box;
+}
+
+/* Stretched content card holding list and footer */
+.academies-card {
+  background: var(--academies-card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--table-row-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* stretches to match entire table height */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ── List ────────────────────────────────────────────────── */
+.academies-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* distributes items evenly across stretched height */
+  flex: 1; /* stretches list inside the card */
+}
+
+/* Single academy row without separator borders */
 .academy-item {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 10px var(--space-md);
-  border-bottom: 1px solid var(--color-border);
-  transition: background 0.1s;
-}
-
-.academy-item:last-of-type {
-  border-bottom: none;
+  padding: 12px 24px;
+  transition: background-color 0.15s;
+  border-bottom: none; /* removed dividers between rows */
 }
 
 .academy-item:hover {
-  background: var(--color-bg);
+  background-color: var(--table-row-hover-bg);
 }
 
 /* Icon column */
@@ -44,12 +85,13 @@
 .academy-name {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-navy);
+  color: var(--academies-name-color);
 }
 
 .academy-students {
   font-size: 0.75rem;
-  color: #888;
+  color: var(--academies-students-color);
+  margin-top: 2px;
 }
 
 /* Three-dot menu icon */
@@ -60,19 +102,28 @@
   cursor: pointer;
 }
 
-/* ── Footer link ─────────────────────────────────────────── */
+/* ── View All Footer ──────────────────────────────────────── */
 .view-all-btn {
-  display: block;
-  text-align: center;
-  padding: var(--space-md);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-navy);
-  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid var(--academies-divider-color); /* solid line above footer */
+  background: transparent;
   cursor: pointer;
-  transition: background 0.1s;
+  transition: background-color 0.15s;
+  box-sizing: border-box;
 }
 
 .view-all-btn:hover {
-  background: var(--color-bg);
+  background-color: var(--table-row-hover-bg);
+}
+
+.view-all-text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--academies-view-all-color);
+  text-decoration: underline dotted var(--academies-view-all-dot-color); /* dotted underline link */
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
 }
