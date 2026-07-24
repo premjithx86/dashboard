@@ -45,10 +45,14 @@
   --table-header-size:     0.8125rem;
   --table-row-size:        0.8125rem;
   --table-row-color:       #21236A;
-  --table-row-odd-bg:      #FFFFFF;
-  --table-row-even-bg:     #F0F1F1;
+  --table-row-odd-bg:      #F0F1F1;
+  --table-row-even-bg:     #DBDCE4;
   --table-row-hover-bg:    rgba(29, 36, 101, 0.04);
   --table-row-border:      #DBDCE4;
+  --table-title-bg:        #F0F1F1;
+  --table-title-color:     #21236A;
+  --table-pagination-bg:   #F0F1F1;
+  --table-pagination-color: #21236A;
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;
