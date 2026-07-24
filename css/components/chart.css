@@ -53,26 +53,30 @@
 }
 
 .tab-btn {
-  padding: var(--chart-tab-padding);
+  width: var(--chart-tab-width);
+  height: var(--chart-tab-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--chart-tab-radius);
   font-size: var(--chart-tab-size);
   font-weight: var(--chart-tab-weight);
   line-height: var(--chart-tab-line-height);
-  background: #F0F1F1;
-  color: #1D2465;
+  background: var(--chart-tab-bg);
+  color: var(--chart-tab-color);
   border: none;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
 
 .tab-btn.active {
-  background: var(--color-red);
-  color: #fff;
+  background: var(--chart-tab-active-bg);
+  color: var(--chart-tab-active-color);
 }
 
 .tab-btn:hover:not(.active) {
-  background: rgba(240, 241, 241, 0.8);
-  color: #1D2465;
+  background: var(--chart-tab-hover-bg);
+  color: var(--chart-tab-hover-color);
 }
 
 .chart-body {
