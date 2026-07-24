@@ -90,7 +90,7 @@
 }
 
 .q-label-text {
-  font-size: 1rem;
+  font-size: var(--quadrant-font-size);
   font-weight: 700;
   color: var(--color-navy);
   line-height: 1.2;
@@ -109,7 +109,7 @@
 }
 
 /* Label positions */
-.q-label.top-left  { top: var(--quadrant-label-vertical-offset); left: var(--quadrant-label-horizontal-offset); }
-.q-label.top-right { top: var(--quadrant-label-vertical-offset); right: var(--quadrant-label-horizontal-offset); }
-.q-label.bot-left  { bottom: var(--quadrant-label-vertical-offset); left: var(--quadrant-label-horizontal-offset); }
-.q-label.bot-right { bottom: var(--quadrant-label-vertical-offset); right: var(--quadrant-label-horizontal-offset); }
+.q-label.top-left  { top: var(--quadrant-tl-top); left: var(--quadrant-tl-left); }
+.q-label.top-right { top: var(--quadrant-tr-top); right: var(--quadrant-tr-right); }
+.q-label.bot-left  { bottom: var(--quadrant-bl-bottom); left: var(--quadrant-bl-left); }
+.q-label.bot-right { bottom: var(--quadrant-br-bottom); right: var(--quadrant-br-right); }

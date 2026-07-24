@@ -82,11 +82,18 @@
   --academies-view-all-dot-color: #2A8BC9;
 
   /* ── Quadrant Chart ─────────────────────────────────────── */
-  --quadrant-card-width: auto;
-  --quadrant-card-height: auto;
-  --quadrant-chart-size: 280px;
-  --quadrant-label-vertical-offset: 12%;
-  --quadrant-label-horizontal-offset: 10%;
+  --quadrant-card-width: 467px;
+  --quadrant-card-height: 467px;
+  --quadrant-chart-size: 380px;
+  --quadrant-font-size: 1rem;
+  --quadrant-tl-top: 12%;
+  --quadrant-tl-left: 10%;
+  --quadrant-tr-top: 12%;
+  --quadrant-tr-right: 10%;
+  --quadrant-bl-bottom: 12%;
+  --quadrant-bl-left: 10%;
+  --quadrant-br-bottom: 12%;
+  --quadrant-br-right: 10%;
   --quadrant-pill-bg: #E9E9F1;
   --quadrant-pill-color: #21236A;
   --quadrant-pill-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
