@@ -3,11 +3,11 @@
  * ─────────────────────────────────────────────────────────────
  * Recent Exam List Table Component.
  * Redesigned to match the Figma mockup exactly:
- * - Card-based structure with rounded corners and shadows.
- * - Pill-shaped header block with independent depth shadow.
- * - Alternating row background colors (white and #F0F1F1).
- * - No grid-lines (only subtle row borders).
- * - Rounded pill badges and circular action icons.
+ * - Title bar inside a separate rounded card header.
+ * - Standard semantic table syntax for continuous vertical borders.
+ * - Unified table card with border and shadow.
+ * - Alternating white and light grey rows.
+ * - Pill badges and circular action icons.
  * ─────────────────────────────────────────────────────────────
  */
 
@@ -18,24 +18,30 @@
   width: 100%;
 }
 
-/* Floating table section title */
-.table-section-title {
+/* Floating table title card */
+.table-section-header {
+  background: #F0F1F1; /* Soft grey background */
+  border-radius: 12px;
+  padding: 16px 24px;
   font-size: 1.125rem;
   font-weight: 700;
   color: #21236A;
-  margin: 0 0 16px 0;
+  border: 1px solid #DBDCE4;
+  margin-bottom: 16px;
+  box-sizing: border-box;
 }
 
-/* The cohesive white card container that holds rows and pagination */
+/* The cohesive table card holding rows and pagination footer */
 .table-card {
   background: #FFFFFF;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* premium card depth shadow */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* Premium depth shadow */
   border: 1px solid #DBDCE4;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .table-wrapper {
@@ -43,28 +49,16 @@
   overflow-x: auto;
 }
 
-/* ── Flex-based Table Layout ──────────────────────────────── */
+/* ── Standard Semantic HTML Table ─────────────────────────── */
 .exam-table {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  border-collapse: separate;
+  border-collapse: collapse; /* Essential for continuous border lines */
   border: none;
 }
 
-/* ── Distinct Pill-shaped Header ─────────────────────────── */
-.exam-table thead {
-  display: block;
-  background: #21236A; /* dark navy */
-  border-radius: 12px; /* rounded pill card shape */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle depth shadow underneath the header */
-  margin: 12px 12px 16px 12px; /* separate pill card from the main rows container */
-  overflow: hidden;
-}
-
+/* Table Header Row */
 .exam-table thead tr {
-  display: flex;
-  width: 100%;
+  background: #21236A; /* Dark navy */
 }
 
 .exam-table thead th {
@@ -73,8 +67,10 @@
   font-weight: 700;
   padding: 16px 20px;
   text-align: left;
-  border: none; /* No vertical borders between columns */
+  border-bottom: 1px solid #DBDCE4;
+  border-right: 1px solid rgba(255, 255, 255, 0.15); /* Translucent separator in header */
   box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .exam-table th .sort-icon {
@@ -86,26 +82,12 @@
   cursor: pointer;
 }
 
-/* ── alternating Row Body ────────────────────────────────── */
-.exam-table tbody {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-
+/* Table Body Rows */
 .exam-table tbody tr {
-  display: flex;
-  width: 100%;
-  border-bottom: 1px solid #DBDCE4; /* subtle separator between rows */
-  transition: opacity 0.15s;
-  box-sizing: border-box;
+  transition: background 0.15s;
 }
 
-.exam-table tbody tr:last-child {
-  border-bottom: none; /* Remove last separator inside the card wrapper */
-}
-
-/* Alternating Row Colors: Odd white, Even light grey */
+/* Alternating Row Backgrounds */
 .exam-table tbody tr:nth-child(odd) {
   background: #FFFFFF;
 }
@@ -115,62 +97,40 @@
 }
 
 .exam-table tbody td {
-  padding: 18px 20px; /* generous luxury padding */
-  color: #21236A;     /* dark navy row text */
-  border: none;       /* no vertical column dividers */
+  padding: 18px 20px; /* Luxury vertical/horizontal padding */
+  color: #21236A;     /* Dark navy text color */
+  border-bottom: 1px solid #DBDCE4;
+  border-right: 1px solid #DBDCE4; /* Continuous cell dividers */
+  vertical-align: middle;
   box-sizing: border-box;
 }
 
-/* ── Column Alignments (using :nth-child for clean structure) ─ */
+/* Cell border rules to match figma card edges */
+.exam-table th:last-child,
+.exam-table td:last-child {
+  border-right: none; /* No outer right border */
+}
 
-/* Column 1: Row Numbers (#) */
+.exam-table tbody tr:last-child td {
+  border-bottom: none; /* No outer bottom border before pagination */
+}
+
+/* ── Column Sizing Limits (applied on first row cells) ─────── */
 .exam-table th:nth-child(1),
 .exam-table td:nth-child(1) {
-  width: 70px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 60px;
   text-align: center;
-  font-weight: 600;
 }
 
-/* Column 2: Name (which contains Date/Time in swapped order) */
-.exam-table th:nth-child(2),
-.exam-table td:nth-child(2) {
-  flex: 1 1 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Column 3: Schedule (which contains Exam Name/Code in swapped order) */
-.exam-table th:nth-child(3),
-.exam-table td:nth-child(3) {
-  flex: 2 1 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Column 4: Status */
 .exam-table th:nth-child(4),
 .exam-table td:nth-child(4) {
   width: 130px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
 
-/* Column 5: Action (Right-aligned icon circles) */
 .exam-table th:nth-child(5),
 .exam-table td:nth-child(5) {
   width: 160px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  text-align: right;
 }
 
 /* ── Typography & Data Details ────────────────────────────── */
@@ -182,7 +142,7 @@
 
 .exam-time {
   font-size: 0.78rem;
-  color: rgba(33, 35, 106, 0.7); /* muted navy */
+  color: rgba(33, 35, 106, 0.7); /* Muted navy text */
   margin-top: 3px;
 }
 
@@ -194,15 +154,15 @@
 
 .exam-code {
   font-size: 0.78rem;
-  color: rgba(33, 35, 106, 0.7); /* muted navy */
+  color: rgba(33, 35, 106, 0.7); /* Muted navy text */
   margin-top: 3px;
 }
 
-/* ── Status Badges (Small Rounded Pills) ─────────────────── */
+/* ── Status Badges (Small Squircle Badges) ────────────────── */
 .status-badge {
   display: inline-block;
   padding: 5px 14px;
-  border-radius: 99px; /* Small Rounded Pills */
+  border-radius: 6px; /* Squircle design corners */
   font-size: 0.75rem;
   font-weight: 700;
   white-space: nowrap;
@@ -210,19 +170,20 @@
 }
 
 .status-scheduled {
-  background: #E1FCE9; /* light green */
-  color: #10B981;      /* green text */
+  background: #E1FCE9; /* Soft green */
+  color: #10B981;      /* Green text */
 }
 
 .status-live {
-  background: #FFEAEE; /* light pink/red */
-  color: #DF001B;      /* red text */
+  background: #FFEAEE; /* Soft red */
+  color: #DF001B;      /* Red text */
 }
 
 /* ── Action circular buttons ──────────────────────────────── */
 .action-icons {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
 }
 
@@ -242,7 +203,7 @@
 }
 
 .action-btn:hover {
-  background: #F0F1F1; /* light gray hover background */
+  background: #F0F1F1; /* Light gray hover */
   border-color: #21236A;
 }
 
@@ -252,14 +213,14 @@
   object-fit: contain;
 }
 
-/* ── Pagination bar (Unified Card Footer) ─────────────────── */
+/* ── Pagination bar (Themed Card Footer) ─────────────────── */
 .pagination-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
   border-top: 1px solid #DBDCE4;
-  background: #F0F1F1; /* light gray footer */
+  background: #F0F1F1; /* Footer background */
   font-size: 0.8125rem;
   color: #21236A;
   font-weight: 500;
@@ -294,7 +255,7 @@
   gap: 8px;
 }
 
-/* Active Page Indicator: Solid Navy Circle */
+/* Active page number: Solid navy circle */
 .page-btn.active {
   background: #21236A;
   color: #FFFFFF;
@@ -308,7 +269,7 @@
   justify-content: center;
 }
 
-/* Inactive page links */
+/* Inactive numbers */
 .page-btn:not(.active):not(.arrow) {
   border: none;
   background: transparent;
