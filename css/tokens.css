@@ -71,6 +71,7 @@
   --action-btn-radius-1: 14px;
   --action-btn-radius-2: 14px;
   --action-btn-radius-3: 50%;
+  /* ── Top Academies ──────────────────────────────────────── */
   --academies-header-bg: #DBDCE4;
   --academies-header-color: #21236A;
   --academies-card-bg: #FFFFFF;
@@ -79,6 +80,8 @@
   --academies-divider-color: #DBDCE4;
   --academies-view-all-color: #21236A;
   --academies-view-all-dot-color: #2A8BC9;
+
+  /* ── Quadrant Chart ─────────────────────────────────────── */
   --quadrant-card-width: auto;
   --quadrant-card-height: auto;
   --quadrant-chart-size: 280px;
