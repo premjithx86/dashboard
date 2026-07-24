@@ -29,6 +29,8 @@
   --stat-label-size:    0.875rem;
   --stat-label-weight:  500;
   --stat-label-color:   var(--color-white);
+  /* ── Topbar ─────────────────────────────────────────────── */
+  --topbar-logo-height: 44px;
 
   /* ── Sidebar ────────────────────────────────────────────── */
   --sidebar-width:        305px;
@@ -41,7 +43,7 @@
   --sidebar-icon-opacity: 1.0;
   --sidebar-logout-icon-size: 44px;
   --sidebar-chevron-color: #BCBFC5;
-  --sidebar-nav-item-padding: 9px 16px;
+  --sidebar-nav-item-padding: 13px 16px;
   --sidebar-nav-item-margin: 1px 8px;
 
   /* ── Table ──────────────────────────────────────────────── */
