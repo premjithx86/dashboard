@@ -234,8 +234,9 @@
 .exams-panel {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: var(--chart-wrapper-height);
   width: var(--exams-panel-width);
+  box-sizing: border-box;
 }
 
 .exams-section-header {
