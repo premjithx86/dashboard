@@ -31,7 +31,7 @@
   --stat-label-color:   var(--color-white);
 
   /* ── Sidebar ────────────────────────────────────────────── */
-  --sidebar-width:        220px;
+  --sidebar-width:        320px;
   --sidebar-bg:           var(--color-navy);
   --sidebar-text-size:    0.875rem;
   --sidebar-text-color:   rgba(255,255,255,0.75);

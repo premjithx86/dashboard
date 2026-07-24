@@ -17,7 +17,7 @@
   background: var(--sidebar-bg);
   display: flex;
   flex-direction: column;
-  padding: var(--space-lg) 0;
+  padding: 48px 0 var(--space-lg) 0; /* blank top space instead of logo */
   position: fixed;
   top: 0;
   left: 0;
@@ -25,22 +25,12 @@
   z-index: 100;
   overflow-y: auto;
   transition: transform 0.3s ease;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
 }
 
-/* ── Logo area ───────────────────────────────────────────── */
-.sidebar-logo {
-  padding: var(--space-md);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 72px;
-}
-
-.sidebar-logo img {
-  width: 100%;
-  max-width: 150px;
-  height: auto;
+.sidebar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
 }
 
 /* ── Navigation ──────────────────────────────────────────── */
@@ -48,6 +38,12 @@
   flex: 1;
   padding: var(--space-md) 0;
   overflow-y: auto;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
 }
 
 /* Section label (e.g. "EXAM MANAGEMENT") */
@@ -122,15 +118,8 @@
 .badge-pending { background: var(--color-gold); color: #fff; }
 
 /* ── Footer (Log Out) ────────────────────────────────────── */
-.sidebar-footer {
-  padding: var(--space-md);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin-top: auto;
-}
-
 .nav-item.logout {
-  margin: 0;
-  border-radius: var(--radius-sm);
+  margin-top: 40px; /* Gap separating Log Out from main sections list */
 }
 
 /* ── Hamburger button (hidden on desktop) ────────────────── */
