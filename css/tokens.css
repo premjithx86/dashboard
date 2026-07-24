@@ -40,11 +40,15 @@
   --sidebar-icon-size:    18px;
 
   /* ── Table ──────────────────────────────────────────────── */
-  --table-header-bg:    var(--color-navy);
-  --table-header-color: var(--color-white);
-  --table-header-size:  0.8125rem;
-  --table-row-size:     0.8125rem;
-  --table-row-color:    #333;
+  --table-header-bg:       var(--color-navy);
+  --table-header-color:    var(--color-white);
+  --table-header-size:     0.8125rem;
+  --table-row-size:        0.8125rem;
+  --table-row-color:       #21236A;
+  --table-row-odd-bg:      #FFFFFF;
+  --table-row-even-bg:     #F0F1F1;
+  --table-row-hover-bg:    rgba(29, 36, 101, 0.04);
+  --table-row-border:      #DBDCE4;
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;

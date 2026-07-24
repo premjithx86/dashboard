@@ -68,9 +68,9 @@
 .exam-table thead tr {
   display: flex;
   width: 100%;
-  background: #21236A; /* dark navy */
+  background: var(--table-header-bg); /* dark navy */
   border-radius: 12px; /* rounded pill card shape */
-  border: 1px solid #DBDCE4;
+  border: 1px solid var(--table-row-border);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* subtle depth shadow */
   overflow: hidden;
   box-sizing: border-box;
@@ -108,7 +108,7 @@
   display: flex;
   width: 100%;
   border-radius: 12px; /* each row has rounded corners */
-  border: 1px solid #DBDCE4;
+  border: 1px solid var(--table-row-border);
   margin-bottom: 8px; /* space/gap between body row cards */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* row card shadow */
   overflow: hidden;
@@ -118,24 +118,24 @@
 
 /* Alternating Row Card Background Colors */
 .exam-table tbody tr:nth-child(odd) {
-  background: #FFFFFF;
+  background: var(--table-row-odd-bg);
 }
 
 .exam-table tbody tr:nth-child(even) {
-  background: #F0F1F1;
+  background: var(--table-row-even-bg);
 }
 
 .exam-table tbody tr:hover {
-  background: rgba(29, 36, 101, 0.04);
+  background: var(--table-row-hover-bg);
 }
 
 .exam-table tbody td {
   padding: 18px 20px; /* generous padding */
-  color: #21236A;     /* dark navy text */
+  color: var(--table-row-color); /* dark navy text */
   display: flex;
   align-items: center;
   border: none;
-  border-right: 1px solid #DBDCE4; /* cell dividers inside row cards */
+  border-right: 1px solid var(--table-row-border); /* cell dividers inside row cards */
   box-sizing: border-box;
 }
 
