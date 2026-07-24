@@ -60,6 +60,7 @@
   --pill-white:   #F0F1F1;
   --pill-inactive-bg: rgba(255, 255, 255, 0.08);
   --chart-grid-color: #E0C185;
+  --chart-grid-thickness: 1px;
 
   /* ── Spacing scale ──────────────────────────────────────── */
   --space-xs: 4px;

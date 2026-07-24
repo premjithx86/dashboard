@@ -45,10 +45,40 @@
   .mid-row    { grid-template-columns: 1fr; }
   .bottom-row { grid-template-columns: 1fr; }
 
-  /* Chart body stacks vertically */
-  .chart-body        { flex-direction: column; align-items: center; gap: var(--space-md); }
+  /* Reposition chart wrapper & card on tablet/mobile */
+  .chart-wrapper {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .chart-card {
+    background: #1D2465;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .chart-body        { display: block; }
   .chart-main        { width: 100%; }
-  .live-exams-block  { align-items: center; text-align: center; width: 100%; justify-content: center; }
+  
+  .live-exams-block  {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    padding-top: 0;
+    margin-top: 10px;
+  }
+
+  .live-exams-label {
+    color: rgba(29, 36, 101, 0.7); /* dark navy with opacity, visible on light background */
+  }
 
   /* Title swap on tablet/mobile */
   .desktop-title { display: none; }

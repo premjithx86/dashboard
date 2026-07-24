@@ -16,6 +16,15 @@
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   color: #fff;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-lg);
+}
+
+.chart-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Title + tab switcher row */
@@ -62,15 +71,12 @@
   color: #1D2465;
 }
 
-/* Flex row: pill chart on left, live-exams counter on right */
 .chart-body {
-  display: flex;
-  align-items: flex-end;
-  gap: var(--space-lg);
+  display: block;
 }
 
 .chart-main {
-  flex: 1;
+  width: 100%;
 }
 
 /* ── Pill chart ──────────────────────────────────────────── */
@@ -94,7 +100,7 @@
   justify-content: space-between;
   height: 175px;
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.55);
+  color: #FFFFFF;
   width: 30px;
   flex-shrink: 0;
   text-align: right;
@@ -118,14 +124,14 @@
   flex-direction: column;
   justify-content: space-between;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3; /* Positioned above all chart elements (pills are z-index 2) */
 }
 
 .grid-line {
   width: 100%;
-  height: 1px;
+  height: var(--chart-grid-thickness);
   background: var(--chart-grid-color); /* #E0C185 */
-  opacity: 0.6;
+  opacity: 1; /* Solid gold line overlaying the pills */
 }
 
 .pill-bars-area {
@@ -181,7 +187,7 @@
   flex: 1;
   text-align: center;
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.55);
+  color: #FFFFFF;
   white-space: nowrap;
 }
 
