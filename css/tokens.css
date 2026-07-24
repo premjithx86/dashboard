@@ -59,6 +59,7 @@
   --table-pagination-active-border-color: #ACAEC5; /* [Active page ring color] The light purple-grey color of the ring */
   --table-pagination-inactive-color: #21236A;      /* [Inactive page text color] Color for links to other pages (2, 3, 4, 5) */
   --table-pagination-arrow-color:    #676A72;      /* [Arrow icons color] Icon and border color for navigation arrows (< and >) */
+  --table-pagination-arrow-bg:       #FFFFFF;      /* [Arrow background] Background color of the page arrow buttons */
   --table-pagination-arrow-border-width: 2px;      /* [Arrow border thickness] The thickness of the page arrow button outline */
   --table-pagination-arrow-radius:   10px;         /* [Arrow border radius] Rounded corners for the page arrow buttons */
   --table-pagination-pages-shift:    0px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */

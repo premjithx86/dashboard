@@ -358,7 +358,7 @@
   height: 32px;
   border-radius: var(--table-pagination-arrow-radius);
   border: var(--table-pagination-arrow-border-width) solid var(--table-pagination-arrow-color);
-  background: #FFFFFF;
+  background: var(--table-pagination-arrow-bg);
   color: var(--table-pagination-arrow-color);
   display: flex;
   align-items: center;
