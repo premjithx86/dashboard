@@ -49,11 +49,12 @@
 .tab-group {
   display: flex;
   gap: var(--chart-tab-gap);
+  transform: translate(var(--chart-tab-group-shift-x, 0px), var(--chart-tab-group-shift-y, 0px));
 }
 
 .tab-btn {
   padding: var(--chart-tab-padding);
-  border-radius: 99px;
+  border-radius: var(--chart-tab-radius);
   font-size: var(--chart-tab-size);
   font-weight: var(--chart-tab-weight);
   line-height: var(--chart-tab-line-height);
@@ -213,6 +214,7 @@
   margin-left: var(--live-exams-block-margin-left);
   width: var(--live-exams-block-width);
   flex-shrink: 0;
+  transform: translate(var(--live-exams-block-shift-x, 0px), var(--live-exams-block-shift-y, 0px));
 }
 
 .live-exams-number {
