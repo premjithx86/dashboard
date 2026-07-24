@@ -65,7 +65,12 @@
   --table-pagination-arrow-bg:       #DBDCE4;      /* [Arrow background] Background color of the page arrow buttons */
   --table-pagination-arrow-border-width: 2px;      /* [Arrow border thickness] The thickness of the page arrow button outline */
   --table-pagination-arrow-radius:   10px;         /* [Arrow border radius] Rounded corners for the page arrow buttons */
-  --table-pagination-pages-shift:    0px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */
+  --table-pagination-pages-shift:    150px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */
+  --table-sort-arrow-color: #FFFFFF;
+  --action-btn-border-color: #DBDCE4;
+  --action-btn-radius-1: 14px;
+  --action-btn-radius-2: 14px;
+  --action-btn-radius-3: 50%;
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;
