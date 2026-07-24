@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: var(--space-xl) var(--space-md); /* Vertical gap increased for overlapping icons */
+  gap: var(--stat-card-gap-y) var(--stat-card-gap-x); /* Customizable spacing between cards */
   grid-column: 1 / 3;                   /* Occupies first 2 columns of stats-grid */
   margin-top: 24px;                     /* Spacing at top to offset overlapping icons of the first row */
 }

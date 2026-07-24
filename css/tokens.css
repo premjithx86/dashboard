@@ -80,4 +80,6 @@
   --stat-card-height:       auto;
   --stat-card-max-width:    none;
   --stat-card-padding-top:  52px;
+  --stat-card-gap-x:        24px;
+  --stat-card-gap-y:        40px;
 }
