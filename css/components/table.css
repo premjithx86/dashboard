@@ -4,9 +4,10 @@
  * Recent Exam List Table Component.
  * Redesigned to match the Figma mockup exactly:
  * - Title bar inside a separate rounded card header.
- * - Standard semantic table syntax for continuous vertical borders.
- * - Unified table card with border and shadow.
- * - Alternating white and light grey rows.
+ * - Flex-based row blocks where each row is an independent rounded card.
+ * - Unified column cell width alignment across separate cards.
+ * - Separated row cards with a vertical space/gap.
+ * - Alternating white and light grey row card backgrounds.
  * - Pill badges and circular action icons.
  * ─────────────────────────────────────────────────────────────
  */
@@ -27,17 +28,17 @@
   font-weight: 700;
   color: #21236A;
   border: 1px solid #DBDCE4;
-  margin-bottom: 16px;
+  margin-bottom: 8px; /* Small space before table header pill */
   box-sizing: border-box;
 }
 
-/* The cohesive table card holding rows and pagination footer */
+/* Transparent wrapper that holds row cards and pagination footer card */
 .table-card {
-  background: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* Premium depth shadow */
-  border: 1px solid #DBDCE4;
-  overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -49,16 +50,30 @@
   overflow-x: auto;
 }
 
-/* ── Standard Semantic HTML Table ─────────────────────────── */
+/* ── Flex-based Table Layout ──────────────────────────────── */
 .exam-table {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  border-collapse: collapse; /* Essential for continuous border lines */
   border: none;
 }
 
-/* Table Header Row */
+/* ── Table Header Row Card ───────────────────────────────── */
+.exam-table thead {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px; /* space/gap between header and first row */
+}
+
 .exam-table thead tr {
-  background: #21236A; /* Dark navy */
+  display: flex;
+  width: 100%;
+  background: #21236A; /* dark navy */
+  border-radius: 12px; /* rounded pill card shape */
+  border: 1px solid #DBDCE4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* subtle depth shadow */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .exam-table thead th {
@@ -66,9 +81,10 @@
   font-size: var(--table-header-size);
   font-weight: 700;
   padding: 16px 20px;
-  text-align: left;
-  border-bottom: 1px solid #DBDCE4;
-  border-right: 1px solid rgba(255, 255, 255, 0.15); /* Translucent separator in header */
+  display: flex;
+  align-items: center;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.15); /* translucent separator in header */
   box-sizing: border-box;
   white-space: nowrap;
 }
@@ -82,12 +98,25 @@
   cursor: pointer;
 }
 
-/* Table Body Rows */
-.exam-table tbody tr {
-  transition: background 0.15s;
+/* ── Table Body Row Cards ────────────────────────────────── */
+.exam-table tbody {
+  display: block;
+  width: 100%;
 }
 
-/* Alternating Row Backgrounds */
+.exam-table tbody tr {
+  display: flex;
+  width: 100%;
+  border-radius: 12px; /* each row has rounded corners */
+  border: 1px solid #DBDCE4;
+  margin-bottom: 8px; /* space/gap between body row cards */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* row card shadow */
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: opacity 0.15s, background-color 0.15s;
+}
+
+/* Alternating Row Card Background Colors */
 .exam-table tbody tr:nth-child(odd) {
   background: #FFFFFF;
 }
@@ -96,41 +125,70 @@
   background: #F0F1F1;
 }
 
+.exam-table tbody tr:hover {
+  background: rgba(29, 36, 101, 0.04);
+}
+
 .exam-table tbody td {
-  padding: 18px 20px; /* Luxury vertical/horizontal padding */
-  color: #21236A;     /* Dark navy text color */
-  border-bottom: 1px solid #DBDCE4;
-  border-right: 1px solid #DBDCE4; /* Continuous cell dividers */
-  vertical-align: middle;
+  padding: 18px 20px; /* generous padding */
+  color: #21236A;     /* dark navy text */
+  display: flex;
+  align-items: center;
+  border: none;
+  border-right: 1px solid #DBDCE4; /* cell dividers inside row cards */
   box-sizing: border-box;
 }
 
-/* Cell border rules to match figma card edges */
+/* Remove cell dividers on the last column */
 .exam-table th:last-child,
 .exam-table td:last-child {
-  border-right: none; /* No outer right border */
+  border-right: none;
 }
 
-.exam-table tbody tr:last-child td {
-  border-bottom: none; /* No outer bottom border before pagination */
-}
+/* ── Unified Column Width Alignments (Flex sizing) ─────────── */
 
-/* ── Column Sizing Limits (applied on first row cells) ─────── */
+/* Column 1: Row Numbers (#) */
 .exam-table th:nth-child(1),
 .exam-table td:nth-child(1) {
-  width: 60px;
+  width: 70px;
+  flex-shrink: 0;
+  justify-content: center;
   text-align: center;
+  font-weight: 600;
 }
 
+/* Column 2: Name (which contains Date/Time in swapped order) */
+.exam-table th:nth-child(2),
+.exam-table td:nth-child(2) {
+  flex: 1 1 30%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Column 3: Schedule (which contains Exam Name/Code in swapped order) */
+.exam-table th:nth-child(3),
+.exam-table td:nth-child(3) {
+  flex: 2 1 45%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Column 4: Status */
 .exam-table th:nth-child(4),
 .exam-table td:nth-child(4) {
   width: 130px;
+  flex-shrink: 0;
+  justify-content: flex-start;
 }
 
+/* Column 5: Action (Right-aligned icon circles) */
 .exam-table th:nth-child(5),
 .exam-table td:nth-child(5) {
   width: 160px;
-  text-align: right;
+  flex-shrink: 0;
+  justify-content: flex-end;
 }
 
 /* ── Typography & Data Details ────────────────────────────── */
@@ -183,7 +241,6 @@
 .action-icons {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 8px;
 }
 
@@ -213,14 +270,17 @@
   object-fit: contain;
 }
 
-/* ── Pagination bar (Themed Card Footer) ─────────────────── */
+/* ── Pagination bar (Separate Rounded Card Footer) ────────── */
 .pagination-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border-top: 1px solid #DBDCE4;
   background: #F0F1F1; /* Footer background */
+  border-radius: 12px; /* rounded corners on all four sides */
+  border: 1px solid #DBDCE4;
+  margin-top: 8px; /* space/gap above the pagination card footer */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   font-size: 0.8125rem;
   color: #21236A;
   font-weight: 500;
