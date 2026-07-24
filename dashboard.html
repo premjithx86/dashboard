@@ -413,7 +413,8 @@
       <!-- Student Added Chart -->
       <div class="chart-wrapper">
         <div class="chart-top">
-          <div class="chart-title">Student Added</div>
+          <div class="chart-title desktop-title">Student Added</div>
+          <div class="chart-title mobile-title">Student Status</div>
           <div class="tab-group">
             <button class="tab-btn active">Month</button>
             <button class="tab-btn">Week</button>
@@ -424,7 +425,7 @@
         <div class="chart-body">
           <div class="chart-main">
             <div class="pill-chart">
-              <div style="display:flex; gap:0; align-items:flex-end;">
+              <div class="chart-plot-container">
                 <!-- Y Labels -->
                 <div class="pill-y-labels">
                   <span>40k</span>
@@ -433,11 +434,230 @@
                   <span>10k</span>
                   <span>0</span>
                 </div>
-                <!-- Bars -->
-                <div class="pill-bars-area" id="pillBarsArea"></div>
+                
+                <!-- Plot Area -->
+                <div class="pill-plot-area">
+                  <!-- Grid Lines -->
+                  <div class="chart-grid-lines">
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                  </div>
+                  
+                  <!-- Bars Area -->
+                  <div class="pill-bars-area">
+                    <!-- Jan -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                    </div>
+                    
+                    <!-- Feb -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                    </div>
+                    
+                    <!-- Mar -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                    </div>
+                    
+                    <!-- Apr -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                    </div>
+                    
+                    <!-- May -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                    </div>
+                    
+                    <!-- Jun -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                    </div>
+                    
+                    <!-- Jul -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                    </div>
+                    
+                    <!-- Aug -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                    </div>
+                    
+                    <!-- Sep -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                    </div>
+                    
+                    <!-- Oct -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                    </div>
+                    
+                    <!-- Nov -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                      <div class="pill active red"></div>
+                    </div>
+                    
+                    <!-- Dec -->
+                    <div class="pill-bar-group">
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill inactive"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                      <div class="pill active white"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              
               <!-- X Labels -->
-              <div class="pill-x-labels" id="pillXLabels"></div>
+              <div class="pill-x-labels">
+                <div class="pill-x-label">Jan</div>
+                <div class="pill-x-label">Feb</div>
+                <div class="pill-x-label">Mar</div>
+                <div class="pill-x-label">Apr</div>
+                <div class="pill-x-label">May</div>
+                <div class="pill-x-label">Jun</div>
+                <div class="pill-x-label">Jul</div>
+                <div class="pill-x-label">Aug</div>
+                <div class="pill-x-label">Sep</div>
+                <div class="pill-x-label">Oct</div>
+                <div class="pill-x-label">Nov</div>
+                <div class="pill-x-label">Dec</div>
+              </div>
             </div>
           </div>
 
@@ -495,49 +715,6 @@
 </div><!-- /layout -->
 
 <script>
-/* ============================================================
-   PILL CHART — generated dynamically so pill count / data
-   can be easily changed by editing the chartData array below
-   ============================================================ */
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-/* Each entry: [navyPills, redPills]  (stacked bottom-up: red at base, navy on top) */
-const chartData = [
-  [5, 3], [6, 4], [5, 3], [4, 3],
-  [7, 4], [6, 3], [7, 4], [8, 5],
-  [6, 3], [5, 3], [6, 4], [7, 4],
-];
-
-const barsArea  = document.getElementById('pillBarsArea');
-const xLabels   = document.getElementById('pillXLabels');
-
-chartData.forEach(([navy, red], i) => {
-  /* Bar column */
-  const group = document.createElement('div');
-  group.className = 'pill-bar-group';
-
-  /* Navy pills */
-  for (let n = 0; n < navy; n++) {
-    const pill = document.createElement('div');
-    pill.className = 'pill navy';
-    group.appendChild(pill);
-  }
-  /* Red pills (at bottom due to flex-direction: column-reverse) */
-  for (let r = 0; r < red; r++) {
-    const pill = document.createElement('div');
-    pill.className = 'pill red';
-    group.appendChild(pill);
-  }
-
-  barsArea.appendChild(group);
-
-  /* X label */
-  const label = document.createElement('div');
-  label.className = 'pill-x-label';
-  label.textContent = MONTHS[i];
-  xLabels.appendChild(label);
-});
-
 /* ============================================================
    SIDEBAR TOGGLE
    ============================================================ */

@@ -46,8 +46,13 @@
   .bottom-row { grid-template-columns: 1fr; }
 
   /* Chart body stacks vertically */
-  .chart-body        { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
-  .live-exams-block  { align-items: flex-start; }
+  .chart-body        { flex-direction: column; align-items: center; gap: var(--space-md); }
+  .chart-main        { width: 100%; }
+  .live-exams-block  { align-items: center; text-align: center; width: 100%; justify-content: center; }
+
+  /* Title swap on tablet/mobile */
+  .desktop-title { display: none; }
+  .mobile-title  { display: block; }
 }
 
 /* ── MOBILE (≤ 600px) ────────────────────────────────────── */
@@ -56,7 +61,7 @@
   :root {
     --stat-number-size: 1.75rem;
     --pill-width:       14px;
-    --pill-height:      8px;
+    --pill-height:      7px;
   }
 
   /* Keep 2-column cards but let rows size naturally */
@@ -84,6 +89,11 @@
   .live-exams-number { font-size: 3.5rem; }
 
   /* Shorter pill chart */
-  .pill-bars-area { height: 140px; }
-  .pill-y-labels  { height: 140px; }
+  .pill-plot-area { height: 117px; }
+  .pill-y-labels  { height: 117px; }
+
+  /* Tighten mobile pill layout scale */
+  :root {
+    --pill-gap: 3px;
+  }
 }

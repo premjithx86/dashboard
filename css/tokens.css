@@ -10,7 +10,7 @@
 
   /* ── Brand colours ──────────────────────────────────────── */
   --color-red:        #DF001B;
-  --color-navy:       #21236A;
+  --color-navy:       #1D2465;
   --color-blue-mid:   #7485CE;
   --color-bg:         #F0F1F1;
   --color-white:      #FFFFFF;
@@ -52,12 +52,14 @@
   --section-heading-color:  var(--color-navy);
 
   /* ── Pill chart ─────────────────────────────────────────── */
-  --pill-width:   22px;
+  --pill-width:   24px;
   --pill-height:  10px;
-  --pill-gap:     3px;
+  --pill-gap:     5px;
   --pill-radius:  99px;
-  --pill-navy:    var(--color-navy);
-  --pill-red:     var(--color-red);
+  --pill-red:     #DF001B;
+  --pill-white:   #F0F1F1;
+  --pill-inactive-bg: rgba(255, 255, 255, 0.08);
+  --chart-grid-color: #E0C185;
 
   /* ── Spacing scale ──────────────────────────────────────── */
   --space-xs: 4px;
