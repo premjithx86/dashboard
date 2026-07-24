@@ -51,70 +51,86 @@
       </a>
 
       <!-- Exam Management -->
-      <div class="nav-section-label">
-        Exam Managment
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Exam Managment
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/ExamList.svg" alt="" />
+            Exam List
+            <span class="nav-badge badge-live">1 Live</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/ExamReport.svg" alt="" />
+            Exam Report
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/ExamValuation.svg" alt="" />
+            Exam Valuation
+            <span class="nav-badge badge-pending">3 Pending</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/QuestionBank.svg" alt="" />
+            Question Bank
+          </a>
+        </div>
       </div>
-      <a class="nav-item" href="#">
-        <img src="images/icon/ExamList.svg" alt="" />
-        Exam List
-        <span class="nav-badge badge-live">1 Live</span>
-      </a>
-      <a class="nav-item" href="#">
-        <img src="images/icon/ExamReport.svg" alt="" />
-        Exam Report
-      </a>
-      <a class="nav-item" href="#">
-        <img src="images/icon/ExamValuation.svg" alt="" />
-        Exam Valuation
-        <span class="nav-badge badge-pending">3 Pending</span>
-      </a>
-      <a class="nav-item" href="#">
-        <img src="images/icon/QuestionBank.svg" alt="" />
-        Question Bank
-      </a>
 
       <!-- Student -->
-      <div class="nav-section-label">
-        Student
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Student
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/StudentList.svg" alt="" />
+            Student List
+          </a>
+        </div>
       </div>
-      <a class="nav-item" href="#">
-        <img src="images/icon/StudentList.svg" alt="" />
-        Student List
-      </a>
 
       <!-- Center's Management -->
-      <div class="nav-section-label">
-        Center's Management
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Center's Management
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/Create.svg" alt="" />
+            Create
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/List.svg" alt="" />
+            List
+          </a>
+        </div>
       </div>
-      <a class="nav-item" href="#">
-        <img src="images/icon/Create.svg" alt="" />
-        Create
-      </a>
-      <a class="nav-item" href="#">
-        <img src="images/icon/List.svg" alt="" />
-        List
-      </a>
 
       <!-- Settings -->
-      <div class="nav-section-label">
-        Settings
-        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Settings
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/Applyforqualification.svg" alt="" />
+            Apply for qualification
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/Location.svg" alt="" />
+            Location
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/CoursesBook.svg" alt="" />
+            Courses
+          </a>
+        </div>
       </div>
-      <a class="nav-item" href="#">
-        <img src="images/icon/Applyforqualification.svg" alt="" />
-        Apply for qualification
-      </a>
-      <a class="nav-item" href="#">
-        <img src="images/icon/Location.svg" alt="" />
-        Location
-      </a>
-      <a class="nav-item" href="#">
-        <img src="images/icon/CoursesBook.svg" alt="" />
-        Courses
-      </a>
 
       <!-- Log Out -->
       <a class="nav-item logout" href="#">
@@ -797,6 +813,18 @@ document.querySelectorAll('.pagination-pages .page-btn:not(.arrow)').forEach(btn
   btn.addEventListener('click', () => {
     btn.closest('.pagination-pages').querySelectorAll('.page-btn:not(.arrow)').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+  });
+});
+
+/* ============================================================
+   SIDEBAR COLLAPSIBLE GROUPS
+   ============================================================ */
+document.querySelectorAll('.nav-section-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const group = label.closest('.sidebar-group');
+    if (group) {
+      group.classList.toggle('collapsed');
+    }
   });
 });
 </script>

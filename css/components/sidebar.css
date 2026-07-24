@@ -57,13 +57,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
 }
 
-.nav-section-label .chevron {
-  width: 14px;
-  height: 14px;
-  fill: rgba(255,255,255,0.4);
-  transition: transform 0.2s;
+.nav-section-label .chevron-svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--sidebar-chevron-color);
+  transition: transform 0.25s ease;
+}
+
+/* Collapsible accordion panels */
+.sidebar-group-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out, opacity 0.2s ease-out;
+  opacity: 1;
+}
+
+.sidebar-group.collapsed .sidebar-group-content {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Chevron points down when collapsed (180deg), and points up (0deg) when open */
+.sidebar-group.collapsed .chevron-svg {
+  transform: rotate(180deg);
 }
 
 /* Individual nav link */
@@ -71,11 +92,11 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 9px var(--space-md);
+  padding: var(--sidebar-nav-item-padding);
   font-size: var(--sidebar-text-size);
   color: var(--sidebar-text-color);
   border-radius: var(--radius-sm);
-  margin: 1px var(--space-sm);
+  margin: var(--sidebar-nav-item-margin);
   transition: background 0.15s, color 0.15s;
   cursor: pointer;
   position: relative;
