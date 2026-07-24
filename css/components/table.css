@@ -1,132 +1,167 @@
 /*
  * components/table.css
  * ─────────────────────────────────────────────────────────────
- * Recent Exam List: data table, status badges, action icons,
- * and the pagination bar below the table.
- *
- * Adjustable tokens (in tokens.css):
- *   --table-header-bg, --table-header-color,
- *   --table-header-size, --table-row-size, --table-row-color
+ * Recent Exam List: data table grid layout, alternating stripes,
+ * squircle status badges, circular action buttons, and a themed
+ * card footer pagination bar matching figma mockup screenshots.
  * ─────────────────────────────────────────────────────────────
  */
 
 /* ── Table container ─────────────────────────────────────── */
 .table-wrapper {
   overflow-x: auto;
+  border-radius: 0;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--table-row-size);
+  border: 1px solid #DBDCE4; /* Border grid outline */
 }
 
 /* ── Header row ──────────────────────────────────────────── */
 thead tr {
-  background: var(--table-header-bg);
+  background: #21236A; /* Deep navy header */
   color: var(--table-header-color);
 }
 
 thead th {
   font-size: var(--table-header-size);
   font-weight: 600;
-  padding: 11px 14px;
+  padding: 12px 16px;
   text-align: left;
   white-space: nowrap;
+  border: 1px solid #DBDCE4; /* Table header grid columns */
 }
 
 thead th .sort-icon {
   display: inline-block;
-  margin-left: 4px;
-  opacity: 0.7;
-  font-size: 0.65rem;
+  margin-left: 6px;
+  opacity: 0.8;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 
 /* ── Body rows ───────────────────────────────────────────── */
 tbody tr {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid #DBDCE4;
   color: var(--table-row-color);
   transition: background 0.1s;
+  background: #FFFFFF;
+}
+
+/* Alternate row stripes */
+tbody tr:nth-child(even) {
+  background: rgba(29, 36, 101, 0.025);
 }
 
 tbody tr:hover {
-  background: var(--color-bg);
+  background: rgba(29, 36, 101, 0.04);
 }
 
 td {
-  padding: 11px 14px;
-  vertical-align: top;
+  padding: 12px 16px;
+  vertical-align: middle; /* Vertically centered contents */
+  border: 1px solid #DBDCE4; /* Grid cells borders */
 }
 
 td.td-num {
-  color: #888;
-  font-weight: 600;
-}
-
-td.td-schedule {
-  font-size: 0.75rem;
-  color: #777;
-  white-space: nowrap;
-}
-
-td.td-name {
+  color: #21236A;
   font-weight: 500;
+  text-align: center;
 }
 
-td.td-name .exam-code {
-  font-size: 0.7rem;
-  color: #aaa;
+/* Schedule Column & Name Column Typography */
+.exam-date {
+  font-weight: 700;
+  color: #21236A;
+  font-size: 0.8125rem;
+}
+
+.exam-time {
+  font-size: 0.75rem;
+  color: #666;
   margin-top: 2px;
 }
 
-/* ── Status badges ───────────────────────────────────────── */
+.exam-name {
+  font-weight: 700;
+  color: #21236A;
+  font-size: 0.8125rem;
+}
+
+.exam-code {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* ── Status badges (Squircle Rectangles) ──────────────────── */
 .status-badge {
   display: inline-block;
-  padding: 3px 12px;
-  border-radius: 99px;
+  padding: 5px 12px;
+  border-radius: 6px; /* Squircle design instead of capsule pill */
   font-size: 0.75rem;
   font-weight: 600;
   white-space: nowrap;
+  text-align: center;
 }
 
 .status-scheduled {
-  background: var(--color-green-soft);
-  color: #1a7a3a;
+  background: #E1FCE9; /* Soft green */
+  color: #1E6B47;      /* Dark green text */
 }
 
 .status-live {
-  background: var(--color-red-soft);
-  color: var(--color-red);
+  background: #FFEAEE; /* Soft red */
+  color: #DF001B;      /* Dark red text */
 }
 
-/* ── Action icon buttons ─────────────────────────────────── */
+/* ── Action icon buttons (Circular Outline) ───────────────── */
 .action-icons {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.action-icons img {
-  width: 18px;
-  height: 18px;
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* Circle outline shape */
+  border: 1px solid #DBDCE4;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.15s;
+  transition: background 0.15s, border-color 0.15s;
+  padding: 0;
+  outline: none;
 }
 
-.action-icons img:hover {
-  opacity: 1;
+.action-btn:hover {
+  background: #F7F8FA;
+  border-color: #21236A;
 }
 
-/* ── Pagination bar ──────────────────────────────────────── */
+.action-btn img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ── Pagination bar (Themed Footer Container) ─────────────── */
 .pagination-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px var(--space-lg);
-  border-top: 1px solid var(--color-border);
-  font-size: 0.8rem;
-  color: #666;
+  border-top: 1px solid #DBDCE4;
+  background: #F0F1F1; /* Soft grey background footer */
+  font-size: 0.8125rem;
+  color: #21236A;
+  font-weight: 500;
   flex-wrap: wrap;
   gap: 8px;
 }
@@ -139,50 +174,80 @@ td.td-name .exam-code {
 
 .pagination-left select {
   font-family: inherit;
-  font-size: 0.8rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 3px 6px;
-  background: var(--color-white);
-  color: #444;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid #DBDCE4;
+  border-radius: 8px;
+  padding: 6px 12px;
+  background: #FFFFFF;
+  color: #21236A;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .pagination-pages {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 
-.page-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  background: var(--color-white);
-  font-size: 0.8rem;
-  color: #444;
+/* Active number: Solid Circle */
+.page-btn.active {
+  background: #21236A; /* Deep navy circle background */
+  color: #FFFFFF;
+  border-radius: 50%; /* Solid circle indicator */
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inactive numbers: Plain text */
+.page-btn:not(.active):not(.arrow) {
+  border: none;
+  background: transparent;
+  color: #21236A;
+  font-weight: 500;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s;
+}
+
+.page-btn:not(.active):not(.arrow):hover {
+  opacity: 0.7;
+}
+
+/* Arrow buttons: Rounded square border boxes */
+.page-btn.arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px; /* Rounded square shapes */
+  border: 1px solid #DBDCE4;
+  background: #FFFFFF;
+  color: #21236A;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, border-color 0.15s;
+  font-weight: 600;
 }
 
-.page-btn:hover { background: var(--color-bg); }
-
-.page-btn.active {
-  background: var(--color-navy);
-  color: #fff;
-  border-color: var(--color-navy);
-}
-
-.page-btn.arrow {
-  border: none;
-  background: none;
-  color: #999;
+.page-btn.arrow:hover {
+  background: #F7F8FA;
+  border-color: #21236A;
 }
 
 .pagination-info {
-  color: #888;
-  font-size: 0.78rem;
+  color: rgba(33, 35, 106, 0.7); /* Muted navy text color */
+  font-weight: 500;
+  font-size: 0.8125rem;
 }
