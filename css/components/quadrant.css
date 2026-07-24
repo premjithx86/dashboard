@@ -1,0 +1,110 @@
+/*
+ * components/quadrant.css
+ * ─────────────────────────────────────────────────────────────
+ * Cross-hair quadrant chart showing question-type distribution.
+ * Rendered as pure CSS with a 1:1 aspect-ratio square.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* Card wrapper (occupies column 3 of stats-grid) */
+.quadrant-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  grid-column: 3 / 4;
+}
+
+/* Square canvas */
+.quadrant {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
+  max-height: 280px;
+}
+
+/* ── Cross-hair lines ─────────────────────────────────────── */
+.quadrant-h,
+.quadrant-v {
+  position: absolute;
+  background: var(--color-navy);
+}
+
+.quadrant-h {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.quadrant-v {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* ── End-point dots ──────────────────────────────────────── */
+.quadrant-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  transform: translate(-50%, -50%);
+}
+
+.quadrant-dot.top    { top: 0;    left: 50%; }
+.quadrant-dot.bottom { top: 100%; left: 50%; }
+.quadrant-dot.left   { top: 50%;  left: 0;   }
+.quadrant-dot.right  { top: 50%;  left: 100%; }
+
+/* ── Center diamond ──────────────────────────────────────── */
+.quadrant-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--color-red);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* ── Quadrant labels ─────────────────────────────────────── */
+.q-label {
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.q-label-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.q-label-count {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-navy);
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px 10px;
+}
+
+/* Label positions */
+.q-label.top-left  { top: 12%; left: 10%; }
+.q-label.top-right { top: 12%; right: 10%; align-items: flex-end; }
+.q-label.bot-left  { bottom: 12%; left: 10%; }
+.q-label.bot-right { bottom: 12%; right: 10%; align-items: flex-end; }

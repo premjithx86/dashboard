@@ -1,0 +1,166 @@
+/*
+ * components/sidebar.css
+ * ─────────────────────────────────────────────────────────────
+ * Fixed left navigation panel, hamburger toggle, and
+ * mobile overlay backdrop.
+ *
+ * Adjustable tokens (in tokens.css):
+ *   --sidebar-width, --sidebar-bg, --sidebar-text-size,
+ *   --sidebar-text-color, --sidebar-section-size,
+ *   --sidebar-active-bg, --sidebar-icon-size
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* ── Sidebar shell ───────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+/* ── Logo area ───────────────────────────────────────────── */
+.sidebar-logo {
+  padding: var(--space-md);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+}
+
+.sidebar-logo img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+/* ── Navigation ──────────────────────────────────────────── */
+.sidebar-nav {
+  flex: 1;
+  padding: var(--space-md) 0;
+  overflow-y: auto;
+}
+
+/* Section label (e.g. "EXAM MANAGEMENT") */
+.nav-section-label {
+  font-size: var(--sidebar-section-size);
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--space-md) var(--space-md) var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-section-label .chevron {
+  width: 14px;
+  height: 14px;
+  fill: rgba(255,255,255,0.4);
+  transition: transform 0.2s;
+}
+
+/* Individual nav link */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 9px var(--space-md);
+  font-size: var(--sidebar-text-size);
+  color: var(--sidebar-text-color);
+  border-radius: var(--radius-sm);
+  margin: 1px var(--space-sm);
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.nav-item.active {
+  background: var(--sidebar-active-bg);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Icon inside nav item */
+.nav-item img {
+  width: var(--sidebar-icon-size);
+  height: var(--sidebar-icon-size);
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1) opacity(0.8);
+}
+
+.nav-item.active img {
+  filter: brightness(0) invert(1);
+}
+
+/* ── Badges (Live / Pending) ─────────────────────────────── */
+.nav-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 99px;
+  line-height: 1.4;
+}
+
+.badge-live    { background: var(--color-red);  color: #fff; }
+.badge-pending { background: var(--color-gold); color: #fff; }
+
+/* ── Footer (Log Out) ────────────────────────────────────── */
+.sidebar-footer {
+  padding: var(--space-md);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: auto;
+}
+
+.nav-item.logout {
+  margin: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Hamburger button (hidden on desktop) ────────────────── */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 200;
+  background: var(--color-navy);
+  border-radius: var(--radius-sm);
+  padding: 7px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ── Overlay backdrop (mobile) ───────────────────────────── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 90;
+}

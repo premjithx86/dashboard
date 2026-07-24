@@ -1,0 +1,73 @@
+/*
+ * tokens.css
+ * ─────────────────────────────────────────────────────────────
+ * Single source of truth for every design token.
+ * Edit values here to restyle the entire dashboard.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+:root {
+
+  /* ── Brand colours ──────────────────────────────────────── */
+  --color-red:        #DF001B;
+  --color-navy:       #21236A;
+  --color-blue-mid:   #7485CE;
+  --color-bg:         #F0F1F1;
+  --color-white:      #FFFFFF;
+  --color-border:     #DBDCE4;
+  --color-green-soft: #E1FCE9;
+  --color-red-soft:   #FFEAEE;
+  --color-gold:       #DDA420;
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-family:      'Inter', sans-serif;
+
+  /* ── Stat cards ─────────────────────────────────────────── */
+  --stat-number-size:   2.625rem;   /* 42px */
+  --stat-number-weight: 700;
+  --stat-number-color:  var(--color-navy);
+  --stat-label-size:    0.875rem;
+  --stat-label-weight:  500;
+  --stat-label-color:   var(--color-white);
+
+  /* ── Sidebar ────────────────────────────────────────────── */
+  --sidebar-width:        220px;
+  --sidebar-bg:           var(--color-navy);
+  --sidebar-text-size:    0.875rem;
+  --sidebar-text-color:   rgba(255,255,255,0.75);
+  --sidebar-section-size: 0.75rem;
+  --sidebar-active-bg:    var(--color-red);
+  --sidebar-icon-size:    18px;
+
+  /* ── Table ──────────────────────────────────────────────── */
+  --table-header-bg:    var(--color-navy);
+  --table-header-color: var(--color-white);
+  --table-header-size:  0.8125rem;
+  --table-row-size:     0.8125rem;
+  --table-row-color:    #333;
+
+  /* ── Section headings ───────────────────────────────────── */
+  --section-heading-size:   1rem;
+  --section-heading-weight: 600;
+  --section-heading-color:  var(--color-navy);
+
+  /* ── Pill chart ─────────────────────────────────────────── */
+  --pill-width:   22px;
+  --pill-height:  10px;
+  --pill-gap:     3px;
+  --pill-radius:  99px;
+  --pill-navy:    var(--color-navy);
+  --pill-red:     var(--color-red);
+
+  /* ── Spacing scale ──────────────────────────────────────── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* ── Border radius ──────────────────────────────────────── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}

@@ -1,0 +1,51 @@
+/*
+ * components/topbar.css
+ * ─────────────────────────────────────────────────────────────
+ * Horizontal header bar: logo on the left, user profile right.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-lg);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* Logo (left) */
+.topbar-logo img {
+  height: 44px;
+  width: auto;
+}
+
+/* Profile (right) */
+.topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.topbar-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+}
+
+.topbar-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.2;
+}
+
+.topbar-role {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #888;
+}

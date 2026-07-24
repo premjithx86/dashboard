@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard – IQAF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<!-- 1. Design tokens (CSS variables) — must load first -->
+<link rel="stylesheet" href="css/tokens.css" />
+
+<!-- 2. Global reset and element defaults -->
+<link rel="stylesheet" href="css/base.css" />
+
+<!-- 3. Page shell: layout grid, section wrappers, row grids -->
+<link rel="stylesheet" href="css/layout.css" />
+
+<!-- 4. UI components (order independent within this group) -->
+<link rel="stylesheet" href="css/components/sidebar.css" />
+<link rel="stylesheet" href="css/components/topbar.css" />
+<link rel="stylesheet" href="css/components/stat-card.css" />
+<link rel="stylesheet" href="css/components/quadrant.css" />
+<link rel="stylesheet" href="css/components/table.css" />
+<link rel="stylesheet" href="css/components/academies.css" />
+<link rel="stylesheet" href="css/components/chart.css" />
+
+<!-- 5. Responsive overrides — must load last -->
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- Hamburger (mobile) -->
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="overlay" id="overlay"></div>
+
+<div class="layout">
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+      <img src="images/logo/logo.svg" alt="IQAF Logo" />
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <!-- Dashboard -->
+      <a class="nav-item active" href="#">
+        <img src="images/icon/Dashboard.svg" alt="" />
+        Dashboard
+      </a>
+
+      <!-- Exam Management -->
+      <div class="nav-section-label">
+        Exam Managment
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <a class="nav-item" href="#">
+        <img src="images/icon/ExamList.svg" alt="" />
+        Exam List
+        <span class="nav-badge badge-live">1 Live</span>
+      </a>
+      <a class="nav-item" href="#">
+        <img src="images/icon/ExamReport.svg" alt="" />
+        Exam Report
+      </a>
+      <a class="nav-item" href="#">
+        <img src="images/icon/ExamValuation.svg" alt="" />
+        Exam Valuation
+        <span class="nav-badge badge-pending">3 Pending</span>
+      </a>
+      <a class="nav-item" href="#">
+        <img src="images/icon/QuestionBank.svg" alt="" />
+        Question Bank
+      </a>
+
+      <!-- Student -->
+      <div class="nav-section-label">
+        Student
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <a class="nav-item" href="#">
+        <img src="images/icon/StudentList.svg" alt="" />
+        Student List
+      </a>
+
+      <!-- Center's Management -->
+      <div class="nav-section-label">
+        Center's Management
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <a class="nav-item" href="#">
+        <img src="images/icon/Create.svg" alt="" />
+        Create
+      </a>
+      <a class="nav-item" href="#">
+        <img src="images/icon/List.svg" alt="" />
+        List
+      </a>
+
+      <!-- Settings -->
+      <div class="nav-section-label">
+        Settings
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <a class="nav-item" href="#">
+        <img src="images/icon/Applyforqualification.svg" alt="" />
+        Apply for qualification
+      </a>
+      <a class="nav-item" href="#">
+        <img src="images/icon/Location.svg" alt="" />
+        Location
+      </a>
+      <a class="nav-item" href="#">
+        <img src="images/icon/CoursesBook.svg" alt="" />
+        Courses
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <a class="nav-item logout" href="#">
+        <img src="images/icon/LogOut.svg" alt="" />
+        Log Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN ==================== -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-logo">
+        <img src="images/logo/logo.svg" alt="IQAF Logo" />
+      </div>
+      <div class="topbar-profile">
+        <img src="images/people/SuperAdmin.jpg" alt="Admin" />
+        <div>
+          <div class="topbar-name">Name</div>
+          <div class="topbar-role">Super Administrator</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- STATS + QUADRANT -->
+    <div class="stats-grid">
+
+      <!-- 4 Stat Cards -->
+      <div class="stats-cards">
+
+        <!-- Academics -->
+        <div class="stat-card">
+          <div class="stat-card-icon blue">
+            <img src="images/icon/AcademicsLogo.svg" alt="Academics" />
+          </div>
+          <div class="stat-number">450</div>
+          <div class="stat-label-bar">Academics</div>
+        </div>
+
+        <!-- Enrolled Students -->
+        <div class="stat-card">
+          <div class="stat-card-icon blue">
+            <img src="images/icon/EnrolledStudents.svg" alt="Enrolled Students" />
+          </div>
+          <div class="stat-number">450</div>
+          <div class="stat-label-bar">Enrolled Students</div>
+        </div>
+
+        <!-- Exam Conducted -->
+        <div class="stat-card">
+          <div class="stat-card-icon navy">
+            <img src="images/icon/ExamConducted.svg" alt="Exam Conducted" />
+          </div>
+          <div class="stat-number">450</div>
+          <div class="stat-label-bar navy">Exam Conducted</div>
+        </div>
+
+        <!-- Courses -->
+        <div class="stat-card">
+          <div class="stat-card-icon red">
+            <img src="images/icon/Courses.svg" alt="Courses" />
+          </div>
+          <div class="stat-number">450</div>
+          <div class="stat-label-bar red">Courses</div>
+        </div>
+
+      </div><!-- /stats-cards -->
+
+      <!-- Quadrant chart -->
+      <div class="quadrant-card">
+        <div class="quadrant">
+          <div class="quadrant-h"></div>
+          <div class="quadrant-v"></div>
+          <div class="quadrant-dot top"></div>
+          <div class="quadrant-dot bottom"></div>
+          <div class="quadrant-dot left"></div>
+          <div class="quadrant-dot right"></div>
+          <div class="quadrant-center"></div>
+
+          <div class="q-label top-left">
+            <span class="q-label-text">AI Generated</span>
+            <span class="q-label-count">116</span>
+          </div>
+          <div class="q-label top-right">
+            <span class="q-label-text">MCQ</span>
+            <span class="q-label-count">100</span>
+          </div>
+          <div class="q-label bot-left">
+            <span class="q-label-text">Yes/No</span>
+            <span class="q-label-count">120</span>
+          </div>
+          <div class="q-label bot-right">
+            <span class="q-label-text">Short Answer</span>
+            <span class="q-label-count">99</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /stats-grid -->
+
+    <!-- MID ROW: Recent Exam List + Top Academies -->
+    <div class="mid-row">
+
+      <!-- Recent Exam List -->
+      <div class="section-card">
+        <div class="section-header">Recent Exam List</div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th># <span class="sort-icon">⇅</span></th>
+                <th>Name <span class="sort-icon">⇅</span></th>
+                <th>Schedule <span class="sort-icon">⇅</span></th>
+                <th>Status <span class="sort-icon">⇅</span></th>
+                <th>Action <span class="sort-icon">⇅</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-num">1</td>
+                <td class="td-name">
+                  Quarterly Performance Assessm..
+                  <div class="exam-code">Code: 1001</div>
+                </td>
+                <td class="td-schedule">18, Aug 2026<br/>10.00 AM to 12.00 AM | 2h</td>
+                <td><span class="status-badge status-scheduled">Scheduled</span></td>
+                <td>
+                  <div class="action-icons">
+                    <img src="images/icon/ActionEye.svg" alt="View" />
+                    <img src="images/icon/ActionPen.svg" alt="Edit" />
+                    <img src="images/icon/ActionDots.svg" alt="More" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-num">2</td>
+                <td class="td-name">
+                  Core Concepts Evaluation (CCE)
+                  <div class="exam-code">Code: 1002</div>
+                </td>
+                <td class="td-schedule">18, Aug 2026<br/>10.00 AM to 12.00 AM | 2h</td>
+                <td><span class="status-badge status-live">Live</span></td>
+                <td>
+                  <div class="action-icons">
+                    <img src="images/icon/ActionEye.svg" alt="View" />
+                    <img src="images/icon/ActionPen.svg" alt="Edit" />
+                    <img src="images/icon/ActionDots.svg" alt="More" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-num">3</td>
+                <td class="td-name">
+                  Skill Proficiency Test (SPT)
+                  <div class="exam-code">Code: 1003</div>
+                </td>
+                <td class="td-schedule">18, Aug 2026<br/>10.00 AM to 12.00 AM | 2h</td>
+                <td><span class="status-badge status-scheduled">Scheduled</span></td>
+                <td>
+                  <div class="action-icons">
+                    <img src="images/icon/ActionEye.svg" alt="View" />
+                    <img src="images/icon/ActionPen.svg" alt="Edit" />
+                    <img src="images/icon/ActionDots.svg" alt="More" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-num">4</td>
+                <td class="td-name">
+                  Subject Mastery Examination (SME)
+                  <div class="exam-code">Code: 1004</div>
+                </td>
+                <td class="td-schedule">18, Aug 2026<br/>10.00 AM to 12.00 AM | 2h</td>
+                <td><span class="status-badge status-scheduled">Scheduled</span></td>
+                <td>
+                  <div class="action-icons">
+                    <img src="images/icon/ActionEye.svg" alt="View" />
+                    <img src="images/icon/ActionPen.svg" alt="Edit" />
+                    <img src="images/icon/ActionDots.svg" alt="More" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-num">5</td>
+                <td class="td-name">
+                  Final Competency Exam (FCE)
+                  <div class="exam-code">Code: 1005</div>
+                </td>
+                <td class="td-schedule">18, Aug 2026<br/>10.00 AM to 12.00 AM | 2h</td>
+                <td><span class="status-badge status-scheduled">Scheduled</span></td>
+                <td>
+                  <div class="action-icons">
+                    <img src="images/icon/ActionEye.svg" alt="View" />
+                    <img src="images/icon/ActionPen.svg" alt="Edit" />
+                    <img src="images/icon/ActionDots.svg" alt="More" />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-bar">
+          <div class="pagination-left">
+            Show
+            <select>
+              <option>10</option>
+              <option>25</option>
+              <option>50</option>
+            </select>
+            per page
+          </div>
+          <div class="pagination-pages">
+            <button class="page-btn arrow">&#8249;</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn arrow">&#8250;</button>
+          </div>
+          <div class="pagination-info">1–10 of 52</div>
+        </div>
+      </div><!-- /recent exam list -->
+
+      <!-- Top Academies -->
+      <div class="section-card">
+        <div class="section-header">Top Academies</div>
+        <ul class="academies-list">
+          <li class="academy-item">
+            <div class="academy-icon"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+            <div class="academy-info">
+              <div class="academy-name">Academy Name</div>
+              <div class="academy-students">200 students</div>
+            </div>
+            <div class="academy-dots"><img src="images/icon/TopAcademiesDots.svg" alt="" /></div>
+          </li>
+          <li class="academy-item">
+            <div class="academy-icon"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+            <div class="academy-info">
+              <div class="academy-name">Esther Howard</div>
+              <div class="academy-students">290 students</div>
+            </div>
+            <div class="academy-dots"><img src="images/icon/TopAcademiesDots.svg" alt="" /></div>
+          </li>
+          <li class="academy-item">
+            <div class="academy-icon"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+            <div class="academy-info">
+              <div class="academy-name">Cody Fisher Academy</div>
+              <div class="academy-students">340 students</div>
+            </div>
+            <div class="academy-dots"><img src="images/icon/TopAcademiesDots.svg" alt="" /></div>
+          </li>
+          <li class="academy-item">
+            <div class="academy-icon"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+            <div class="academy-info">
+              <div class="academy-name">Hogwarts Academy</div>
+              <div class="academy-students">349 students</div>
+            </div>
+            <div class="academy-dots"><img src="images/icon/TopAcademiesDots.svg" alt="" /></div>
+          </li>
+          <li class="academy-item">
+            <div class="academy-icon"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+            <div class="academy-info">
+              <div class="academy-name">Arlene McCoy Academy</div>
+              <div class="academy-students">100 students</div>
+            </div>
+            <div class="academy-dots"><img src="images/icon/TopAcademiesDots.svg" alt="" /></div>
+          </li>
+          <li class="academy-item">
+            <div class="academy-icon"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+            <div class="academy-info">
+              <div class="academy-name">Arlene McCoy Academy</div>
+              <div class="academy-students">100 students</div>
+            </div>
+            <div class="academy-dots"><img src="images/icon/TopAcademiesDots.svg" alt="" /></div>
+          </li>
+        </ul>
+        <div class="view-all-btn">View All</div>
+      </div><!-- /top academies -->
+
+    </div><!-- /mid-row -->
+
+    <!-- BOTTOM ROW: Chart + Exams panel -->
+    <div class="bottom-row">
+
+      <!-- Student Added Chart -->
+      <div class="chart-wrapper">
+        <div class="chart-top">
+          <div class="chart-title">Student Added</div>
+          <div class="tab-group">
+            <button class="tab-btn active">Month</button>
+            <button class="tab-btn">Week</button>
+            <button class="tab-btn">Day</button>
+          </div>
+        </div>
+
+        <div class="chart-body">
+          <div class="chart-main">
+            <div class="pill-chart">
+              <div style="display:flex; gap:0; align-items:flex-end;">
+                <!-- Y Labels -->
+                <div class="pill-y-labels">
+                  <span>40k</span>
+                  <span>30k</span>
+                  <span>20k</span>
+                  <span>10k</span>
+                  <span>0</span>
+                </div>
+                <!-- Bars -->
+                <div class="pill-bars-area" id="pillBarsArea"></div>
+              </div>
+              <!-- X Labels -->
+              <div class="pill-x-labels" id="pillXLabels"></div>
+            </div>
+          </div>
+
+          <!-- Live Exams counter -->
+          <div class="live-exams-block">
+            <div class="live-exams-number">55</div>
+            <div class="live-exams-label">Live Exams</div>
+          </div>
+        </div>
+
+      </div><!-- /chart-wrapper -->
+
+      <!-- Exams Panel -->
+      <div class="exams-panel">
+        <div class="exams-panel-card">
+          <div class="section-header">Exams</div>
+          <div class="exam-stat-item">
+            <div class="exam-stat-dot dot-red"></div>
+            <div class="exam-stat-icon"><img src="images/icon/ExamsScheduled.svg" alt="" /></div>
+            <div class="exam-stat-info">
+              <div class="exam-stat-count">10</div>
+              <div class="exam-stat-name">Scheduled</div>
+            </div>
+          </div>
+          <div class="exam-stat-item">
+            <div class="exam-stat-dot dot-navy"></div>
+            <div class="exam-stat-icon"><img src="images/icon/ExamsLiveExam.svg" alt="" /></div>
+            <div class="exam-stat-info">
+              <div class="exam-stat-count">06</div>
+              <div class="exam-stat-name">Live Exam</div>
+            </div>
+          </div>
+          <div class="exam-stat-item">
+            <div class="exam-stat-dot dot-navy"></div>
+            <div class="exam-stat-icon"><img src="images/icon/ExamCompleted.svg" alt="" /></div>
+            <div class="exam-stat-info">
+              <div class="exam-stat-count">20</div>
+              <div class="exam-stat-name">Exam Completed</div>
+            </div>
+          </div>
+          <div class="exam-stat-item">
+            <div class="exam-stat-dot dot-gray"></div>
+            <div class="exam-stat-icon"><img src="images/icon/ExamsValuationPending.svg" alt="" /></div>
+            <div class="exam-stat-info">
+              <div class="exam-stat-count">12</div>
+              <div class="exam-stat-name">Valuation Pending</div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /exams-panel -->
+
+    </div><!-- /bottom-row -->
+
+  </main>
+</div><!-- /layout -->
+
+<script>
+/* ============================================================
+   PILL CHART — generated dynamically so pill count / data
+   can be easily changed by editing the chartData array below
+   ============================================================ */
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+/* Each entry: [navyPills, redPills]  (stacked bottom-up: red at base, navy on top) */
+const chartData = [
+  [5, 3], [6, 4], [5, 3], [4, 3],
+  [7, 4], [6, 3], [7, 4], [8, 5],
+  [6, 3], [5, 3], [6, 4], [7, 4],
+];
+
+const barsArea  = document.getElementById('pillBarsArea');
+const xLabels   = document.getElementById('pillXLabels');
+
+chartData.forEach(([navy, red], i) => {
+  /* Bar column */
+  const group = document.createElement('div');
+  group.className = 'pill-bar-group';
+
+  /* Navy pills */
+  for (let n = 0; n < navy; n++) {
+    const pill = document.createElement('div');
+    pill.className = 'pill navy';
+    group.appendChild(pill);
+  }
+  /* Red pills (at bottom due to flex-direction: column-reverse) */
+  for (let r = 0; r < red; r++) {
+    const pill = document.createElement('div');
+    pill.className = 'pill red';
+    group.appendChild(pill);
+  }
+
+  barsArea.appendChild(group);
+
+  /* X label */
+  const label = document.createElement('div');
+  label.className = 'pill-x-label';
+  label.textContent = MONTHS[i];
+  xLabels.appendChild(label);
+});
+
+/* ============================================================
+   SIDEBAR TOGGLE
+   ============================================================ */
+const hamburger = document.getElementById('hamburger');
+const sidebar   = document.getElementById('sidebar');
+const overlay   = document.getElementById('overlay');
+
+hamburger.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+});
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+});
+
+/* ============================================================
+   TAB BUTTONS
+   ============================================================ */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.tab-group').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+/* ============================================================
+   PAGE BUTTONS
+   ============================================================ */
+document.querySelectorAll('.pagination-pages .page-btn:not(.arrow)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.pagination-pages').querySelectorAll('.page-btn:not(.arrow)').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
