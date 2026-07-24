@@ -79,6 +79,14 @@
   --academies-divider-color: #DBDCE4;
   --academies-view-all-color: #21236A;
   --academies-view-all-dot-color: #2A8BC9;
+  --quadrant-card-width: auto;
+  --quadrant-card-height: auto;
+  --quadrant-chart-size: 280px;
+  --quadrant-label-vertical-offset: 12%;
+  --quadrant-label-horizontal-offset: 10%;
+  --quadrant-pill-bg: #E9E9F1;
+  --quadrant-pill-color: #21236A;
+  --quadrant-shapes-scale: 1;
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;
@@ -114,6 +122,6 @@
   --stat-card-height:       166px;
   --stat-card-max-width:    300px;
   --stat-card-padding-top:  52px;
-  --stat-card-gap-x:        24px;
+  --stat-card-gap-x:        17px;
   --stat-card-gap-y:        60px;
 }
