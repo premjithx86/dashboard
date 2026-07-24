@@ -86,6 +86,7 @@
   --quadrant-label-horizontal-offset: 10%;
   --quadrant-pill-bg: #E9E9F1;
   --quadrant-pill-color: #21236A;
+  --quadrant-pill-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   --quadrant-shapes-scale: 1;
 
   /* ── Section headings ───────────────────────────────────── */

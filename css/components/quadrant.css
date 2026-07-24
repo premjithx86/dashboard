@@ -104,7 +104,7 @@
   background: var(--quadrant-pill-bg);
   border-radius: var(--radius-sm);
   padding: 4px 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle premium drop shadow */
+  box-shadow: var(--quadrant-pill-shadow); /* Soft custom drop shadow */
   transition: transform 0.15s;
 }
 
