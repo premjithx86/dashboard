@@ -227,18 +227,35 @@
 .exams-panel {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  height: 100%;
+}
+
+.exams-section-header {
+  background: var(--exams-header-bg);
+  color: var(--exams-header-color);
+  font-size: var(--exams-header-size);
+  font-weight: 700;
+  padding: 10px var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--exams-header-border-color);
+  box-sizing: border-box;
+  margin-bottom: 8px; /* Small gap between header and card */
+  min-height: 48px;
+  display: flex;
+  align-items: center;
 }
 
 .exams-panel-card {
-  background: var(--color-white);
+  background: var(--exams-card-bg);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-}
-
-.exams-panel .section-header {
-  font-size: 0.9375rem;
+  border: 1px solid var(--exams-card-border-color);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
 }
 
 /* One stat row inside the panel */
@@ -246,8 +263,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 11px var(--space-md);
-  border-bottom: 1px solid var(--color-border);
+  padding: 14px var(--space-md);
+  border-bottom: 1px solid var(--exams-card-border-color);
 }
 
 .exam-stat-item:last-child {
@@ -280,13 +297,13 @@
 }
 
 .exam-stat-count {
-  font-size: 1.125rem;
+  font-size: var(--exams-count-size);
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--exams-count-color);
   line-height: 1.1;
 }
 
 .exam-stat-name {
-  font-size: 0.75rem;
-  color: #777;
+  font-size: var(--exams-label-size);
+  color: var(--exams-label-color);
 }

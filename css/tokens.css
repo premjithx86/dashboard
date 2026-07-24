@@ -30,7 +30,7 @@
   --stat-label-weight:  500;
   --stat-label-color:   var(--color-white);
   /* ── Topbar ─────────────────────────────────────────────── */
-  --topbar-logo-height: 44px;
+  --topbar-logo-height: 88px;
 
   /* ── Sidebar ────────────────────────────────────────────── */
   --sidebar-width:        305px;
@@ -105,6 +105,18 @@
   --quadrant-pill-color: #21236A;
   --quadrant-pill-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   --quadrant-shapes-scale: 1;
+
+  /* ── Exams Panel ────────────────────────────────────────── */
+  --exams-header-bg: #DBDBE3;
+  --exams-header-color: #21236A;
+  --exams-header-size: 1.1rem;
+  --exams-header-border-color: #DBDCE4;
+  --exams-card-bg: #FFFFFF;
+  --exams-card-border-color: #DBDCE4;
+  --exams-count-size: 1.5rem;
+  --exams-count-color: #21236A;
+  --exams-label-size: 0.8125rem;
+  --exams-label-color: #777777;
 
   /* ── Section headings ───────────────────────────────────── */
   --section-heading-size:   1rem;

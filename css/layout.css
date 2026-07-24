@@ -65,5 +65,5 @@
   display: grid;
   grid-template-columns: 1fr 260px;
   gap: var(--space-md);
-  align-items: start;
+  align-items: stretch;
 }
