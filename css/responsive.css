@@ -1,126 +1,308 @@
 /*
  * responsive.css
  * ─────────────────────────────────────────────────────────────
- * All breakpoint overrides in one place.
- * Loaded last so it can override any component style.
- *
- * Breakpoints:
- *   ≤ 900px  — tablet  (sidebar hidden, single-column rows)
- *   ≤ 600px  — mobile  (tighter type/pill sizes)
+ * All mobile and tablet breakpoint overrides in one place.
+ * Loaded last to override default desktop layout and elements.
  * ─────────────────────────────────────────────────────────────
  */
 
-/* ── TABLET (≤ 900px) ────────────────────────────────────── */
 @media (max-width: 900px) {
 
-  /* Collapse sidebar width so .main doesn't indent */
+  /* ── Responsive Sizing Tokens ──────────────────────────── */
   :root {
-    --sidebar-width:    0px;
-    --stat-number-size: 2rem;
+    --sidebar-width: 0px;
+    
+    /* Shrink stats numbers for smaller screen spacing */
+    --stat-number-size: 32px;
+    --stat-number-weight: 600;
+    --stat-label-size: 13px;
+
+    /* Scaled down quadrant variables for mobile fitting */
+    --quadrant-card-width: 100%;
+    --quadrant-card-height: auto;
+    --quadrant-chart-size: 260px;
+    --quadrant-font-size: 15px;
+    --quadrant-count-size: 11px;
+    --quadrant-tl-top: 15%;
+    --quadrant-tl-left: 8%;
+    --quadrant-tr-top: 15%;
+    --quadrant-tr-right: 8%;
+    --quadrant-bl-bottom: 15%;
+    --quadrant-bl-left: 8%;
+    --quadrant-br-bottom: 15%;
+    --quadrant-br-right: 8%;
+
+    /* Compact chart elements for screen fitting */
+    --chart-wrapper-height: auto;
+    --chart-plot-height: 120px;
+    --pill-width: 12px;
+    --pill-height: 6px;
+    --pill-gap: 3px;
+    --chart-tab-width: 76px;
+    --chart-tab-height: 32px;
+    --chart-tab-size: 13px;
+    --chart-y-label-width: 25px;
+    --chart-x-label-margin-left: 25px;
+    --chart-x-label-margin-top: 6px;
+    
+    /* Compact exams card items */
+    --exams-item-padding: 10px 16px;
+    --exams-count-size: 1.25rem;
+    --exams-label-size: 0.75rem;
   }
 
-  /* Sidebar slides off-screen; .open restores it */
+  /* ── Sidebar sliding behavior ──────────────────────────── */
   .sidebar {
     transform: translateX(-100%);
-    width: 220px;
+    width: 260px;
+    z-index: 1000;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .overlay.open {
+    display: block;
+    z-index: 999;
   }
 
-  .sidebar.open   { transform: translateX(0); }
-  .overlay.open   { display: block; }
-  .hamburger      { display: block; }
+  /* Hamburger Menu Button (Figma Mobile Design Style) */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 40px;
+    height: 40px;
+    background: var(--color-navy) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    position: fixed;
+    left: 16px;
+    top: 15px;
+    z-index: 1001;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
 
-  /* Main fills full width with top padding for the hamburger */
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #FFFFFF !important;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  /* ── Main View Panel Spacing ───────────────────────────── */
   .main {
     margin-left: 0;
     padding: var(--space-md);
-    padding-top: 56px;
+    padding-top: 86px; /* space clearing for fixed topbar */
   }
 
-  /* Stats grid → 2 equal columns; both cards & quadrant span full width */
-  .stats-grid   { grid-template-columns: 1fr 1fr; }
-  .stats-cards  { grid-column: 1 / 3; }
-  .quadrant-card { grid-column: 1 / 3; }
+  /* ── Centered Topbar (Figma Mobile Design Style) ────────── */
+  .topbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 70px !important;
+    background: #F0F1F1 !important; /* transparent screen background fit */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    z-index: 998 !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
 
-  /* Mid and bottom rows → single column */
-  .mid-row    { grid-template-columns: 1fr; }
-  .bottom-row { grid-template-columns: 1fr; }
+  .topbar-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
 
-  /* Reposition chart wrapper & card on tablet/mobile */
-  .chart-wrapper {
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    flex-direction: column;
-    align-items: center;
+  .topbar-logo img {
+    height: 40px !important;
+    width: auto !important;
+  }
+
+  /* Hide profile user info on mobile/tablet */
+  .topbar-profile {
+    display: none !important;
+  }
+
+  /* ── 2x2 Stats Grid Sizing ──────────────────────────────── */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-md);
   }
 
-  .chart-card {
-    background: #1D2465;
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .chart-body        { display: block; }
-  .chart-main        { width: 100%; }
-  
-  .live-exams-block  {
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    justify-content: center;
-    padding-top: 0;
-    margin-top: 10px;
-  }
-
-  .live-exams-label {
-    color: rgba(29, 36, 101, 0.7); /* dark navy with opacity, visible on light background */
-  }
-
-  /* Title swap on tablet/mobile */
-  .desktop-title { display: none; }
-  .mobile-title  { display: block; }
-}
-
-/* ── MOBILE (≤ 600px) ────────────────────────────────────── */
-@media (max-width: 600px) {
-
-  :root {
-    --stat-number-size: 1.75rem;
-    --pill-width:       14px;
-    --pill-height:      7px;
-  }
-
-  /* Keep 2-column cards but let rows size naturally */
   .stats-cards {
-    grid-template-columns: repeat(2, minmax(0, var(--stat-card-max-width)));
-    justify-content: center;
+    grid-column: 1 / 3;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    justify-content: stretch;
   }
 
-  /* Tighten quadrant */
-  .quadrant-card { padding: var(--space-md); }
-  .quadrant      { max-width: 240px; }
-  .q-label-text  { font-size: 0.8rem; }
-
-  /* Tighten table cells and margins */
-  .exam-table thead th,
-  .exam-table tbody td {
-    padding: 10px 12px;
+  .stat-card {
+    max-width: 100%;
   }
+
+  /* ── Scaled Quadrant Chart Sizing ───────────────────────── */
+  .quadrant-card {
+    grid-column: 1 / 3;
+    width: 100% !important;
+    height: auto !important;
+    padding: var(--space-lg);
+  }
+
+  .quadrant {
+    max-width: var(--quadrant-chart-size) !important;
+    max-height: var(--quadrant-chart-size) !important;
+  }
+
+  /* ── Recent Exam List Card Layout Overrides ────────────── */
+  .table-section-container {
+    width: 100%;
+  }
+
+  .table-wrapper {
+    overflow: visible;
+  }
+
+  .exam-table {
+    display: block;
+    width: 100%;
+  }
+
   .exam-table thead {
-    margin: 8px 8px 12px 8px;
+    display: none; /* Hide header columns completely */
   }
-  .exam-table th:nth-child(1),
-  .exam-table td:nth-child(1) { width: 50px; }
-  .exam-table th:nth-child(4),
-  .exam-table td:nth-child(4) { width: 100px; }
-  .exam-table th:nth-child(5),
-  .exam-table td:nth-child(5) { width: 130px; }
 
-  /* Stack pagination controls */
+  .exam-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .exam-table tbody tr {
+    display: grid !important;
+    width: 100% !important;
+    position: relative !important;
+    grid-template-areas:
+      "schedule status"
+      "name name";
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    row-gap: 8px;
+    column-gap: 8px;
+    padding: 16px !important;
+    padding-bottom: 48px !important; /* Space for absolute positioned actions and code */
+    border: 1px solid var(--table-row-border) !important;
+    border-radius: 12px !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box;
+    background: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    /* Status indicator left borders */
+    border-left: 4px solid var(--color-navy) !important;
+  }
+
+  /* Dynamic color assignment for row left indicator lines using :has */
+  .exam-table tbody tr:has(.status-live) {
+    border-left: 4px solid var(--color-red) !important;
+  }
+  .exam-table tbody tr:has(.status-scheduled) {
+    border-left: 4px solid var(--color-navy) !important;
+  }
+
+  .exam-table td {
+    border: none !important;
+    padding: 0 !important;
+    width: auto !important;
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    background: transparent !important;
+  }
+
+  .td-num {
+    display: none !important; /* Hide row index numbers */
+  }
+
+  .td-schedule-col {
+    grid-area: schedule;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .exam-date {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    color: #2C2D30 !important;
+  }
+
+  .exam-time {
+    font-size: 11px !important;
+    color: #676A72 !important;
+    margin: 0 !important;
+  }
+
+  .exam-time::before {
+    content: " - ";
+  }
+
+  .td-name-col {
+    grid-area: name;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    margin-top: 4px;
+  }
+
+  .exam-name {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: left !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Render exam code as bottom-left block */
+  .exam-code {
+    font-size: 11px !important;
+    color: #676A72 !important;
+    margin-top: 8px !important;
+  }
+
+  /* Status badge alignment */
+  .exam-table td:nth-child(4) {
+    grid-area: status;
+    justify-content: flex-end !important;
+    display: flex !important;
+  }
+
+  /* Absolutely position Action icons to bottom right of row card */
+  .exam-table td:nth-child(5) {
+    position: absolute !important;
+    bottom: 12px !important;
+    right: 16px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
+
+  /* ── Table Pagination Stack layout ─────────────────────── */
   .pagination-bar {
     flex-direction: column;
     align-items: center;
@@ -129,18 +311,93 @@
     padding: 16px 12px;
   }
 
-  /* Smaller tab buttons */
-  .tab-btn { padding: 4px 12px; font-size: 0.75rem; }
+  .pagination-pages {
+    transform: none !important; /* Center page number circles on mobile screen */
+  }
 
-  /* Smaller live-exams counter */
-  .live-exams-number { font-size: 3.5rem; }
+  /* ── Stacked Mid and Bottom Rows ───────────────────────── */
+  .mid-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
 
-  /* Shorter pill chart */
-  .pill-plot-area { height: 117px; }
-  .pill-y-labels  { height: 117px; }
+  .bottom-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
 
-  /* Tighten mobile pill layout scale */
-  :root {
-    --pill-gap: 3px;
+  /* ── Chart & Live Exams styling on mobile ──────────────── */
+  .chart-wrapper {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    height: auto !important; /* natural vertical stack height */
+  }
+
+  .chart-card {
+    background: var(--color-navy);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 0 !important;
+  }
+
+  .chart-top {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  .tab-group {
+    transform: none !important; /* Center buttons horizontally */
+  }
+
+  /* Center red 55 Counter below the chart card */
+  .live-exams-block {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    padding-top: 0;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    transform: none !important; /* disable coordinates shift on mobile */
+  }
+
+  .live-exams-number {
+    font-size: 5rem !important; /* Make "55" stand out clearly */
+    color: var(--color-red) !important;
+    line-height: 1.1 !important;
+  }
+
+  .live-exams-label {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #21236A !important; /* Dark navy color visible on light background */
+    margin-top: 8px !important;
+    line-height: 1 !important;
+  }
+
+  /* ── Stacked Exams Panel overrides ──────────────────────── */
+  .exams-panel {
+    width: 100% !important;
+    height: auto !important; /* Avoid fixed vertical constraints when stacked */
+  }
+
+  .exams-panel-card {
+    height: auto !important;
+    min-height: 240px;
+    padding: 8px 0;
+  }
+
+  .exam-stat-item {
+    flex: none !important; /* Disable flex-stretch when stacked naturally */
+    padding: 12px 16px !important;
   }
 }
