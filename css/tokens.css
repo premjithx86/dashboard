@@ -106,16 +106,61 @@
   --quadrant-pill-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   --quadrant-shapes-scale: 1;
 
+  /* ── Student Added Chart ────────────────────────────────── */
+  --chart-wrapper-height: auto;
+  --chart-wrapper-padding: 24px;
+  --chart-card-margin-right: 0px;
+  --chart-title-size: 16px;
+  --chart-title-weight: 500;
+  --chart-title-line-height: 19px;
+  --chart-tab-size: 16px;
+  --chart-tab-weight: 500;
+  --chart-tab-line-height: 19px;
+  --chart-tab-gap: 6px;
+  --chart-tab-padding: 5px 18px;
+  --chart-plot-height: 175px;
+  --chart-y-label-width: 30px;
+  --chart-y-label-padding-right: 8px;
+  --chart-y-label-size: 0.7rem;
+  --chart-x-label-size: 0.7rem;
+  --chart-x-label-margin-left: 30px;
+  --chart-x-label-margin-top: 10px;
+  --chart-bars-gap: 6px;
+  --live-exams-block-width: auto;
+  --live-exams-block-align: flex-end;
+  --live-exams-block-justify: flex-end;
+  --live-exams-block-padding-top: 16px;
+  --live-exams-block-margin-left: 0px;
+  --live-exams-number-size: 80px;
+  --live-exams-number-weight: 700;
+  --live-exams-number-line-height: 22px;
+  --live-exams-label-size: 20px;
+  --live-exams-label-weight: 600;
+  --live-exams-label-line-height: 20px;
+  --live-exams-label-margin-top: 4px;
+
   /* ── Exams Panel ────────────────────────────────────────── */
+  --exams-panel-width: 100%;
   --exams-header-bg: #DBDBE3;
   --exams-header-color: #21236A;
-  --exams-header-size: 1.1rem;
+  --exams-header-size: 18px;
+  --exams-header-weight: 500;
+  --exams-header-line-height: 20px;
   --exams-header-border-color: #DBDCE4;
+  --exams-header-margin-bottom: 8px;
+  --exams-header-min-height: 48px;
+  --exams-header-padding: 10px 16px;
   --exams-card-bg: #FFFFFF;
   --exams-card-border-color: #DBDCE4;
+  --exams-card-padding: 0px;
+  --exams-item-padding: 14px 16px;
+  --exams-dot-size: 12px;
+  --exams-icon-size: 22px;
   --exams-count-size: 1.5rem;
+  --exams-count-weight: 700;
   --exams-count-color: #21236A;
   --exams-label-size: 0.8125rem;
+  --exams-label-weight: 400;
   --exams-label-color: #777777;
 
   /* ── Section headings ───────────────────────────────────── */

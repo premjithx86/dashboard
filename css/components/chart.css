@@ -4,9 +4,7 @@
  * Student Added pill chart (dark navy card), the "55 Live
  * Exams" counter, and the Exams status panel on the right.
  *
- * Adjustable tokens (in tokens.css):
- *   --pill-width, --pill-height, --pill-gap,
- *   --pill-radius, --pill-red
+ * Fully customizable via tokens in tokens.css.
  * ─────────────────────────────────────────────────────────────
  */
 
@@ -14,17 +12,20 @@
 .chart-wrapper {
   background: var(--color-navy);
   border-radius: var(--radius-lg);
-  padding: var(--space-lg);
+  padding: var(--chart-wrapper-padding);
   color: #fff;
   display: flex;
   align-items: flex-end;
   gap: var(--space-lg);
+  height: var(--chart-wrapper-height);
+  box-sizing: border-box;
 }
 
 .chart-card {
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-right: var(--chart-card-margin-right);
 }
 
 /* Title + tab switcher row */
@@ -32,28 +33,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--chart-header-margin-bottom, var(--space-lg));
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
 
 .chart-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: var(--chart-title-size);
+  font-weight: var(--chart-title-weight);
+  line-height: var(--chart-title-line-height);
   color: #fff;
 }
 
 /* Month / Week / Day tabs */
 .tab-group {
   display: flex;
-  gap: 6px;
+  gap: var(--chart-tab-gap);
 }
 
 .tab-btn {
-  padding: 5px 18px;
+  padding: var(--chart-tab-padding);
   border-radius: 99px;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: var(--chart-tab-size);
+  font-weight: var(--chart-tab-weight);
+  line-height: var(--chart-tab-line-height);
   background: #F0F1F1;
   color: #1D2465;
   border: none;
@@ -98,20 +101,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 175px;
-  font-size: 0.7rem;
+  height: var(--chart-plot-height);
+  font-size: var(--chart-y-label-size);
   color: #FFFFFF;
-  width: 30px;
+  width: var(--chart-y-label-width);
   flex-shrink: 0;
   text-align: right;
-  padding-right: 8px;
+  padding-right: var(--chart-y-label-padding-right);
   box-sizing: border-box;
 }
 
 .pill-plot-area {
   position: relative;
   flex: 1;
-  height: 175px;
+  height: var(--chart-plot-height);
   display: flex;
   align-items: stretch;
 }
@@ -140,7 +143,7 @@
   flex: 1;
   display: flex;
   align-items: stretch;
-  gap: 6px;
+  gap: var(--chart-bars-gap);
   height: 100%;
 }
 
@@ -178,15 +181,15 @@
 /* X-axis month labels */
 .pill-x-labels {
   display: flex;
-  gap: 6px;
-  margin-left: 30px; /* aligns with bars (offset by width of pill-y-labels) */
-  margin-top: 10px;
+  gap: var(--chart-bars-gap);
+  margin-left: var(--chart-x-label-margin-left); /* aligns with bars (offset by width of pill-y-labels) */
+  margin-top: var(--chart-x-label-margin-top);
 }
 
 .pill-x-label {
   flex: 1;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: var(--chart-x-label-size);
   color: #FFFFFF;
   white-space: nowrap;
 }
@@ -204,23 +207,27 @@
 .live-exams-block {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding-top: var(--space-md);
+  align-items: var(--live-exams-block-align);
+  justify-content: var(--live-exams-block-justify);
+  padding-top: var(--live-exams-block-padding-top);
+  margin-left: var(--live-exams-block-margin-left);
+  width: var(--live-exams-block-width);
+  flex-shrink: 0;
 }
 
 .live-exams-number {
-  font-size: 5rem;
-  font-weight: 900;
+  font-size: var(--live-exams-number-size);
+  font-weight: var(--live-exams-number-weight);
   color: var(--color-red);
-  line-height: 1;
+  line-height: var(--live-exams-number-line-height);
 }
 
 .live-exams-label {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: var(--live-exams-label-size);
+  font-weight: var(--live-exams-label-weight);
   color: #fff;
-  margin-top: 4px;
+  margin-top: var(--live-exams-label-margin-top);
+  line-height: var(--live-exams-label-line-height);
 }
 
 /* ── Exams status panel (right column) ───────────────────── */
@@ -228,19 +235,21 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: var(--exams-panel-width);
 }
 
 .exams-section-header {
   background: var(--exams-header-bg);
   color: var(--exams-header-color);
   font-size: var(--exams-header-size);
-  font-weight: 700;
-  padding: 10px var(--space-md);
+  font-weight: var(--exams-header-weight);
+  line-height: var(--exams-header-line-height);
+  padding: var(--exams-header-padding);
   border-radius: var(--radius-md);
   border: 1px solid var(--exams-header-border-color);
   box-sizing: border-box;
-  margin-bottom: 8px; /* Small gap between header and card */
-  min-height: 48px;
+  margin-bottom: var(--exams-header-margin-bottom);
+  min-height: var(--exams-header-min-height);
   display: flex;
   align-items: center;
 }
@@ -256,6 +265,7 @@
   flex-direction: column;
   justify-content: space-around;
   box-sizing: border-box;
+  padding: var(--exams-card-padding);
 }
 
 /* One stat row inside the panel */
@@ -263,7 +273,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 14px var(--space-md);
+  padding: var(--exams-item-padding);
   border-bottom: 1px solid var(--exams-card-border-color);
 }
 
@@ -273,8 +283,8 @@
 
 /* Colour indicator square */
 .exam-stat-dot {
-  width: 12px;
-  height: 12px;
+  width: var(--exams-dot-size);
+  height: var(--exams-dot-size);
   border-radius: 3px;
   flex-shrink: 0;
 }
@@ -285,8 +295,8 @@
 
 /* Icon */
 .exam-stat-icon img {
-  width: 22px;
-  height: 22px;
+  width: var(--exams-icon-size);
+  height: var(--exams-icon-size);
   object-fit: contain;
   opacity: 0.75;
 }
@@ -298,12 +308,13 @@
 
 .exam-stat-count {
   font-size: var(--exams-count-size);
-  font-weight: 700;
+  font-weight: var(--exams-count-weight);
   color: var(--exams-count-color);
   line-height: 1.1;
 }
 
 .exam-stat-name {
   font-size: var(--exams-label-size);
+  font-weight: var(--exams-label-weight);
   color: var(--exams-label-color);
 }
