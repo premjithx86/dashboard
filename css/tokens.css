@@ -374,21 +374,21 @@
 
   /* Mobile Quadrant Content — adjust here to change the quadrant in responsive view only */
   --mobile-quadrant-card-padding: 16px;         /* padding inside the white quadrant card (reducing this gives more space to the canvas) */
-  --mobile-quadrant-chart-size: 270px;          /* size of the crosshair diagram canvas */
+  --mobile-quadrant-chart-size: 360px;          /* size of the crosshair diagram canvas */
   --mobile-quadrant-font-size: 25px;            /* label text size (AI Generated, MCQ, etc.) — actual size is min(this, chart-size÷16); increase chart-size too for bigger text */
-  --mobile-quadrant-font-weight: 700;           /* label text weight */
-  --mobile-quadrant-count-size: 11px;           /* count pill font size */
-  --mobile-quadrant-count-weight: 700;          /* count pill font weight */
-  --mobile-quadrant-count-padding: 5px 12px;    /* count pill inner padding */
-  --mobile-quadrant-label-gap: 10px;            /* gap between label text and count pill */
+  --mobile-quadrant-font-weight: 500;           /* label text weight */
+  --mobile-quadrant-count-size: 17px;           /* count pill font size */
+  --mobile-quadrant-count-weight: 400;          /* count pill font weight */
+  --mobile-quadrant-count-padding: 3px 14px;    /* count pill inner padding */
+  --mobile-quadrant-label-gap: 20px;            /* gap between label text and count pill */
   --mobile-quadrant-diamond-size: 14px;         /* center red diamond size */
-  --mobile-quadrant-line-length: 120%;          /* crosshair arm length */
+  --mobile-quadrant-line-length: 100%;          /* crosshair arm length */
   --mobile-quadrant-shapes-scale: 1.15;            /* scale of crosshair dots and line thickness */
   /* Per-section padding — shifts each label group within its quadrant */
   --mobile-quadrant-tl-padding: 20px 20px 20px 0px;   /* AI Generated (top-left) */
   --mobile-quadrant-tr-padding: 20px 0px 20px 4px;   /* MCQ (top-right) */
-  --mobile-quadrant-bl-padding: 0px 4px 20px 0px;   /* Yes/No (bottom-left) */
-  --mobile-quadrant-br-padding: 0px 0px 20px 4px;   /* Short Answer (bottom-right) */
+  --mobile-quadrant-bl-padding: 22px 20px 20px 20px;   /* Yes/No (bottom-left) */
+  --mobile-quadrant-br-padding: 20px 0px 20px 10px;   /* Short Answer (bottom-right) */
 
   /* Mobile Exam List Card Spacing & Sizing */
   --mobile-card-gap: 1px;          /* vertical gap between each exam card */
