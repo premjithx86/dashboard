@@ -42,18 +42,42 @@
     --quadrant-bl-padding:    var(--mobile-quadrant-bl-padding);
     --quadrant-br-padding:    var(--mobile-quadrant-br-padding);
 
-    /* Compact chart elements for screen fitting */
-    --chart-wrapper-height: auto;
-    --chart-plot-height: 120px;
-    --pill-width: 12px;
-    --pill-height: 6px;
-    --pill-gap: 3px;
-    --chart-tab-width: 76px;
-    --chart-tab-height: 32px;
-    --chart-tab-size: 13px;
-    --chart-y-label-width: 25px;
-    --chart-x-label-margin-left: 25px;
-    --chart-x-label-margin-top: 6px;
+    /* Chart: use mobile tokens from tokens.css — adjust those to change responsive view only */
+    --chart-wrapper-height:        auto;
+    --chart-plot-height:           var(--mobile-chart-plot-height);
+    --chart-title-size:            var(--mobile-chart-title-size);
+    --chart-title-weight:          var(--mobile-chart-title-weight);
+    --chart-title-color:           var(--mobile-chart-title-color);
+    --chart-title-margin-top:      var(--mobile-chart-title-margin-top);
+    --chart-title-margin-bottom:   var(--mobile-chart-title-margin-bottom);
+    --chart-title-top:             var(--mobile-chart-title-top);
+    --chart-header-margin-bottom:  var(--mobile-chart-header-margin-bottom);
+    --chart-tab-size:              var(--mobile-chart-tab-size);
+    --chart-tab-weight:            var(--mobile-chart-tab-weight);
+    --chart-tab-gap:               var(--mobile-chart-tab-gap);
+    --chart-tab-width:             var(--mobile-chart-tab-width);
+    --chart-tab-height:            var(--mobile-chart-tab-height);
+    --chart-tab-radius:            var(--mobile-chart-tab-radius);
+    --chart-y-label-size:          var(--mobile-chart-y-label-size);
+    --chart-y-label-weight:        var(--mobile-chart-y-label-weight);
+    --chart-y-label-color:         var(--mobile-chart-y-label-color);
+    --chart-y-label-width:         var(--mobile-chart-y-label-width);
+    --chart-y-label-padding-right: var(--mobile-chart-y-label-padding-right);
+    --chart-y-label-line-gap:      var(--mobile-chart-y-label-line-gap);
+    --chart-y-label-h-shift:       var(--mobile-chart-y-label-h-shift);
+    --chart-x-label-size:          var(--mobile-chart-x-label-size);
+    --chart-x-label-weight:        var(--mobile-chart-x-label-weight);
+    --chart-x-label-color:         var(--mobile-chart-x-label-color);
+    --chart-x-label-margin-left:   var(--mobile-chart-x-label-margin-left);
+    --chart-x-label-margin-top:    var(--mobile-chart-x-label-margin-top);
+    --chart-bars-gap:              var(--mobile-chart-bars-gap);
+    --chart-grid-color:            var(--mobile-chart-grid-color);
+    --chart-grid-thickness:        var(--mobile-chart-grid-thickness);
+    --pill-width:                  var(--mobile-pill-width);
+    --pill-gap:                    var(--mobile-pill-gap);
+    --pill-radius:                 var(--mobile-pill-radius);
+    --pill-red:                    var(--mobile-pill-red);
+    --pill-white:                  var(--mobile-pill-white);
     
     /* Gap between stat cards and quadrant box in mobile view */
     --mobile-quadrant-top-gap: 16px;
@@ -601,45 +625,66 @@
   .chart-card {
     background: var(--color-navy);
     border-radius: var(--radius-lg);
-    padding: 12px !important; /* Reduced padding from 24px (var(--space-lg)) to make room for labels inside the 393px width */
+    padding: var(--mobile-chart-card-padding) !important;
     width: 100%;
+    max-width: var(--mobile-chart-plot-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     box-sizing: border-box;
-    margin-right: 0 !important;
   }
 
   .pill-x-labels {
     display: flex !important;
-    gap: 4px !important; /* Reduced gap between month labels */
-    margin-left: 20px !important; /* Offset alignment for month labels */
+    gap: var(--mobile-chart-x-label-gap) !important;
+    margin-left: var(--chart-x-label-margin-left) !important;
+    margin-top: var(--chart-x-label-margin-top) !important;
   }
 
   .pill-x-label {
     flex: 1 !important;
     text-align: center !important;
-    font-size: 9px !important; /* Slightly smaller label typography to avoid overflow */
-    color: #FFFFFF !important;
+    font-size: var(--chart-x-label-size) !important;
+    font-weight: var(--chart-x-label-weight) !important;
+    color: var(--chart-x-label-color) !important;
   }
 
   .pill-y-labels {
     height: var(--chart-plot-height) !important;
-    font-size: 9px !important; /* Compact typography for vertical scale labels */
-    width: 20px !important; /* Shift labels closer to edge */
-    padding-right: 2px !important;
+    font-size: var(--chart-y-label-size) !important;
+    font-weight: var(--chart-y-label-weight) !important;
+    width: var(--chart-y-label-width) !important;
+    padding-right: var(--chart-y-label-padding-right) !important;
   }
 
-  .pill-plot-area {
-    margin-left: 2px !important;
+  /* Anchor bar groups to the bottom so empty space (when pill height is fixed) appears at the top */
+  .pill-bar-group {
+    justify-content: flex-end !important;
   }
 
+  /* Pills fill the container height by default.
+     Set --mobile-pill-height in tokens.css to a fixed value (e.g. 10px) to cap pill size. */
+  .pill-bar-group .pill {
+    flex: 1 !important;
+    height: var(--mobile-pill-height) !important;
+    max-height: var(--mobile-pill-height) !important;
+    min-height: 0 !important;
+    width: var(--pill-width) !important;
+    border-radius: var(--pill-radius) !important;
+  }
+
+  /* Restore horizontal title + tabs layout to match Figma */
   .chart-top {
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
-    text-align: center !important;
-    gap: 12px !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    flex-wrap: nowrap !important;
+    gap: var(--space-sm) !important;
   }
 
   .tab-group {
-    transform: none !important; /* Center buttons horizontally */
+    transform: none !important;
+    flex-shrink: 0;
   }
 
   /* Live Exams counter — use --mobile-live-exams-* tokens in tokens.css to adjust */

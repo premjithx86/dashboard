@@ -391,15 +391,56 @@
   --mobile-quadrant-br-padding: 20px 0px 20px 10px;   /* Short Answer (bottom-right) */
 
   /* Mobile Live Exams Counter — adjust here to change the "55 Live Exams" block in responsive view only */
-  --mobile-live-exams-margin-top: 16px;          /* gap above the block (from the chart card above) */
-  --mobile-live-exams-margin-bottom: 24px;       /* gap below the block (to the section below) */
-  --mobile-live-exams-number-size: 5rem;         /* font size of the "55" number */
+  --mobile-live-exams-margin-top: 1px;          /* gap above the block (from the chart card above) */
+  --mobile-live-exams-margin-bottom: 1px;       /* gap below the block (to the section below) */
+  --mobile-live-exams-number-size: 4rem;         /* font size of the "55" number */
   --mobile-live-exams-number-weight: 700;        /* font weight of the "55" number */
   --mobile-live-exams-number-color: var(--color-red); /* color of the "55" number */
-  --mobile-live-exams-label-size: 20px;          /* font size of "Live Exams" label */
-  --mobile-live-exams-label-weight: 600;         /* font weight of "Live Exams" label */
-  --mobile-live-exams-label-color: #21236A;      /* color of "Live Exams" label */
+  --mobile-live-exams-label-size: 27px;          /* font size of "Live Exams" label */
+  --mobile-live-exams-label-weight: 550;         /* font weight of "Live Exams" label */
+  --mobile-live-exams-label-color: #676A72;      /* color of "Live Exams" label */
   --mobile-live-exams-label-gap: 8px;            /* gap between "55" and "Live Exams" label */
+
+  /* Mobile Chart — adjust here to change the chart in responsive view only */
+  --mobile-chart-card-padding: 16px;           /* padding inside the navy chart card */
+  --mobile-chart-plot-width: 100%;             /* max width of the chart card — e.g. 340px to narrow it, 100% to fill screen */
+  --mobile-chart-plot-height: 190px;           /* height of the bar chart plot area */
+  --mobile-chart-title-size: 15px;             /* chart title font size */
+  --mobile-chart-title-weight: 390;            /* chart title font weight */
+  --mobile-chart-title-color: #FFFFFF;         /* chart title color */
+  --mobile-chart-title-margin-top: 0px;        /* chart title top margin */
+  --mobile-chart-title-margin-bottom: 0px;    /* chart title bottom margin */
+  --mobile-chart-title-top: 0px;               /* chart title relative top shift */
+  --mobile-chart-header-margin-bottom: 16px;   /* gap between the title+tabs row and chart plot area */
+  --mobile-chart-tab-size: 12px;               /* tab button font size */
+  --mobile-chart-tab-weight: 500;              /* tab button font weight */
+  --mobile-chart-tab-gap: 6px;                 /* gap between tab buttons */
+  --mobile-chart-tab-width: 65px;              /* tab button width */
+  --mobile-chart-tab-height: 30px;             /* tab button height */
+  --mobile-chart-tab-radius: 18px;             /* tab button border radius */
+  --mobile-chart-y-label-size: 0.75rem;        /* Y-axis label font size */
+  --mobile-chart-y-label-weight: 100;          /* Y-axis label font weight */
+  --mobile-chart-y-label-color: #FFFFFF;       /* Y-axis label color */
+  --mobile-chart-y-label-width: 28px;          /* Y-axis label column width */
+  --mobile-chart-y-label-padding-right: 1px;   /* Y-axis label right padding */
+  --mobile-chart-y-label-line-gap: 1px;        /* vertical shift of Y-axis labels */
+  --mobile-chart-y-label-h-shift: -15px;       /* horizontal shift of Y-axis labels */
+  --mobile-chart-x-label-size: 0.65rem;        /* X-axis label font size */
+  --mobile-chart-x-label-weight: 50;          /* X-axis label font weight */
+  --mobile-chart-x-label-color: #FFFFFF;       /* X-axis label color */
+  --mobile-chart-x-label-margin-left: 8px;    /* X-axis labels left offset (aligns with bars) */
+  --mobile-chart-x-label-gap: 2px;            /* gap between each X-axis label (Jan, Feb, …) — independent of bar column gap */
+  --mobile-chart-x-label-margin-top: 15px;      /* gap above X-axis labels */
+  --mobile-chart-bars-gap: 5px;                /* horizontal gap between monthly bar columns */
+  --mobile-chart-grid-color: #E0C185;          /* grid line color */
+  --mobile-chart-grid-thickness: 1px;          /* grid line thickness */
+  /* Mobile Pills */
+  --mobile-pill-width: 20px;                   /* width of each pill/capsule */
+  --mobile-pill-gap: 7px;                      /* vertical gap between pills within a column */
+  --mobile-pill-radius: 98px;                  /* pill border radius */
+  --mobile-pill-red: #DF001B;                  /* active red pill color */
+  --mobile-pill-white: #F0F1F1;                /* active white pill color */
+  --mobile-pill-height: 18px;                  /* pill height — 'auto' fills chart proportionally (no gap); set a fixed value e.g. 10px for fixed-size pills */
 
   /* Mobile Exam List Card Spacing & Sizing */
   --mobile-card-gap: 1px;          /* vertical gap between each exam card */
