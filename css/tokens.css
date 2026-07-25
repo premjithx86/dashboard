@@ -372,6 +372,23 @@
   --mobile-stat-number-size: clamp(22px, 7vw, 36px);      /* stat number font size in mobile */
   --mobile-stat-label-padding: 12px var(--space-sm);        /* padding inside the coloured footer strip (top/bottom controls height) */
 
+  /* Mobile Quadrant Content — adjust here to change the quadrant in responsive view only */
+  --mobile-quadrant-chart-size: 260px;          /* size of the crosshair diagram canvas */
+  --mobile-quadrant-font-size: 18px;            /* label text size (AI Generated, MCQ, etc.) — actual size is min(this, chart-size÷16); increase chart-size too for bigger text */
+  --mobile-quadrant-font-weight: 500;           /* label text weight */
+  --mobile-quadrant-count-size: 11px;           /* count pill font size */
+  --mobile-quadrant-count-weight: 700;          /* count pill font weight */
+  --mobile-quadrant-count-padding: 5px 12px;    /* count pill inner padding */
+  --mobile-quadrant-label-gap: 10px;            /* gap between label text and count pill */
+  --mobile-quadrant-diamond-size: 14px;         /* center red diamond size */
+  --mobile-quadrant-line-length: 120%;          /* crosshair arm length */
+  --mobile-quadrant-shapes-scale: 1.15;            /* scale of crosshair dots and line thickness */
+  /* Per-section padding — shifts each label group within its quadrant */
+  --mobile-quadrant-tl-padding: 20px 20px 20px 0px;   /* AI Generated (top-left) */
+  --mobile-quadrant-tr-padding: 20px 0px 20px 4px;   /* MCQ (top-right) */
+  --mobile-quadrant-bl-padding: 0px 4px 20px 0px;   /* Yes/No (bottom-left) */
+  --mobile-quadrant-br-padding: 0px 0px 20px 4px;   /* Short Answer (bottom-right) */
+
   /* Mobile Exam List Card Spacing & Sizing */
   --mobile-card-gap: 1px;          /* vertical gap between each exam card */
   --mobile-table-top-gap: 12px;     /* gap between "Recent Exam List" header and first card */

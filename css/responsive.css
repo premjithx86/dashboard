@@ -24,21 +24,23 @@
     --stat-number-weight: 700;
     --stat-label-size: clamp(10px, 1.8vw, 13px);
 
-    /* Scaled down quadrant variables for mobile fitting */
+    /* Quadrant chart: use mobile tokens from tokens.css — adjust those to change responsive view only */
     --quadrant-card-width: 100%;
     --quadrant-card-height: auto;
-    --quadrant-chart-size: 260px;
-    --quadrant-font-size: 15px;
-    --quadrant-count-size: 11px;
-    --quadrant-diamond-size: 14px;  /* center red square size in responsive view */
-    --quadrant-tl-top: 15%;
-    --quadrant-tl-left: 8%;
-    --quadrant-tr-top: 15%;
-    --quadrant-tr-right: 8%;
-    --quadrant-bl-bottom: 15%;
-    --quadrant-bl-left: 8%;
-    --quadrant-br-bottom: 15%;
-    --quadrant-br-right: 8%;
+    --quadrant-chart-size:    var(--mobile-quadrant-chart-size);
+    --quadrant-font-size:     var(--mobile-quadrant-font-size);
+    --quadrant-font-weight:   var(--mobile-quadrant-font-weight);
+    --quadrant-count-size:    var(--mobile-quadrant-count-size);
+    --quadrant-count-weight:  var(--mobile-quadrant-count-weight);
+    --quadrant-count-padding: var(--mobile-quadrant-count-padding);
+    --quadrant-label-gap:     var(--mobile-quadrant-label-gap);
+    --quadrant-diamond-size:  var(--mobile-quadrant-diamond-size);
+    --quadrant-line-length:   var(--mobile-quadrant-line-length);
+    --quadrant-shapes-scale:  var(--mobile-quadrant-shapes-scale);
+    --quadrant-tl-padding:    var(--mobile-quadrant-tl-padding);
+    --quadrant-tr-padding:    var(--mobile-quadrant-tr-padding);
+    --quadrant-bl-padding:    var(--mobile-quadrant-bl-padding);
+    --quadrant-br-padding:    var(--mobile-quadrant-br-padding);
 
     /* Compact chart elements for screen fitting */
     --chart-wrapper-height: auto;
@@ -244,6 +246,15 @@
   .quadrant {
     max-width: var(--quadrant-chart-size) !important;
     max-height: var(--quadrant-chart-size) !important;
+  }
+
+  /* Prevent label text from wrapping mid-word (e.g. "AI" / "Generated" on separate lines).
+     Font-size is capped at chart-size÷16 — increase --mobile-quadrant-chart-size to get
+     larger text while keeping it on one line. */
+  .q-label-text {
+    white-space: nowrap !important;
+    word-break: normal !important;
+    font-size: min(var(--mobile-quadrant-font-size), calc(var(--mobile-quadrant-chart-size) / 16)) !important;
   }
 
   /* ── Recent Exam List Card Layout Overrides ────────────── */
