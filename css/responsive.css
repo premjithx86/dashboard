@@ -318,17 +318,56 @@
     justify-content: flex-end !important;
   }
 
-  /* ── Table Pagination Stack layout ─────────────────────── */
+  /* ── Table Pagination Figma Mobile Layout ───────────────── */
   .pagination-bar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-    padding: 16px 12px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* Force single horizontal line matching Figma */
+    padding: 12px 10px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+  }
+
+  /* Hide Page 4 and Page 5 on mobile/tablet screens */
+  .pagination-pages .page-btn:nth-child(5),
+  .pagination-pages .page-btn:nth-child(6) {
+    display: none !important;
   }
 
   .pagination-pages {
-    transform: none !important; /* Center page number circles on mobile screen */
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .pagination-pages .page-btn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 11px !important;
+  }
+
+  .pagination-pages .page-btn.active {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .pagination-left {
+    font-size: 11px !important;
+    gap: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .pagination-left select {
+    padding: 4px 18px 4px 6px !important;
+    font-size: 11px !important;
+  }
+
+  .pagination-info {
+    font-size: 11px !important;
   }
 
   /* ── Stacked Mid and Bottom Rows ───────────────────────── */
