@@ -42,39 +42,45 @@
     --quadrant-bl-padding:    var(--mobile-quadrant-bl-padding);
     --quadrant-br-padding:    var(--mobile-quadrant-br-padding);
 
-    /* Chart: use mobile tokens from tokens.css — adjust those to change responsive view only */
+    /* Chart: use mobile tokens from tokens.css — adjust those to change responsive view only.
+       Horizontal dimensions scale with viewport width using clamp():
+         clamp(floor, token÷375×100vw, token)
+       so the chart shrinks proportionally on narrow screens (< 375 px reference)
+       and is capped at the user's token value on wider screens.
+       Vertical dimensions (plot-height, margins) stay fixed per token. */
     --chart-wrapper-height:        auto;
     --chart-plot-height:           var(--mobile-chart-plot-height);
-    --chart-title-size:            var(--mobile-chart-title-size);
+    --chart-title-size:            clamp(11px, 4vw,    var(--mobile-chart-title-size));
     --chart-title-weight:          var(--mobile-chart-title-weight);
     --chart-title-color:           var(--mobile-chart-title-color);
     --chart-title-margin-top:      var(--mobile-chart-title-margin-top);
     --chart-title-margin-bottom:   var(--mobile-chart-title-margin-bottom);
     --chart-title-top:             var(--mobile-chart-title-top);
     --chart-header-margin-bottom:  var(--mobile-chart-header-margin-bottom);
-    --chart-tab-size:              var(--mobile-chart-tab-size);
+    --chart-tab-size:              clamp(9px,  3.2vw,  var(--mobile-chart-tab-size));
     --chart-tab-weight:            var(--mobile-chart-tab-weight);
-    --chart-tab-gap:               var(--mobile-chart-tab-gap);
-    --chart-tab-width:             var(--mobile-chart-tab-width);
-    --chart-tab-height:            var(--mobile-chart-tab-height);
+    --chart-tab-gap:               clamp(3px,  1.6vw,  var(--mobile-chart-tab-gap));
+    --chart-tab-width:             clamp(46px, 17.3vw, var(--mobile-chart-tab-width));
+    --chart-tab-height:            clamp(22px, 8vw,    var(--mobile-chart-tab-height));
     --chart-tab-radius:            var(--mobile-chart-tab-radius);
-    --chart-y-label-size:          var(--mobile-chart-y-label-size);
+    --chart-y-label-size:          clamp(0.47rem, 2.8vw, var(--mobile-chart-y-label-size));
     --chart-y-label-weight:        var(--mobile-chart-y-label-weight);
     --chart-y-label-color:         var(--mobile-chart-y-label-color);
-    --chart-y-label-width:         var(--mobile-chart-y-label-width);
+    --chart-y-label-width:         clamp(18px, 7.5vw,  var(--mobile-chart-y-label-width));
     --chart-y-label-padding-right: var(--mobile-chart-y-label-padding-right);
     --chart-y-label-line-gap:      var(--mobile-chart-y-label-line-gap);
-    --chart-y-label-h-shift:       var(--mobile-chart-y-label-h-shift);
-    --chart-x-label-size:          var(--mobile-chart-x-label-size);
+    /* h-shift scales negatively so y-labels stay within the card padding */
+    --chart-y-label-h-shift:       clamp(-15px, -4vw, 0px);
+    --chart-x-label-size:          clamp(0.47rem, 2.8vw, var(--mobile-chart-x-label-size));
     --chart-x-label-weight:        var(--mobile-chart-x-label-weight);
     --chart-x-label-color:         var(--mobile-chart-x-label-color);
     --chart-x-label-margin-left:   var(--mobile-chart-x-label-margin-left);
     --chart-x-label-margin-top:    var(--mobile-chart-x-label-margin-top);
-    --chart-bars-gap:              var(--mobile-chart-bars-gap);
+    --chart-bars-gap:              clamp(2px,  1.1vw,  var(--mobile-chart-bars-gap));
     --chart-grid-color:            var(--mobile-chart-grid-color);
     --chart-grid-thickness:        var(--mobile-chart-grid-thickness);
-    --pill-width:                  var(--mobile-pill-width);
-    --pill-gap:                    var(--mobile-pill-gap);
+    --pill-width:                  clamp(8px,  3.7vw,  var(--mobile-pill-width));
+    --pill-gap:                    clamp(1px,  0.55vw, var(--mobile-pill-gap));
     --pill-radius:                 var(--mobile-pill-radius);
     --pill-red:                    var(--mobile-pill-red);
     --pill-white:                  var(--mobile-pill-white);
