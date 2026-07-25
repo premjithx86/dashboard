@@ -30,22 +30,22 @@
 }
 
 .topbar-profile img {
-  width: 48px;
-  height: 48px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--color-border);
 }
 
 .topbar-name {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: var(--topbar-name-size);
+  font-weight: var(--topbar-name-weight);
   color: var(--color-navy);
   line-height: 1.2;
 }
 
 .topbar-role {
-  font-size: 0.75rem;
-  font-weight: 400;
+  font-size: var(--topbar-role-size);
+  font-weight: var(--topbar-role-weight);
   color: #888;
 }

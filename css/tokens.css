@@ -30,15 +30,19 @@
   --stat-label-weight:  500;
   --stat-label-color:   var(--color-white);
   /* ── Topbar ─────────────────────────────────────────────── */
-  --topbar-logo-height: 88px;
+  --topbar-logo-height: 80px;
+  --topbar-name-size:    1.2rem;
+  --topbar-name-weight:  600;
+  --topbar-role-size:    0.90rem;
+  --topbar-role-weight:  400;
 
   /* ── Sidebar ────────────────────────────────────────────── */
   --sidebar-width:          289px;
   --sidebar-bg:             var(--color-navy);
   --sidebar-text-size:      0.91rem;  /* nav item text size */
-  --sidebar-text-weight:    50;       /* nav item text weight */
+  --sidebar-text-weight:    10;       /* nav item text weight */
   --sidebar-text-color:     #FFFFFF;
-  --sidebar-section-size:   0.65rem;   /* section label text size */
+  --sidebar-section-size:   0.78rem;   /* section label text size */
   --sidebar-section-weight: 50;       /* section label text weight */
   --sidebar-active-bg:      var(--color-red);
   --sidebar-active-weight:  600;       /* active nav item text weight */
@@ -296,7 +300,7 @@
   --stat-card-height:       166px;
   --stat-card-max-width:    300px;
   --stat-card-padding-top:  52px;
-  --stat-card-gap-x:        17px;
+  --stat-card-gap-x:        27px;
   --stat-card-gap-y:        60px;
   --stat-card-shadow:       0 10px 30px rgba(0, 0, 0, 0.08);
 
