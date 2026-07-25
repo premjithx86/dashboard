@@ -373,9 +373,9 @@
   --mobile-stat-label-padding: 12px var(--space-sm);        /* padding inside the coloured footer strip (top/bottom controls height) */
 
   /* Mobile Quadrant Content — adjust here to change the quadrant in responsive view only */
-  --mobile-quadrant-chart-size: 260px;          /* size of the crosshair diagram canvas */
-  --mobile-quadrant-font-size: 18px;            /* label text size (AI Generated, MCQ, etc.) — actual size is min(this, chart-size÷16); increase chart-size too for bigger text */
-  --mobile-quadrant-font-weight: 500;           /* label text weight */
+  --mobile-quadrant-chart-size: 270px;          /* size of the crosshair diagram canvas */
+  --mobile-quadrant-font-size: 25px;            /* label text size (AI Generated, MCQ, etc.) — actual size is min(this, chart-size÷16); increase chart-size too for bigger text */
+  --mobile-quadrant-font-weight: 700;           /* label text weight */
   --mobile-quadrant-count-size: 11px;           /* count pill font size */
   --mobile-quadrant-count-weight: 700;          /* count pill font weight */
   --mobile-quadrant-count-padding: 5px 12px;    /* count pill inner padding */
