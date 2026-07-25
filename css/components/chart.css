@@ -89,7 +89,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 /* ── Pill chart ──────────────────────────────────────────── */
@@ -97,7 +96,6 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  flex: 1;
 }
 
 .chart-plot-container {
@@ -105,7 +103,7 @@
   align-items: stretch;
   gap: 0;
   width: 100%;
-  flex: 1;
+  height: var(--chart-plot-height);
 }
 
 /* Row: y-labels + bars area */
@@ -290,10 +288,10 @@
 .exam-stat-item {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--exams-item-gap);
   padding: var(--exams-item-padding);
-  border-bottom: 1px solid var(--exams-card-border-color);
-  flex: 1; /* Let rows shrink/grow dynamically to prevent cutting off at smaller heights */
+  border-bottom: 1px solid var(--exams-item-divider-color);
+  flex: 1;
   box-sizing: border-box;
 }
 
@@ -303,9 +301,9 @@
 
 /* Colour indicator square */
 .exam-stat-dot {
-  width: var(--exams-dot-size);
-  height: var(--exams-dot-size);
-  border-radius: 3px;
+  width: var(--exams-dot-width);
+  height: var(--exams-dot-height);
+  border-radius: var(--exams-dot-radius);
   flex-shrink: 0;
 }
 

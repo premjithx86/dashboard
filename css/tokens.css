@@ -132,22 +132,57 @@
   --quadrant-card-width: 467px;
   --quadrant-card-height: 467px;
   --quadrant-chart-size: 380px;
-  --quadrant-font-size: 1rem;
-  --quadrant-tl-top: 12%;
-  --quadrant-tl-left: 10%;
-  --quadrant-tr-top: 12%;
-  --quadrant-tr-right: 10%;
-  --quadrant-bl-bottom: 12%;
-  --quadrant-bl-left: 10%;
-  --quadrant-br-bottom: 12%;
-  --quadrant-br-right: 10%;
+
+  /* Global defaults — change these to resize all four sections at once */
+  --quadrant-font-size:      2rem;      /* label text size for all sections */
+  --quadrant-count-size:     0.75rem;   /* count number size for all sections */
+  --quadrant-count-padding:  4px 12px;  /* count pill padding for all sections */
+  --quadrant-label-gap:      60px;      /* gap between label text and count pill */
+  --quadrant-label-max-width: 40%;      /* max width — prevents left/right overlap */
+
+  /* ── AI Generated (top-left) ──────────────────────────── */
+  --quadrant-tl-top:        12%;
+  --quadrant-tl-left:       10%;
+  --quadrant-tl-width:      auto;
+  --quadrant-tl-max-width:  var(--quadrant-label-max-width);
+  --quadrant-tl-font-size:  var(--quadrant-font-size);
+  --quadrant-tl-count-size: var(--quadrant-count-size);
+  --quadrant-tl-count-padding: var(--quadrant-count-padding);
+
+  /* ── MCQ (top-right) ──────────────────────────────────── */
+  --quadrant-tr-top:        12%;
+  --quadrant-tr-right:      10%;
+  --quadrant-tr-width:      auto;
+  --quadrant-tr-max-width:  var(--quadrant-label-max-width);
+  --quadrant-tr-font-size:  var(--quadrant-font-size);
+  --quadrant-tr-count-size: var(--quadrant-count-size);
+  --quadrant-tr-count-padding: var(--quadrant-count-padding);
+
+  /* ── Yes/No (bottom-left) ────────────────────────────── */
+  --quadrant-bl-bottom:     12%;
+  --quadrant-bl-left:       10%;
+  --quadrant-bl-width:      auto;
+  --quadrant-bl-max-width:  var(--quadrant-label-max-width);
+  --quadrant-bl-font-size:  var(--quadrant-font-size);
+  --quadrant-bl-count-size: var(--quadrant-count-size);
+  --quadrant-bl-count-padding: var(--quadrant-count-padding);
+
+  /* ── Short Answer (bottom-right) ─────────────────────── */
+  --quadrant-br-bottom:     12%;
+  --quadrant-br-right:      10%;
+  --quadrant-br-width:      auto;
+  --quadrant-br-max-width:  var(--quadrant-label-max-width);
+  --quadrant-br-font-size:  var(--quadrant-font-size);
+  --quadrant-br-count-size: var(--quadrant-count-size);
+  --quadrant-br-count-padding: var(--quadrant-count-padding);
+
   --quadrant-pill-bg: #E9E9F1;
   --quadrant-pill-color: #21236A;
   --quadrant-pill-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   --quadrant-shapes-scale: 1;
 
   /* ── Student Added Chart ────────────────────────────────── */
-  --chart-wrapper-height: 20px;
+  --chart-wrapper-height: auto;
   --chart-wrapper-padding: 24px;
   --chart-card-margin-right: 0px;
   --chart-title-size: 18px;
@@ -209,17 +244,22 @@
   --exams-header-line-height: 20px;
   --exams-header-border-color: #DBDCE4;
   --exams-header-margin-bottom: 6px;
-  --exams-header-min-height: 38px;
+  --exams-header-min-height: 48px;
   --exams-header-padding: 6px 12px;
   --exams-card-bg: #FFFFFF;
   --exams-card-border-color: #DBDCE4;
   --exams-card-padding: 0px;
   --exams-item-padding: 4px 12px;
-  --exams-dot-size: 10px;
-  --exams-icon-size: 18px;
-  --exams-count-size: 1.25rem;
-  --exams-count-weight: 700;
-  --exams-count-color: #21236A;
+  --exams-item-gap: 8px;
+  --exams-item-divider-color: transparent;
+  --exams-dot-size: 15px;
+  --exams-dot-width: 25px;
+  --exams-dot-height: var(--exams-dot-size);
+  --exams-dot-radius: 7px;
+  --exams-icon-size: 30px;
+  --exams-count-size: 2rem;
+  --exams-count-weight: 500;
+  --exams-count-color: #2C2D30;
   --exams-label-size: 0.8125rem;
   --exams-label-weight: 400;
   --exams-label-color: #777777;

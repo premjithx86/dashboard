@@ -85,31 +85,65 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center-align children text & count badge across all quadrants */
-  gap: 6px;
+  align-items: center;
+  gap: var(--quadrant-label-gap);
 }
 
+/* Shared label text defaults (per-section font-size set below) */
 .q-label-text {
-  font-size: var(--quadrant-font-size);
   font-weight: 700;
   color: var(--color-navy);
   line-height: 1.2;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
+/* Shared count pill defaults (per-section font-size and padding set below) */
 .q-label-count {
-  font-size: 0.75rem;
   font-weight: 500;
   color: var(--quadrant-pill-color);
   background: var(--quadrant-pill-bg);
   border-radius: var(--radius-sm);
-  padding: 4px 12px;
-  box-shadow: var(--quadrant-pill-shadow); /* Soft custom drop shadow */
+  box-shadow: var(--quadrant-pill-shadow);
   transition: transform 0.15s;
 }
 
-/* Label positions */
-.q-label.top-left  { top: var(--quadrant-tl-top); left: var(--quadrant-tl-left); }
-.q-label.top-right { top: var(--quadrant-tr-top); right: var(--quadrant-tr-right); }
-.q-label.bot-left  { bottom: var(--quadrant-bl-bottom); left: var(--quadrant-bl-left); }
-.q-label.bot-right { bottom: var(--quadrant-br-bottom); right: var(--quadrant-br-right); }
+/* ── AI Generated (top-left) ─────────────────────────────── */
+.q-label.top-left {
+  top:       var(--quadrant-tl-top);
+  left:      var(--quadrant-tl-left);
+  width:     var(--quadrant-tl-width);
+  max-width: var(--quadrant-tl-max-width);
+}
+.q-label.top-left .q-label-text  { font-size: var(--quadrant-tl-font-size); }
+.q-label.top-left .q-label-count { font-size: var(--quadrant-tl-count-size); padding: var(--quadrant-tl-count-padding); }
+
+/* ── MCQ (top-right) ─────────────────────────────────────── */
+.q-label.top-right {
+  top:       var(--quadrant-tr-top);
+  right:     var(--quadrant-tr-right);
+  width:     var(--quadrant-tr-width);
+  max-width: var(--quadrant-tr-max-width);
+}
+.q-label.top-right .q-label-text  { font-size: var(--quadrant-tr-font-size); }
+.q-label.top-right .q-label-count { font-size: var(--quadrant-tr-count-size); padding: var(--quadrant-tr-count-padding); }
+
+/* ── Yes/No (bottom-left) ────────────────────────────────── */
+.q-label.bot-left {
+  bottom:    var(--quadrant-bl-bottom);
+  left:      var(--quadrant-bl-left);
+  width:     var(--quadrant-bl-width);
+  max-width: var(--quadrant-bl-max-width);
+}
+.q-label.bot-left .q-label-text  { font-size: var(--quadrant-bl-font-size); }
+.q-label.bot-left .q-label-count { font-size: var(--quadrant-bl-count-size); padding: var(--quadrant-bl-count-padding); }
+
+/* ── Short Answer (bottom-right) ─────────────────────────── */
+.q-label.bot-right {
+  bottom:    var(--quadrant-br-bottom);
+  right:     var(--quadrant-br-right);
+  width:     var(--quadrant-br-width);
+  max-width: var(--quadrant-br-max-width);
+}
+.q-label.bot-right .q-label-text  { font-size: var(--quadrant-br-font-size); }
+.q-label.bot-right .q-label-count { font-size: var(--quadrant-br-count-size); padding: var(--quadrant-br-count-padding); }

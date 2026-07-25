@@ -63,8 +63,7 @@
 /* Pill chart + Exams panel */
 .bottom-row {
   display: grid;
-  grid-template-columns: 1fr 260px;
+  grid-template-columns: 1fr 230px;
   gap: var(--space-md);
   align-items: stretch;
-  height: var(--chart-wrapper-height);
 }
