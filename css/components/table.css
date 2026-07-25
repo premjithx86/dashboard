@@ -140,7 +140,7 @@
   display: flex;
   align-items: center;
   height: var(--table-row-height);
-  border-right: var(--table-row-border-width) solid var(--table-row-border-color); /* cell dividers inside row cards */
+  border-right: var(--table-col-border-width) solid var(--table-row-col-border-color); /* cell dividers inside row cards */
   box-sizing: border-box;
 }
 

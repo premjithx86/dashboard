@@ -93,10 +93,9 @@
   --table-row-margin-bottom: 8px;
 
   /* Table column separator lines (vertical gridlines) */
-  --table-col-border-color: rgba(255, 255, 255, 0.15); /* Separator line color for header */
-  --table-col-border-width: 1px;                        /* Separator line thickness for header */
-  --table-row-border-color: #DBDCE4;                    /* Separator line color for body rows */
-  --table-row-border-width: 1px;                        /* Separator line thickness for body rows */
+  --table-col-border-color: rgba(255, 255, 255, 0.908); /* Separator line color for header */
+  --table-col-border-width: 2px;                        /* Separator line thickness for entire table (header & rows) */
+  --table-row-col-border-color: #FFFFFF;                /* Separator line color for body rows (e.g. #FFFFFF for high visibility) */
   --table-col-padding-left: 20px;                       /* Left spacing gap next to column lines */
 
   /* Text inside table rows typography */
