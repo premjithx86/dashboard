@@ -35,19 +35,27 @@
   --topbar-name-weight:  600;
   --topbar-role-size:    0.90rem;
   --topbar-role-weight:  400;
+  --topbar-padding-y:    var(--space-sm); /* vertical padding top/bottom of the topbar header */
+  --topbar-margin-bottom: 24px; /* gap/margin between topbar and the cards below it */
+  --topbar-margin-top:    0px;  /* gap/margin between viewport top edge and the topbar header */
 
   /* ── Sidebar ────────────────────────────────────────────── */
   --sidebar-width:          289px;
   --sidebar-bg:             var(--color-navy);
   --sidebar-text-size:      0.91rem;  /* nav item text size */
-  --sidebar-text-weight:    10;       /* nav item text weight */
+  --sidebar-text-weight:    200;       /* nav item text weight */
   --sidebar-text-color:     #FFFFFF;
-  --sidebar-section-size:   0.78rem;   /* section label text size */
+  --sidebar-section-size:   0.82rem;   /* section label text size */
   --sidebar-section-weight: 50;       /* section label text weight */
+  --sidebar-section-gap-top: 40px;    /* vertical gap above each section header */
+  --sidebar-section-gap-bottom: 16px;  /* vertical gap below each section header */
   --sidebar-active-bg:      var(--color-red);
   --sidebar-active-weight:  600;       /* active nav item text weight */
+  --sidebar-active-size:    0.91rem;   /* active nav item text size */
+  --sidebar-active-padding: 13px 16px; /* padding inside active nav item box */
+  --sidebar-dashboard-margin-bottom: 12px; /* space between dashboard box and the elements below it */
   --sidebar-dashboard-size: 0.91rem;   /* dashboard link size */
-  --sidebar-dashboard-weight: 600;    /* dashboard link weight */
+  --sidebar-dashboard-weight: 200;    /* dashboard link weight */
   --sidebar-icon-size:      18px;      /* nav icon width & height */
   --sidebar-icon-opacity:   1.0;
   --sidebar-logout-icon-size: 44px;
@@ -186,7 +194,7 @@
   --quadrant-diamond-size: 26px;  /* size of the center red square */
 
   /* ── Recent Exam List + Top Academies row ───────────────── */
-  --mid-row-height: auto;   /* set to e.g. 520px to fix height; both table and academies shrink together */
+  --mid-row-height: 520px;   /* set to e.g. 520px to fix height; both table and academies shrink together */
 
   /* ── Student Added Chart ────────────────────────────────── */
   --chart-wrapper-height: auto;

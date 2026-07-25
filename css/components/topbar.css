@@ -12,7 +12,9 @@
   gap: var(--space-md);
   background: transparent;
   border-radius: 0;
-  padding: var(--space-sm) 0;
+  padding: var(--topbar-padding-y) 0;
+  margin-top: var(--topbar-margin-top);
+  margin-bottom: var(--topbar-margin-bottom);
   box-shadow: none;
 }
 

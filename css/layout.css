@@ -58,7 +58,6 @@
   grid-template-columns: 1fr 300px;
   gap: var(--space-md);
   align-items: stretch;
-  height: var(--mid-row-height);
 }
 
 /* Pill chart + Exams panel */

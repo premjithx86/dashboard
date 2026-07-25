@@ -52,7 +52,9 @@
   font-weight: var(--sidebar-section-weight);
   color: rgba(255,255,255,0.45);
   letter-spacing: 0.06em;
-  padding: var(--space-md) var(--space-md) var(--space-xs);
+  padding: 0 var(--space-md);
+  margin-top: var(--sidebar-section-gap-top);
+  margin-bottom: var(--sidebar-section-gap-bottom);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -111,12 +113,15 @@
   background: var(--sidebar-active-bg);
   color: #fff;
   font-weight: var(--sidebar-active-weight);
+  font-size: var(--sidebar-active-size);
+  padding: var(--sidebar-active-padding);
 }
 
 /* Specific override for top-level Dashboard text */
 .sidebar-nav > .nav-item:first-child {
   font-size: var(--sidebar-dashboard-size);
   font-weight: var(--sidebar-dashboard-weight);
+  margin-bottom: var(--sidebar-dashboard-margin-bottom);
 }
 
 /* Icon inside nav item */

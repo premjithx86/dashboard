@@ -15,7 +15,7 @@
 .academies-section-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: var(--mid-row-height);
   box-sizing: border-box;
 }
 
@@ -30,6 +30,7 @@
   border: 1px solid var(--table-row-border);
   margin-bottom: 8px; /* space gap before content card */
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 /* Stretched content card holding list and footer */
@@ -55,7 +56,7 @@
   justify-content: space-around; /* distributes items evenly across stretched height */
   flex: 1;
   min-height: 0;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 /* Single academy row without separator borders */
@@ -64,6 +65,8 @@
   align-items: center;
   gap: var(--space-sm);
   padding: 12px 24px;
+  min-height: 0;
+  overflow: hidden;
   transition: background-color 0.15s;
   border-bottom: none; /* removed dividers between rows */
 }
@@ -115,6 +118,7 @@
   cursor: pointer;
   transition: background-color 0.15s;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .view-all-btn:hover {
