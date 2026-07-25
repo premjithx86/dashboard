@@ -46,6 +46,8 @@
   --sidebar-section-weight: 50;       /* section label text weight */
   --sidebar-active-bg:      var(--color-red);
   --sidebar-active-weight:  600;       /* active nav item text weight */
+  --sidebar-dashboard-size: 0.91rem;   /* dashboard link size */
+  --sidebar-dashboard-weight: 600;    /* dashboard link weight */
   --sidebar-icon-size:      18px;      /* nav icon width & height */
   --sidebar-icon-opacity:   1.0;
   --sidebar-logout-icon-size: 44px;
@@ -182,6 +184,9 @@
   --quadrant-shapes-scale: 1;
   --quadrant-line-length:  110%;  /* length of all 4 crosshair arms — use % for relative or px for fixed */
   --quadrant-diamond-size: 26px;  /* size of the center red square */
+
+  /* ── Recent Exam List + Top Academies row ───────────────── */
+  --mid-row-height: auto;   /* set to e.g. 520px to fix height; both table and academies shrink together */
 
   /* ── Student Added Chart ────────────────────────────────── */
   --chart-wrapper-height: auto;

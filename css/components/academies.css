@@ -53,7 +53,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around; /* distributes items evenly across stretched height */
-  flex: 1; /* stretches list inside the card */
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 /* Single academy row without separator borders */

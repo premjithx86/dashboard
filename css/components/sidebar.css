@@ -113,6 +113,12 @@
   font-weight: var(--sidebar-active-weight);
 }
 
+/* Specific override for top-level Dashboard text */
+.sidebar-nav > .nav-item:first-child {
+  font-size: var(--sidebar-dashboard-size);
+  font-weight: var(--sidebar-dashboard-weight);
+}
+
 /* Icon inside nav item */
 .nav-item img {
   width: var(--sidebar-icon-size);
