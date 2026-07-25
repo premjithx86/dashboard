@@ -204,6 +204,8 @@
     justify-content: center !important;
     width: 100% !important;
     margin: 0 !important;
+    left: 0 !important; /* Reset desktop horizontal shift on mobile */
+    top: 0 !important;  /* Reset desktop vertical shift on mobile */
   }
 
   .topbar-logo img {
@@ -273,13 +275,22 @@
     max-height: var(--quadrant-chart-size) !important;
   }
 
+  /* Each quadrant section is 50 % of the canvas. Clip any overflow so label text
+     never bleeds into the adjacent section on very narrow viewports. */
+  .q-label {
+    overflow: hidden !important;
+  }
+
   /* Prevent label text from wrapping mid-word (e.g. "AI" / "Generated" on separate lines).
-     Font-size is capped at chart-size÷16 — increase --mobile-quadrant-chart-size to get
-     larger text while keeping it on one line. */
+     Font-size uses three caps:
+       1. The user token (--mobile-quadrant-font-size)
+       2. chart-size ÷ 16  — keeps text in proportion when the token is large
+       3. 4.5vw            — viewport guard so text never exceeds its section on screens
+                             narrower than the chart-size (e.g. 360 px → 16.2 px) */
   .q-label-text {
     white-space: nowrap !important;
     word-break: normal !important;
-    font-size: min(var(--mobile-quadrant-font-size), calc(var(--mobile-quadrant-chart-size) / 16)) !important;
+    font-size: min(var(--mobile-quadrant-font-size), calc(var(--mobile-quadrant-chart-size) / 16), 4.5vw) !important;
   }
 
   /* ── Recent Exam List Card Layout Overrides ────────────── */
@@ -631,12 +642,13 @@
     margin-left: auto !important;
     margin-right: auto !important;
     box-sizing: border-box;
+    overflow: hidden !important;
   }
 
   .pill-x-labels {
     display: flex !important;
-    gap: var(--mobile-chart-x-label-gap) !important;
-    margin-left: var(--chart-x-label-margin-left) !important;
+    gap: var(--chart-bars-gap) !important;       /* must equal bar-columns gap — both driven by --mobile-chart-bars-gap */
+    margin-left: var(--chart-y-label-width) !important; /* must equal y-label column width so labels start where bars start */
     margin-top: var(--chart-x-label-margin-top) !important;
   }
 
@@ -672,19 +684,28 @@
     border-radius: var(--pill-radius) !important;
   }
 
-  /* Restore horizontal title + tabs layout to match Figma */
+  /* Restore horizontal title + tabs layout to match Figma.
+     flex-wrap: wrap lets the tab row fall to a second line on very narrow viewports
+     (e.g. 360 px) instead of overflowing the card. */
   .chart-top {
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     text-align: left !important;
-    flex-wrap: nowrap !important;
+    flex-wrap: wrap !important;
     gap: var(--space-sm) !important;
   }
 
   .tab-group {
     transform: none !important;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .tab-btn {
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
   }
 
   /* Live Exams counter — use --mobile-live-exams-* tokens in tokens.css to adjust */
