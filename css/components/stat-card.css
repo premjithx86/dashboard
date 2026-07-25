@@ -31,7 +31,7 @@
   position: relative;
   height: var(--stat-card-height);
   max-width: var(--stat-card-max-width);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Premium floating drop shadow */
+  box-shadow: var(--stat-card-shadow); /* Premium floating drop shadow */
   border: 1px solid rgba(220, 220, 225, 0.4);   /* Subtle light border */
   box-sizing: border-box;
 }
