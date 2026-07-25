@@ -15,8 +15,6 @@
   --color-bg:         #F0F1F1;
   --color-white:      #FFFFFF;
   --color-border:     #DBDCE4;
-  --color-green-soft: #E1FCE9;
-  --color-red-soft:   #FFEAEE;
   --color-gold:       #DDA420;
 
   /* ── Typography ─────────────────────────────────────────── */
@@ -25,7 +23,6 @@
   /* ── Stat cards ─────────────────────────────────────────── */
   --stat-number-size:   2.625rem;   /* 42px */
   --stat-number-weight: 700;
-  --stat-number-color:  var(--color-navy);
   --stat-number-desktop-top: 11px;                   /* [Desktop relative shift] e.g. 10px shifts number down, -10px shifts it up */
   --stat-number-desktop-margin-bottom: 0px;         /* [Desktop bottom gap] spacing margin below the number */
   --stat-label-size:    0.875rem;
@@ -78,7 +75,6 @@
 
   /* ── Table ──────────────────────────────────────────────── */
   --table-header-bg:       var(--color-navy);      /* [Header background] The dark blue background of the table header card */
-  --table-header-color:    var(--color-white);     /* [Header text color] Color of the text in the table header card */
   --table-header-size:     0.8rem;              /* [Header font size] Size of header labels */
   --table-header-weight:   200;                    /* [Header font weight] Boldness of header labels */
   --table-row-size:        0.8125rem;              /* [Body cell font size] Size of table body text */
@@ -92,7 +88,6 @@
   --table-title-size:      1.2rem;               /* [Title card text size] Font size of Recent Exam List */
   --table-title-weight:    500;                    /* [Title card text weight] Boldness of Recent Exam List */
   --table-pagination-bg:   #DBDCE4;                /* [Pagination card background] Background of the bottom page selection footer card */
-  --table-pagination-color: #21236A;               /* [Pagination text color] Color of show-limit dropdown text and footer labels */
   --table-pagination-select-color: #000107;
   --table-pagination-select-weight: 200;            /* [Dropdown weight] Boldness of show-limit select dropdown numbers */
   --table-pagination-info-color:     #999BA3;      /* [Pagination info text color] Text color of '1-10 of 52' info label */
@@ -119,7 +114,6 @@
 
   /* ── Table Rows Customization ───────────────────────────── */
   --table-row-radius: 12px;
-  --table-row-height: auto;
   --table-row-padding-y: 18px;
   --table-row-padding-x: 20px;
   --table-row-margin-bottom: 8px;
@@ -130,8 +124,6 @@
   --table-row-col-border-color: #FFFFFF;                /* Separator line color for body rows (e.g. #FFFFFF for high visibility) */
   --table-col-padding-left: 20px;                       /* Left spacing gap next to column lines */
   --table-num-size:   var(--table-row-size);            /* Font size of row index numbers (# column) */
-  --table-num-weight: 600;                              /* Boldness of row index numbers (# column) */
-  --table-num-color:  var(--table-row-color);           /* Color of row index numbers (# column) */
 
   /* Text inside table rows typography */
   --table-date-font-size: 0.875rem;
@@ -316,11 +308,6 @@
   --exams-label-weight: 400;
   --exams-label-color: #777777;
 
-  /* ── Section headings ───────────────────────────────────── */
-  --section-heading-size:   1rem;
-  --section-heading-weight: 600;
-  --section-heading-color:  var(--color-navy);
-
   /* ── Pill chart ─────────────────────────────────────────── */
   --pill-width:   24px;
   --pill-height:  10px;
@@ -328,16 +315,13 @@
   --pill-radius:  99px;
   --pill-red:     #DF001B;
   --pill-white:   #F0F1F1;
-  --pill-inactive-bg: rgba(255, 255, 255, 0.08);
   --chart-grid-color: #E0C185;
   --chart-grid-thickness: 1px;
 
   /* ── Spacing scale ──────────────────────────────────────── */
-  --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
-  --space-xl: 32px;
 
   /* ── Border radius ──────────────────────────────────────── */
   --radius-sm: 6px;
@@ -434,7 +418,6 @@
   --mobile-chart-x-label-weight: 50;          /* X-axis label font weight */
   --mobile-chart-x-label-color: #FFFFFF;       /* X-axis label color */
   --mobile-chart-x-label-margin-left: 8px;    /* X-axis labels left offset (aligns with bars) */
-  --mobile-chart-x-label-gap: 0px;            /* gap between each X-axis label (Jan, Feb, …) — independent of bar column gap */
   --mobile-chart-x-label-margin-top: 15px;      /* gap above X-axis labels */
   --mobile-chart-bars-gap: 5px;                /* horizontal gap between monthly bar columns */
   --mobile-chart-grid-color: #E0C185;          /* grid line color */

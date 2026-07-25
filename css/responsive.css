@@ -534,8 +534,7 @@
   }
 
   /* Hide Page 4 and Page 5 on mobile/tablet screens */
-  .pagination-pages .page-btn.desktop-only-page,
-  .pagination-pages .page-btn:not(.active):not(.arrow).desktop-only-page {
+  .pagination-pages .page-btn.desktop-only-page {
     display: none !important;
   }
 
@@ -551,9 +550,6 @@
     border: none !important;
     background: transparent !important;
     color: var(--table-pagination-inactive-color) !important;
-    font-size: var(--table-pagination-size) !important;
-    font-weight: var(--table-pagination-weight) !important;
-    line-height: var(--table-pagination-line-height) !important;
     cursor: pointer !important;
     width: auto !important;
     min-width: 20px !important;
@@ -572,9 +568,6 @@
     background-clip: padding-box !important;
     width: var(--mobile-pagination-active-size) !important;
     height: var(--mobile-pagination-active-size) !important;
-    font-size: var(--table-pagination-size) !important;
-    font-weight: var(--table-pagination-weight) !important;
-    line-height: var(--table-pagination-line-height) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
