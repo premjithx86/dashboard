@@ -15,7 +15,7 @@
   padding: var(--chart-wrapper-padding);
   color: #fff;
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   gap: var(--space-lg);
   height: var(--chart-wrapper-height);
   box-sizing: border-box;
@@ -80,11 +80,16 @@
 }
 
 .chart-body {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .chart-main {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* ── Pill chart ──────────────────────────────────────────── */
@@ -92,6 +97,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  flex: 1;
 }
 
 .chart-plot-container {
@@ -99,6 +105,7 @@
   align-items: stretch;
   gap: 0;
   width: 100%;
+  flex: 1;
 }
 
 /* Row: y-labels + bars area */
@@ -106,7 +113,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: var(--chart-plot-height);
+  height: 100%;
   font-size: var(--chart-y-label-size);
   font-weight: var(--chart-y-label-weight);
   color: var(--chart-y-label-color);
@@ -120,7 +127,7 @@
 .pill-plot-area {
   position: relative;
   flex: 1;
-  height: var(--chart-plot-height);
+  height: 100%;
   display: flex;
   align-items: stretch;
 }
