@@ -147,7 +147,7 @@
   --quadrant-shapes-scale: 1;
 
   /* ── Student Added Chart ────────────────────────────────── */
-  --chart-wrapper-height: 310px;
+  --chart-wrapper-height: 290px;
   --chart-wrapper-padding: 24px;
   --chart-card-margin-right: 0px;
   --chart-title-size: 18px;
@@ -167,7 +167,7 @@
   --chart-tab-line-height: 19px;
   --chart-tab-gap: 10px;
   --chart-tab-width: 90px;
-  --chart-tab-height: 45px;
+  --chart-tab-height: 40px;
   --chart-tab-radius: 9px;
   --chart-tab-color: #797979;
   --chart-tab-bg: #F0F1F1;
@@ -191,7 +191,7 @@
   --live-exams-block-padding-top: 16px;
   --live-exams-block-margin-left: 0px;
   --live-exams-block-shift-x: 0px;
-  --live-exams-block-shift-y: -45px;
+  --live-exams-block-shift-y: 0px;
   --live-exams-number-size: 80px;
   --live-exams-number-weight: 700;
   --live-exams-number-line-height: 1;
