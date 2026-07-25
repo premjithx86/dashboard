@@ -211,4 +211,10 @@
   --stat-card-padding-top:  52px;
   --stat-card-gap-x:        17px;
   --stat-card-gap-y:        60px;
+
+  /* ── Responsive Card Gaps ───────────────────────────────── */
+  --responsive-grid-gap: 16px;
+  --responsive-stats-gap-y: 16px;
+  --responsive-stats-gap-x: 16px;
+  --responsive-row-gap: 24px;
 }
