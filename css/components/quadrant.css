@@ -8,7 +8,7 @@
 
 /* Card wrapper (occupies column 3 of stats-grid) */
 .quadrant-card {
-  background: var(--color-white);
+  background: var(--quadrant-card-bg);
   border-radius: var(--radius-lg);
   box-shadow: var(--quadrant-card-shadow);
   display: flex;
@@ -19,6 +19,12 @@
   width: var(--quadrant-card-width);
   height: var(--quadrant-card-height);
   box-sizing: border-box;
+  
+  /* Layout scale, margin, and relative offsets */
+  transform: scale(var(--quadrant-card-scale)) translateY(var(--quadrant-card-top));
+  margin-top: var(--quadrant-card-margin-top);
+  margin-bottom: var(--quadrant-card-margin-bottom);
+  position: relative;
 }
 
 /* Square canvas */

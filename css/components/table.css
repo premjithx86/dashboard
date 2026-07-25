@@ -101,6 +101,17 @@
   white-space: nowrap;
 }
 
+.th-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.th-content.center {
+  justify-content: center;
+}
+
 .sort-icon-svg {
   display: inline-flex;
   align-self: center;
@@ -110,6 +121,8 @@
   height: var(--table-sort-arrow-height);
   cursor: pointer;
   transition: opacity 0.15s;
+  transform: translateY(1.2px);
+  
 }
 
 .sort-icon-svg path {
@@ -193,7 +206,16 @@
   justify-content: flex-start;
   text-align: left;
   padding-left: var(--table-col-padding-left) !important;
-  font-weight: 600;
+}
+
+.exam-table th:nth-child(1) {
+  font-weight: var(--table-header-weight);
+}
+
+.exam-table td:nth-child(1) {
+  font-size: var(--table-num-size);
+  font-weight: 400;
+  color: #010101;
 }
 
 /* Column 2: Name (which contains Date/Time in swapped order) */
@@ -383,7 +405,7 @@
 .pagination-left select {
   font-family: inherit;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: var(--table-pagination-select-weight);
   border: 1px solid var(--table-row-border);
   border-radius: 8px;
   padding: 6px 30px 6px 12px; /* room for custom chevron */

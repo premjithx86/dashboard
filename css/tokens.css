@@ -86,7 +86,8 @@
   --table-title-weight:    500;                    /* [Title card text weight] Boldness of Recent Exam List */
   --table-pagination-bg:   #DBDCE4;                /* [Pagination card background] Background of the bottom page selection footer card */
   --table-pagination-color: #21236A;               /* [Pagination text color] Color of show-limit dropdown text and footer labels */
-  --table-pagination-select-color: #999BA3;
+  --table-pagination-select-color: #000107;
+  --table-pagination-select-weight: 200;            /* [Dropdown weight] Boldness of show-limit select dropdown numbers */
   --table-pagination-info-color:     #999BA3;      /* [Pagination info text color] Text color of '1-10 of 52' info label */
   --table-pagination-label-color:    #999BA3;      /* [Pagination label text color] Text color of 'Show per page' label */
   --table-pagination-active-bg:      #21236A;      /* [Active page background] Circle color for active page button 1 */
@@ -102,8 +103,8 @@
   --table-sort-arrow-color: #FFFFFF;
   --table-sort-arrow-width:  10px;  /* Width of the sort icon */
   --table-sort-arrow-height: 14px;  /* Height of the sort icon */
-  --table-sort-arrow-weight: 3.5;   /* Boldness of arrow lines (stroke-width) */
-  --table-sort-arrow-gap-shift: 0px; /* Adjust gap: positive value pulls arrows closer, negative value pushes them apart */
+  --table-sort-arrow-weight: 2;   /* Boldness of arrow lines (stroke-width) */
+  --table-sort-arrow-gap-shift: -2px; /* Adjust gap: positive value pulls arrows closer, negative value pushes them apart */
   --action-btn-border-color: #DBDCE4;
   --action-btn-radius-1: 14px;
   --action-btn-radius-2: 14px;
@@ -121,6 +122,9 @@
   --table-col-border-width: 1.5px;                        /* Separator line thickness for entire table (header & rows) */
   --table-row-col-border-color: #FFFFFF;                /* Separator line color for body rows (e.g. #FFFFFF for high visibility) */
   --table-col-padding-left: 20px;                       /* Left spacing gap next to column lines */
+  --table-num-size:   var(--table-row-size);            /* Font size of row index numbers (# column) */
+  --table-num-weight: 600;                              /* Boldness of row index numbers (# column) */
+  --table-num-color:  var(--table-row-color);           /* Color of row index numbers (# column) */
 
   /* Text inside table rows typography */
   --table-date-font-size: 0.875rem;
@@ -166,6 +170,12 @@
   --quadrant-card-width: 467px;
   --quadrant-card-height: 467px;
   --quadrant-chart-size: 380px;
+  --quadrant-card-bg:     var(--color-white);           /* Background color of the quadrant card box */
+  --quadrant-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.24); /* Box shadow / depth effect */
+  --quadrant-card-scale:  0.95;                          /* Scale factor: set to e.g. 1.1 to enlarge the entire box, or 0.9 to shrink it */
+  --quadrant-card-margin-top: -23px;                      /* Spacing margin added to the top of the box */
+  --quadrant-card-margin-bottom: 0px;                   /* Spacing margin added to the bottom of the box */
+  --quadrant-card-top: 0px;                             /* Relative shift offset: e.g. 5px shifts it down, -5px shifts it up */
 
   /* Global defaults — change these to affect all four sections at once */
   --quadrant-font-size:      1.7rem;    /* label text size */
