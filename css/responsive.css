@@ -674,3 +674,46 @@
     }
   }
 }
+
+/* ── Tablet overrides (600px–900px) ─────────────────────────────────────────
+   At these widths the max-width:900px mobile block fires, but the layout
+   is wide enough to match the desktop card style. Un-do the two biggest
+   mobile-only decisions: stat-card centering and quadrant full-width stretch.
+   ─────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 600px) and (max-width: 900px) {
+
+  /* ── Stat cards: restore desktop flex flow ─────────────────── */
+  .stat-card {
+    height: var(--stat-card-height) !important;   /* fixed 166px, not aspect-ratio */
+    aspect-ratio: unset !important;
+    justify-content: flex-start !important;        /* icon-space → number → auto-push label */
+    padding: var(--stat-card-padding-top) 0 0 0 !important;
+  }
+
+  .stat-number {
+    margin-bottom: 24px !important;               /* restore gap between number and label */
+  }
+
+  .stat-label-bar {
+    position: static !important;                  /* back in normal flex flow */
+    bottom: unset !important;
+    left: unset !important;
+    right: unset !important;
+    margin-top: auto !important;                  /* pushes it to the card bottom */
+    padding: 12px var(--space-md) !important;
+  }
+
+  /* ── Quadrant: constrain to a reasonable square, centered ──── */
+  :root {
+    --quadrant-chart-size: 340px;
+  }
+
+  .quadrant-card {
+    width: 100% !important;       /* fill grid track so max-width can cap it */
+    max-width: 400px !important;  /* cap card at square-ish size */
+    height: auto !important;
+    aspect-ratio: 1 !important;   /* force card to be square */
+    margin: 0 auto !important;    /* center within the spanning grid area */
+    padding: var(--space-lg) !important;
+  }
+}
