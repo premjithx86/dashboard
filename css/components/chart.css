@@ -226,6 +226,7 @@
   font-weight: var(--live-exams-number-weight);
   color: var(--color-red);
   line-height: var(--live-exams-number-line-height);
+  text-align: center;
 }
 
 .live-exams-label {
@@ -234,6 +235,7 @@
   color: #fff;
   margin-top: var(--live-exams-label-margin-top);
   line-height: var(--live-exams-label-line-height);
+  text-align: center;
 }
 
 /* ── Exams status panel (right column) ───────────────────── */

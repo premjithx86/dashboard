@@ -177,19 +177,19 @@
   --chart-x-label-margin-top: 10px;
   --chart-bars-gap: 6px;
   --live-exams-block-width: auto;
-  --live-exams-block-align: flex-end;
-  --live-exams-block-justify: flex-end;
+  --live-exams-block-align: center;
+  --live-exams-block-justify: center;
   --live-exams-block-padding-top: 16px;
   --live-exams-block-margin-left: 0px;
   --live-exams-block-shift-x: 0px;
   --live-exams-block-shift-y: 0px;
   --live-exams-number-size: 80px;
   --live-exams-number-weight: 700;
-  --live-exams-number-line-height: 22px;
+  --live-exams-number-line-height: 1;
   --live-exams-label-size: 20px;
   --live-exams-label-weight: 600;
-  --live-exams-label-line-height: 20px;
-  --live-exams-label-margin-top: 60px;
+  --live-exams-label-line-height: 1;
+  --live-exams-label-margin-top: 8px;
 
   /* ── Exams Panel ────────────────────────────────────────── */
   --exams-panel-width: 100%;
