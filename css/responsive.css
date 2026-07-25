@@ -196,6 +196,10 @@
     padding: 0 16px !important;
     margin-bottom: var(--mobile-logo-gap-top) !important; /* Gap directly below the logo section header card */
     box-sizing: border-box !important;
+    
+    /* Reset desktop collective shifts */
+    left: 0 !important;
+    top: 0 !important;
   }
 
   .topbar-logo {
@@ -617,7 +621,7 @@
   }
 
   .bottom-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--responsive-row-gap); /* Customizable gap */
   }
 
@@ -631,6 +635,8 @@
     align-items: center;
     gap: var(--space-md);
     height: auto !important; /* natural vertical stack height */
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
   .chart-card {
@@ -643,6 +649,13 @@
     margin-right: auto !important;
     box-sizing: border-box;
     overflow: hidden !important;
+  }
+
+  /* Cap the plot area so it never exceeds the space left after the y-label column.
+     The flex engine can resolve to the old chart-wrapper width; max-width overrides it. */
+  .pill-plot-area {
+    max-width: calc(100% - var(--chart-y-label-width)) !important;
+    min-width: 0 !important;
   }
 
   .pill-x-labels {
