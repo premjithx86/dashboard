@@ -350,7 +350,7 @@
   --stat-card-shadow:       0 10px 30px rgba(0, 0, 0, 0.08);
 
   /* ── Responsive Card Gaps ───────────────────────────────── */
-  --responsive-grid-gap: 24px;
+  --responsive-grid-gap: 5px;
   --responsive-stats-gap-y: 64px;
   --responsive-stats-gap-x: 16px;
   --responsive-row-gap: 24px;
@@ -389,6 +389,17 @@
   --mobile-quadrant-tr-padding: 20px 0px 20px 4px;   /* MCQ (top-right) */
   --mobile-quadrant-bl-padding: 22px 20px 20px 20px;   /* Yes/No (bottom-left) */
   --mobile-quadrant-br-padding: 20px 0px 20px 10px;   /* Short Answer (bottom-right) */
+
+  /* Mobile Live Exams Counter — adjust here to change the "55 Live Exams" block in responsive view only */
+  --mobile-live-exams-margin-top: 16px;          /* gap above the block (from the chart card above) */
+  --mobile-live-exams-margin-bottom: 24px;       /* gap below the block (to the section below) */
+  --mobile-live-exams-number-size: 5rem;         /* font size of the "55" number */
+  --mobile-live-exams-number-weight: 700;        /* font weight of the "55" number */
+  --mobile-live-exams-number-color: var(--color-red); /* color of the "55" number */
+  --mobile-live-exams-label-size: 20px;          /* font size of "Live Exams" label */
+  --mobile-live-exams-label-weight: 600;         /* font weight of "Live Exams" label */
+  --mobile-live-exams-label-color: #21236A;      /* color of "Live Exams" label */
+  --mobile-live-exams-label-gap: 8px;            /* gap between "55" and "Live Exams" label */
 
   /* Mobile Exam List Card Spacing & Sizing */
   --mobile-card-gap: 1px;          /* vertical gap between each exam card */
