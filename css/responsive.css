@@ -6,6 +6,9 @@
  * ─────────────────────────────────────────────────────────────
  */
 
+/* Mobile-only chart pills — hidden on desktop, shown in the mobile media query below */
+.pill.mobile-only { display: none; }
+
 @media (max-width: 900px) {
 
   /* ── Prevent horizontal screen overflow / cutoff ──────── */
@@ -49,7 +52,7 @@
        and is capped at the user's token value on wider screens.
        Vertical dimensions (plot-height, margins) stay fixed per token. */
     --chart-wrapper-height:        auto;
-    --chart-plot-height:           var(--mobile-chart-plot-height);
+    --chart-plot-height:           clamp(130px, 50.7vw, var(--mobile-chart-plot-height));
     --chart-title-size:            clamp(11px, 4vw,    var(--mobile-chart-title-size));
     --chart-title-weight:          var(--mobile-chart-title-weight);
     --chart-title-color:           var(--mobile-chart-title-color);
@@ -702,6 +705,13 @@
     width: var(--pill-width) !important;
     border-radius: var(--pill-radius) !important;
   }
+
+  /* Reveal mobile-only pills inside the chart */
+  .pill.mobile-only { display: block; }
+
+  /* Inactive pills tagged mobile-white become the active white color on mobile,
+     allowing HIGH bars to visually reach the 40k line */
+  .pill.mobile-white { background: var(--pill-white) !important; }
 
   /* Restore horizontal title + tabs layout to match Figma.
      flex-wrap: wrap lets the tab row fall to a second line on very narrow viewports

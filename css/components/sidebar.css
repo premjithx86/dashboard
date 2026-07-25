@@ -140,7 +140,7 @@
 /* ── Badges (Live / Pending) ─────────────────────────────── */
 .nav-badge {
   font-size: var(--sidebar-badge-font-size);
-  font-weight: 700;
+  font-weight: var(--sidebar-badge-font-weight);
   padding: var(--sidebar-badge-padding-y) var(--sidebar-badge-padding-x);
   border-radius: var(--sidebar-badge-radius);
   height: var(--sidebar-badge-height);

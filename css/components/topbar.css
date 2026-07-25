@@ -16,9 +16,20 @@
   margin-top: var(--topbar-margin-top);
   margin-bottom: var(--topbar-margin-bottom);
   box-shadow: none;
+  
+  /* Shifts both logo and profile together */
+  position: relative;
+  left: var(--topbar-desktop-shift-x);
+  top: var(--topbar-desktop-shift-y);
 }
 
 /* Logo (left) */
+.topbar-logo {
+  position: relative;
+  left: var(--topbar-logo-desktop-margin-left);
+  top: var(--topbar-logo-desktop-top);
+}
+
 .topbar-logo img {
   height: var(--topbar-logo-height);
   width: auto;

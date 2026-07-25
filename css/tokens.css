@@ -33,6 +33,8 @@
   --stat-label-color:   var(--color-white);
   /* ── Topbar ─────────────────────────────────────────────── */
   --topbar-logo-height: 80px;
+  --topbar-logo-desktop-margin-left: 0px;           /* Horizontal shift: e.g. 10px shifts logo right, -10px shifts it left */
+  --topbar-logo-desktop-top: 0px;                   /* Vertical shift: e.g. 5px shifts logo down, -5px shifts it up */
   --topbar-name-size:    1.2rem;
   --topbar-name-weight:  600;
   --topbar-role-size:    0.90rem;
@@ -40,6 +42,8 @@
   --topbar-padding-y:    var(--space-sm); /* vertical padding top/bottom of the topbar header */
   --topbar-margin-bottom: 24px; /* gap/margin between topbar and the cards below it */
   --topbar-margin-top:    0px;  /* gap/margin between viewport top edge and the topbar header */
+  --topbar-desktop-shift-x: 0px;                    /* [All components horizontal shift] Shifts logo & profile together left/right */
+  --topbar-desktop-shift-y: 5px;                    /* [All components vertical shift] Shifts logo & profile together up/down */
 
   /* ── Sidebar ────────────────────────────────────────────── */
   --sidebar-width:          289px;
@@ -70,6 +74,7 @@
   --sidebar-badge-height: auto;
   --sidebar-badge-width: auto;
   --sidebar-badge-font-size: 10px;
+  --sidebar-badge-font-weight: 200;                 /* Boldness of sidebar badges (e.g. 1 Live, 3 Pending) */
 
   /* ── Table ──────────────────────────────────────────────── */
   --table-header-bg:       var(--color-navy);      /* [Header background] The dark blue background of the table header card */
@@ -429,18 +434,18 @@
   --mobile-chart-x-label-weight: 50;          /* X-axis label font weight */
   --mobile-chart-x-label-color: #FFFFFF;       /* X-axis label color */
   --mobile-chart-x-label-margin-left: 8px;    /* X-axis labels left offset (aligns with bars) */
-  --mobile-chart-x-label-gap: 2px;            /* gap between each X-axis label (Jan, Feb, …) — independent of bar column gap */
+  --mobile-chart-x-label-gap: 0px;            /* gap between each X-axis label (Jan, Feb, …) — independent of bar column gap */
   --mobile-chart-x-label-margin-top: 15px;      /* gap above X-axis labels */
   --mobile-chart-bars-gap: 5px;                /* horizontal gap between monthly bar columns */
   --mobile-chart-grid-color: #E0C185;          /* grid line color */
   --mobile-chart-grid-thickness: 1px;          /* grid line thickness */
   /* Mobile Pills */
   --mobile-pill-width: 20px;                   /* width of each pill/capsule */
-  --mobile-pill-gap: 7px;                      /* vertical gap between pills within a column */
+  --mobile-pill-gap: 10px;                      /* vertical gap between pills within a column */
   --mobile-pill-radius: 98px;                  /* pill border radius */
   --mobile-pill-red: #DF001B;                  /* active red pill color */
   --mobile-pill-white: #F0F1F1;                /* active white pill color */
-  --mobile-pill-height: 18px;                  /* pill height — 'auto' fills chart proportionally (no gap); set a fixed value e.g. 10px for fixed-size pills */
+  --mobile-pill-height: 8px;                  /* pill height — 'auto' fills chart proportionally (no gap); set a fixed value e.g. 10px for fixed-size pills */
 
   /* Mobile Exam List Card Spacing & Sizing */
   --mobile-card-gap: 1px;          /* vertical gap between each exam card */
