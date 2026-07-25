@@ -42,7 +42,7 @@
   font-size: var(--chart-title-size);
   font-weight: var(--chart-title-weight);
   line-height: var(--chart-title-line-height);
-  color: #fff;
+  color: var(--chart-title-color);
 }
 
 /* Month / Week / Day tabs */
@@ -108,7 +108,8 @@
   justify-content: space-between;
   height: var(--chart-plot-height);
   font-size: var(--chart-y-label-size);
-  color: #FFFFFF;
+  font-weight: var(--chart-y-label-weight);
+  color: var(--chart-y-label-color);
   width: var(--chart-y-label-width);
   flex-shrink: 0;
   text-align: right;
@@ -195,7 +196,8 @@
   flex: 1;
   text-align: center;
   font-size: var(--chart-x-label-size);
-  color: #FFFFFF;
+  font-weight: var(--chart-x-label-weight);
+  color: var(--chart-x-label-color);
   white-space: nowrap;
 }
 

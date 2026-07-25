@@ -153,12 +153,21 @@
   --chart-title-size: 16px;
   --chart-title-weight: 500;
   --chart-title-line-height: 19px;
+  --chart-title-color: #FFFFFF;
+
+  /* Y-axis & X-axis scale labels */
+  --chart-y-label-size: 0.7rem;
+  --chart-y-label-weight: 400;
+  --chart-y-label-color: #FFFFFF;
+  --chart-x-label-size: 0.7rem;
+  --chart-x-label-weight: 400;
+  --chart-x-label-color: #FFFFFF;
   --chart-tab-size: 16px;
   --chart-tab-weight: 500;
   --chart-tab-line-height: 19px;
   --chart-tab-gap: 10px;
   --chart-tab-width: 90px;
-  --chart-tab-height: 38px;
+  --chart-tab-height: 45px;
   --chart-tab-radius: 9px;
   --chart-tab-color: #797979;
   --chart-tab-bg: #F0F1F1;
@@ -182,14 +191,14 @@
   --live-exams-block-padding-top: 16px;
   --live-exams-block-margin-left: 0px;
   --live-exams-block-shift-x: 0px;
-  --live-exams-block-shift-y: 0px;
+  --live-exams-block-shift-y: -45px;
   --live-exams-number-size: 80px;
   --live-exams-number-weight: 700;
   --live-exams-number-line-height: 1;
   --live-exams-label-size: 20px;
   --live-exams-label-weight: 600;
   --live-exams-label-line-height: 1;
-  --live-exams-label-margin-top: 8px;
+  --live-exams-label-margin-top: 40px;
 
   /* ── Exams Panel ────────────────────────────────────────── */
   --exams-panel-width: 100%;
