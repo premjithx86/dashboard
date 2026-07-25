@@ -84,6 +84,41 @@
   --action-btn-radius-1: 14px;
   --action-btn-radius-2: 14px;
   --action-btn-radius-3: 50%;
+
+  /* ── Table Rows Customization ───────────────────────────── */
+  --table-row-radius: 12px;
+  --table-row-height: auto;
+  --table-row-padding-y: 18px;
+  --table-row-padding-x: 20px;
+  --table-row-margin-bottom: 8px;
+
+  /* Table column separator lines (vertical gridlines) */
+  --table-col-border-color: rgba(255, 255, 255, 0.15); /* Separator line color for header */
+  --table-col-border-width: 1px;                        /* Separator line thickness for header */
+  --table-row-border-color: #DBDCE4;                    /* Separator line color for body rows */
+  --table-row-border-width: 1px;                        /* Separator line thickness for body rows */
+  --table-col-padding-left: 20px;                       /* Left spacing gap next to column lines */
+
+  /* Text inside table rows typography */
+  --table-date-font-size: 0.875rem;
+  --table-date-font-weight: 700;
+  --table-date-font-style: normal;
+  --table-date-color: #21236A;
+
+  --table-time-font-size: 0.78rem;
+  --table-time-font-weight: 400;
+  --table-time-font-style: normal;
+  --table-time-color: rgba(33, 35, 106, 0.7);
+
+  --table-name-font-size: 0.875rem;
+  --table-name-font-weight: 700;
+  --table-name-font-style: normal;
+  --table-name-color: #21236A;
+
+  --table-code-font-size: 0.78rem;
+  --table-code-font-weight: 400;
+  --table-code-font-style: normal;
+  --table-code-color: rgba(33, 35, 106, 0.7);
   /* ── Top Academies ──────────────────────────────────────── */
   --academies-header-bg: #DBDCE4;
   --academies-header-color: #21236A;

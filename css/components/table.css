@@ -83,8 +83,7 @@
   padding: 16px 20px;
   display: flex;
   align-items: center;
-  border: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.15); /* translucent separator in header */
+  border-right: var(--table-col-border-width) solid var(--table-col-border-color); /* vertical separator line */
   box-sizing: border-box;
   white-space: nowrap;
 }
@@ -113,9 +112,9 @@
 .exam-table tbody tr {
   display: flex;
   width: 100%;
-  border-radius: 12px; /* each row has rounded corners */
+  border-radius: var(--table-row-radius); /* each row has rounded corners */
   border: 1px solid var(--table-row-border);
-  margin-bottom: 8px; /* space/gap between body row cards */
+  margin-bottom: var(--table-row-margin-bottom); /* space/gap between body row cards */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* row card shadow */
   overflow: hidden;
   box-sizing: border-box;
@@ -136,12 +135,12 @@
 }
 
 .exam-table tbody td {
-  padding: 18px 20px; /* generous padding */
+  padding: var(--table-row-padding-y) var(--table-row-padding-x); /* generous padding */
   color: var(--table-row-color); /* dark navy text */
   display: flex;
   align-items: center;
-  border: none;
-  border-right: 1px solid var(--table-row-border); /* cell dividers inside row cards */
+  height: var(--table-row-height);
+  border-right: var(--table-row-border-width) solid var(--table-row-border-color); /* cell dividers inside row cards */
   box-sizing: border-box;
 }
 
@@ -158,8 +157,9 @@
 .exam-table td:nth-child(1) {
   width: 70px;
   flex-shrink: 0;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding-left: var(--table-col-padding-left) !important;
   font-weight: 600;
 }
 
@@ -168,7 +168,8 @@
 .exam-table td:nth-child(2) {
   flex: 1 1 30%;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: var(--table-col-padding-left) !important;
 }
 .exam-table td:nth-child(2) {
   flex-direction: column;
@@ -179,7 +180,8 @@
 .exam-table td:nth-child(3) {
   flex: 2 1 45%;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: var(--table-col-padding-left) !important;
 }
 .exam-table td:nth-child(3) {
   flex-direction: column;
@@ -191,38 +193,45 @@
   width: 130px;
   flex-shrink: 0;
   justify-content: flex-start;
+  padding-left: var(--table-col-padding-left) !important;
 }
 
-/* Column 5: Action (Right-aligned icon circles) */
+/* Column 5: Action (Center-aligned button and chevrons) */
 .exam-table th:nth-child(5),
 .exam-table td:nth-child(5) {
   width: 160px;
   flex-shrink: 0;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 /* ── Typography & Data Details ────────────────────────────── */
 .exam-date {
-  font-weight: 700;
-  color: #21236A;
-  font-size: 0.875rem;
+  font-weight: var(--table-date-font-weight);
+  color: var(--table-date-color);
+  font-size: var(--table-date-font-size);
+  font-style: var(--table-date-font-style);
 }
 
 .exam-time {
-  font-size: 0.78rem;
-  color: rgba(33, 35, 106, 0.7); /* Muted navy text */
+  font-size: var(--table-time-font-size);
+  font-weight: var(--table-time-font-weight);
+  font-style: var(--table-time-font-style);
+  color: var(--table-time-color);
   margin-top: 3px;
 }
 
 .exam-name {
-  font-weight: 700;
-  color: #21236A;
-  font-size: 0.875rem;
+  font-weight: var(--table-name-font-weight);
+  color: var(--table-name-color);
+  font-size: var(--table-name-font-size);
+  font-style: var(--table-name-font-style);
 }
 
 .exam-code {
-  font-size: 0.78rem;
-  color: rgba(33, 35, 106, 0.7); /* Muted navy text */
+  font-size: var(--table-code-font-size);
+  font-weight: var(--table-code-font-weight);
+  font-style: var(--table-code-font-style);
+  color: var(--table-code-color);
   margin-top: 3px;
 }
 
