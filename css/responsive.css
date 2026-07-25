@@ -325,9 +325,12 @@
     justify-content: space-between !important;
     align-items: center !important;
     flex-wrap: nowrap !important; /* Force single horizontal line matching Figma */
-    padding: 12px 10px !important;
+    padding: 12px 8px !important;
     font-size: 11px !important;
     gap: 4px !important;
+    transform: scale(var(--mobile-pagination-scale)) !important;
+    transform-origin: center !important;
+    box-sizing: border-box !important;
   }
 
   /* Hide Page 4 and Page 5 on mobile/tablet screens */
@@ -340,18 +343,58 @@
     transform: none !important;
     display: flex !important;
     align-items: center !important;
-    gap: 4px !important;
+    gap: var(--mobile-pagination-gap) !important;
   }
 
-  .pagination-pages .page-btn {
-    width: 26px !important;
+  /* Inactive page numbers */
+  .pagination-pages .page-btn:not(.active):not(.arrow) {
+    border: none !important;
+    background: transparent !important;
+    color: var(--table-pagination-inactive-color) !important;
+    font-size: var(--table-pagination-size) !important;
+    font-weight: var(--table-pagination-weight) !important;
+    line-height: var(--table-pagination-line-height) !important;
+    cursor: pointer !important;
+    width: auto !important;
+    min-width: 20px !important;
     height: 26px !important;
-    font-size: 11px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
+  /* Active page number (dark circle with concentric outer border ring) */
   .pagination-pages .page-btn.active {
-    width: 26px !important;
-    height: 26px !important;
+    background: var(--table-pagination-active-bg) !important;
+    color: var(--table-pagination-active-color) !important;
+    border-radius: 50% !important;
+    border: var(--table-pagination-active-border-width) solid var(--table-pagination-active-border-color) !important;
+    background-clip: padding-box !important;
+    width: var(--mobile-pagination-active-size) !important;
+    height: var(--mobile-pagination-active-size) !important;
+    font-size: var(--table-pagination-size) !important;
+    font-weight: var(--table-pagination-weight) !important;
+    line-height: var(--table-pagination-line-height) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: content-box !important;
+  }
+
+  /* Arrow page buttons (rounded square borders) */
+  .pagination-pages .page-btn.arrow {
+    background: var(--table-pagination-arrow-bg) !important;
+    border: var(--table-pagination-arrow-border-width) solid var(--table-pagination-arrow-color) !important;
+    border-radius: var(--table-pagination-arrow-radius) !important;
+    width: var(--mobile-pagination-arrow-size) !important;
+    height: var(--mobile-pagination-arrow-size) !important;
+    color: var(--table-pagination-arrow-color) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    font-size: 11px !important;
+    cursor: pointer !important;
   }
 
   .pagination-left {

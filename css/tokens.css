@@ -223,4 +223,8 @@
   --mobile-topbar-height: 70px;
   --mobile-logo-gap-top: 45px;
   --mobile-stats-margin-top: 24px;
+  --mobile-pagination-scale: 1.0;
+  --mobile-pagination-active-size: 26px;
+  --mobile-pagination-arrow-size: 28px;
+  --mobile-pagination-gap: 6px;
 }
