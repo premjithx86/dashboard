@@ -55,8 +55,6 @@
     
     /* Compact exams card items */
     --exams-item-padding: 10px 16px;
-    --exams-count-size: 1.25rem;
-    --exams-label-size: 0.75rem;
   }
 
   /* ── Body Scroll Lock when Menu Open ────────────────────── */
