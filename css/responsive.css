@@ -334,7 +334,7 @@
   }
 
   /* Hide Page 4 and Page 5 on mobile/tablet screens */
-  .desktop-only-page {
+  .pagination-pages .page-btn.desktop-only-page {
     display: none !important;
   }
 
