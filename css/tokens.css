@@ -219,8 +219,8 @@
   --responsive-row-gap: 24px;
 
   /* ── Mobile/Tablet Layout Customization ─────────────────── */
-  --mobile-logo-height: 40px;
-  --mobile-topbar-height: 70px;
+  --mobile-topbar-height: 200px;
+  --mobile-logo-height: calc(var(--mobile-topbar-height) * 0.57); /* Auto-proportioned to topbar height (57%). Replace with a fixed value (e.g. 50px) to lock size. */
   --mobile-logo-gap-top: 45px;
   --mobile-stats-margin-top: 24px;
   --mobile-pagination-scale: 1.0;
