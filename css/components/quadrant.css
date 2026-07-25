@@ -63,10 +63,10 @@
   transform: translate(-50%, -50%);
 }
 
-.quadrant-dot.top    { top: 0;    left: 50%; }
-.quadrant-dot.bottom { top: 100%; left: 50%; }
-.quadrant-dot.left   { top: 50%;  left: 0;   }
-.quadrant-dot.right  { top: 50%;  left: 100%; }
+.quadrant-dot.top    { top: calc(50% - var(--quadrant-line-length) / 2); left: 50%; }
+.quadrant-dot.bottom { top: calc(50% + var(--quadrant-line-length) / 2); left: 50%; }
+.quadrant-dot.left   { top: 50%; left: calc(50% - var(--quadrant-line-length) / 2); }
+.quadrant-dot.right  { top: 50%; left: calc(50% + var(--quadrant-line-length) / 2); }
 
 /* ── Center diamond ──────────────────────────────────────── */
 .quadrant-center {

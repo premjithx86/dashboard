@@ -30,6 +30,7 @@
     --quadrant-chart-size: 260px;
     --quadrant-font-size: 15px;
     --quadrant-count-size: 11px;
+    --quadrant-diamond-size: 14px;  /* center red square size in responsive view */
     --quadrant-tl-top: 15%;
     --quadrant-tl-left: 8%;
     --quadrant-tr-top: 15%;
