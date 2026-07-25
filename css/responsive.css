@@ -85,7 +85,7 @@
     border: none !important;
     border-radius: 12px !important;
     cursor: pointer;
-    position: fixed;
+    position: absolute !important; /* Scrolls with the topbar header */
     left: 16px;
     top: calc((var(--mobile-topbar-height) - 44px) / 2) !important; /* Centers hamburger vertically */
     z-index: 1001;
@@ -113,24 +113,26 @@
   .main {
     margin-left: 0;
     padding: var(--space-md);
-    padding-top: calc(var(--mobile-topbar-height) + var(--mobile-logo-gap-top, 45px)); /* space clearing for fixed topbar */
+    padding-top: var(--space-md) !important; /* Normal padding flow since topbar sits in DOM now */
     gap: var(--responsive-row-gap); /* Customizable gap between rows/cards */
   }
 
-  /* ── Centered Topbar (Figma Mobile Design Style) ────────── */
+  /* ── Centered Topbar (Figma Mobile Design Style - Scrolling in DOM) ── */
   .topbar {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
+    position: relative !important; /* Moves down with user scrolling flow */
+    width: calc(100% + 32px) !important; /* Offsets .main padding (16px left/right) to span full screen */
+    margin-left: -16px !important; /* Flush align to viewport left edge */
+    margin-right: -16px !important; /* Flush align to viewport right edge */
+    margin-top: -16px !important; /* Flush align to viewport top edge */
     height: var(--mobile-topbar-height) !important;
     background: #F0F1F1 !important; /* transparent screen background fit */
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     z-index: 998 !important;
     padding: 0 16px !important;
+    margin-bottom: var(--mobile-logo-gap-top) !important; /* Gap directly below the logo section header card */
     box-sizing: border-box !important;
   }
 
@@ -439,10 +441,34 @@
   .chart-card {
     background: var(--color-navy);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: 12px !important; /* Reduced padding from 24px (var(--space-lg)) to make room for labels inside the 393px width */
     width: 100%;
     box-sizing: border-box;
     margin-right: 0 !important;
+  }
+
+  .pill-x-labels {
+    display: flex !important;
+    gap: 4px !important; /* Reduced gap between month labels */
+    margin-left: 20px !important; /* Offset alignment for month labels */
+  }
+
+  .pill-x-label {
+    flex: 1 !important;
+    text-align: center !important;
+    font-size: 9px !important; /* Slightly smaller label typography to avoid overflow */
+    color: #FFFFFF !important;
+  }
+
+  .pill-y-labels {
+    height: var(--chart-plot-height) !important;
+    font-size: 9px !important; /* Compact typography for vertical scale labels */
+    width: 20px !important; /* Shift labels closer to edge */
+    padding-right: 2px !important;
+  }
+
+  .pill-plot-area {
+    margin-left: 2px !important;
   }
 
   .chart-top {
