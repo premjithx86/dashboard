@@ -113,7 +113,7 @@
   .main {
     margin-left: 0;
     padding: var(--space-md);
-    padding-top: calc(var(--mobile-topbar-height) + 16px); /* space clearing for fixed topbar */
+    padding-top: calc(var(--mobile-topbar-height) + var(--mobile-logo-gap-top, 45px)); /* space clearing for fixed topbar */
     gap: var(--responsive-row-gap); /* Customizable gap between rows/cards */
   }
 
@@ -162,7 +162,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--responsive-stats-gap-y) var(--responsive-stats-gap-x); /* Customizable vertical/horizontal gaps */
     justify-content: stretch;
-    margin-top: 12px;
+    margin-top: var(--mobile-stats-margin-top);
   }
 
   .stat-card {
