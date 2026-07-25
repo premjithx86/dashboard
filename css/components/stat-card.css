@@ -66,7 +66,9 @@
   font-weight: var(--stat-number-weight);
   color: var(--color-navy); /* #1D2465 */
   line-height: 1;
-  margin-bottom: 24px;
+  margin-bottom: var(--stat-number-desktop-margin-bottom);
+  position: relative;
+  top: var(--stat-number-desktop-top);
 }
 
 /* Coloured footer strip */

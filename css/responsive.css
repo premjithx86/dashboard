@@ -19,9 +19,9 @@
   :root {
     --sidebar-width: 0px;
     
-    /* Shrink stats numbers for smaller screen spacing */
-    --stat-number-size: clamp(18px, 5.5vw, 32px);
-    --stat-number-weight: 600;
+    /* Stat number: slightly larger for mobile so it matches Figma weight */
+    --stat-number-size: var(--mobile-stat-number-size);
+    --stat-number-weight: 700;
     --stat-label-size: clamp(10px, 1.8vw, 13px);
 
     /* Scaled down quadrant variables for mobile fitting */
@@ -53,12 +53,15 @@
     --chart-x-label-margin-left: 25px;
     --chart-x-label-margin-top: 6px;
     
+    /* Gap between stat cards and quadrant box in mobile view */
+    --mobile-quadrant-top-gap: 16px;
+
     /* Compact exams card items */
     --exams-item-padding: 10px 16px;
 
-    /* Stat card: scale icon and padding with viewport so layout stays proportional */
-    --stat-card-icon-size: clamp(32px, 11vw, 72px);
-    --stat-card-padding-top: clamp(20px, 8vw, 52px);
+    /* Stat card: use mobile tokens from tokens.css — adjust those to resize icon/height/padding */
+    --stat-card-icon-size: var(--mobile-stat-card-icon-size);
+    --stat-card-padding-top: var(--mobile-stat-card-padding-top);
   }
 
   /* ── Body Scroll Lock when Menu Open ────────────────────── */
@@ -204,23 +207,28 @@
   .stat-card {
     max-width: 100%;
     min-width: 0;
-    height: auto;
-    aspect-ratio: 300 / 166;
-    justify-content: center;
-    padding: 0;
+    height: var(--mobile-stat-card-height) !important;
+    aspect-ratio: unset !important;
+    justify-content: flex-start !important;
+    padding: var(--mobile-stat-card-padding-top) 0 0 0 !important;
   }
 
   .stat-number {
-    margin: 0;
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    top: 0 !important;
   }
 
   .stat-label-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-top: 0;
-    padding: 6px var(--space-sm);
+    position: static !important;
+    bottom: unset !important;
+    left: unset !important;
+    right: unset !important;
+    margin-top: 0 !important;
+    padding: var(--mobile-stat-label-padding) !important;
   }
 
   /* ── Scaled Quadrant Chart Sizing ───────────────────────── */
@@ -230,6 +238,7 @@
     height: auto !important;
     aspect-ratio: 1 !important;
     padding: var(--space-lg);
+    margin-top: var(--mobile-quadrant-top-gap) !important; /* clears desktop negative margin-top */
   }
 
   .quadrant {
@@ -692,7 +701,12 @@
   }
 
   .stat-number {
-    margin-bottom: 24px !important;               /* restore gap between number and label */
+    flex: unset !important;
+    display: block !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    margin-bottom: 24px !important;
+    top: 0 !important;
   }
 
   .stat-label-bar {

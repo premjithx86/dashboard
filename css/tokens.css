@@ -26,6 +26,8 @@
   --stat-number-size:   2.625rem;   /* 42px */
   --stat-number-weight: 700;
   --stat-number-color:  var(--color-navy);
+  --stat-number-desktop-top: 11px;                   /* [Desktop relative shift] e.g. 10px shifts number down, -10px shifts it up */
+  --stat-number-desktop-margin-bottom: 0px;         /* [Desktop bottom gap] spacing margin below the number */
   --stat-label-size:    0.875rem;
   --stat-label-weight:  100;
   --stat-label-color:   var(--color-white);
@@ -338,9 +340,9 @@
   --radius-lg: 16px;
 
   /* ── KPI Stat Cards ─────────────────────────────────────── */
-  --stat-card-radius:       20px;
+  --stat-card-radius:       10px;
   --stat-card-icon-size:    72px;
-  --stat-card-height:       166px;
+  --stat-card-height:       160px;
   --stat-card-max-width:    300px;
   --stat-card-padding-top:  52px;
   --stat-card-gap-x:        27px;
@@ -356,12 +358,19 @@
   /* ── Mobile/Tablet Layout Customization ─────────────────── */
   --mobile-topbar-height: 70px;
   --mobile-logo-height: calc(var(--mobile-topbar-height) * 1); /* Auto-proportioned to topbar height (57%). Replace with a fixed value (e.g. 50px) to lock size. */
-  --mobile-logo-gap-top: 45px;
-  --mobile-stats-margin-top: 24px;
+  --mobile-logo-gap-top: 0px;
+  --mobile-stats-margin-top: 30px;
   --mobile-pagination-scale: 1.0;
   --mobile-pagination-active-size: 26px;
   --mobile-pagination-arrow-size: 28px;
   --mobile-pagination-gap: 6px;
+
+  /* Mobile Stat Card Sizing — adjust here to change mobile cards independently of desktop */
+  --mobile-stat-card-height: 120px;           /* card fixed height in mobile view */
+  --mobile-stat-card-icon-size: clamp(46px, 10vw, 66px); /* icon circle size; scales with viewport */
+  --mobile-stat-card-padding-top: clamp(10px, 7vw, 40px); /* top padding for icon overlap clearance */
+  --mobile-stat-number-size: clamp(22px, 7vw, 36px);      /* stat number font size in mobile */
+  --mobile-stat-label-padding: 12px var(--space-sm);        /* padding inside the coloured footer strip (top/bottom controls height) */
 
   /* Mobile Exam List Card Spacing & Sizing */
   --mobile-card-gap: 1px;          /* vertical gap between each exam card */
