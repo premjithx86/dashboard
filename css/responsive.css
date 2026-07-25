@@ -87,7 +87,7 @@
     cursor: pointer;
     position: fixed;
     left: 16px;
-    top: 13px;
+    top: calc((var(--mobile-topbar-height) - 44px) / 2) !important; /* Centers hamburger vertically */
     z-index: 1001;
     padding: 0 10px; /* Centers lines inside the button block */
     box-sizing: border-box;
@@ -100,6 +100,7 @@
     background: #FFFFFF !important;
     border-radius: 2px;
     transition: all 0.2s ease;
+    margin: 0 !important; /* Overrides desktop sidebar.css spacing pushing lines out */
   }
 
   /* Figma menu icon line widths matching the mockup image */
@@ -112,7 +113,7 @@
   .main {
     margin-left: 0;
     padding: var(--space-md);
-    padding-top: 86px; /* space clearing for fixed topbar */
+    padding-top: calc(var(--mobile-topbar-height) + 16px); /* space clearing for fixed topbar */
     gap: var(--responsive-row-gap); /* Customizable gap between rows/cards */
   }
 
@@ -125,7 +126,7 @@
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 70px !important;
+    height: var(--mobile-topbar-height) !important;
     background: #F0F1F1 !important; /* transparent screen background fit */
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     z-index: 998 !important;
@@ -141,7 +142,7 @@
   }
 
   .topbar-logo img {
-    height: 40px !important;
+    height: var(--mobile-logo-height) !important;
     width: auto !important;
   }
 

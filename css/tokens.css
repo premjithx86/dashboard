@@ -213,8 +213,12 @@
   --stat-card-gap-y:        60px;
 
   /* ── Responsive Card Gaps ───────────────────────────────── */
-  --responsive-grid-gap: 16px;
-  --responsive-stats-gap-y: 16px;
+  --responsive-grid-gap: 24px;
+  --responsive-stats-gap-y: 24px;
   --responsive-stats-gap-x: 16px;
   --responsive-row-gap: 24px;
+
+  /* ── Mobile/Tablet Layout Customization ─────────────────── */
+  --mobile-logo-height: 40px;
+  --mobile-topbar-height: 70px;
 }
