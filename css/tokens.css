@@ -141,39 +141,47 @@
   --quadrant-label-max-width: 40%;      /* max width — prevents left/right overlap */
 
   /* ── AI Generated (top-left) ──────────────────────────── */
-  --quadrant-tl-top:        12%;
-  --quadrant-tl-left:       10%;
-  --quadrant-tl-width:      auto;
-  --quadrant-tl-max-width:  var(--quadrant-label-max-width);
-  --quadrant-tl-font-size:  var(--quadrant-font-size);
-  --quadrant-tl-count-size: var(--quadrant-count-size);
+  --quadrant-tl-top:           12%;   /* distance from top edge */
+  --quadrant-tl-left:          10%;   /* distance from left edge */
+  --quadrant-tl-offset-x:      0px;   /* fine-tune: nudge left(-) / right(+) */
+  --quadrant-tl-offset-y:      0px;   /* fine-tune: nudge up(-) / down(+) */
+  --quadrant-tl-width:         auto;
+  --quadrant-tl-max-width:     var(--quadrant-label-max-width);
+  --quadrant-tl-font-size:     var(--quadrant-font-size);
+  --quadrant-tl-count-size:    var(--quadrant-count-size);
   --quadrant-tl-count-padding: var(--quadrant-count-padding);
 
   /* ── MCQ (top-right) ──────────────────────────────────── */
-  --quadrant-tr-top:        12%;
-  --quadrant-tr-right:      10%;
-  --quadrant-tr-width:      auto;
-  --quadrant-tr-max-width:  var(--quadrant-label-max-width);
-  --quadrant-tr-font-size:  var(--quadrant-font-size);
-  --quadrant-tr-count-size: var(--quadrant-count-size);
+  --quadrant-tr-top:           12%;   /* distance from top edge */
+  --quadrant-tr-right:         10%;   /* distance from right edge */
+  --quadrant-tr-offset-x:      0px;   /* fine-tune: nudge left(-) / right(+) */
+  --quadrant-tr-offset-y:      0px;   /* fine-tune: nudge up(-) / down(+) */
+  --quadrant-tr-width:         auto;
+  --quadrant-tr-max-width:     var(--quadrant-label-max-width);
+  --quadrant-tr-font-size:     var(--quadrant-font-size);
+  --quadrant-tr-count-size:    var(--quadrant-count-size);
   --quadrant-tr-count-padding: var(--quadrant-count-padding);
 
   /* ── Yes/No (bottom-left) ────────────────────────────── */
-  --quadrant-bl-bottom:     12%;
-  --quadrant-bl-left:       10%;
-  --quadrant-bl-width:      auto;
-  --quadrant-bl-max-width:  var(--quadrant-label-max-width);
-  --quadrant-bl-font-size:  var(--quadrant-font-size);
-  --quadrant-bl-count-size: var(--quadrant-count-size);
+  --quadrant-bl-bottom:        12%;   /* distance from bottom edge */
+  --quadrant-bl-left:          10%;   /* distance from left edge */
+  --quadrant-bl-offset-x:      0px;   /* fine-tune: nudge left(-) / right(+) */
+  --quadrant-bl-offset-y:      0px;   /* fine-tune: nudge up(-) / down(+) */
+  --quadrant-bl-width:         auto;
+  --quadrant-bl-max-width:     var(--quadrant-label-max-width);
+  --quadrant-bl-font-size:     var(--quadrant-font-size);
+  --quadrant-bl-count-size:    var(--quadrant-count-size);
   --quadrant-bl-count-padding: var(--quadrant-count-padding);
 
   /* ── Short Answer (bottom-right) ─────────────────────── */
-  --quadrant-br-bottom:     12%;
-  --quadrant-br-right:      10%;
-  --quadrant-br-width:      auto;
-  --quadrant-br-max-width:  var(--quadrant-label-max-width);
-  --quadrant-br-font-size:  var(--quadrant-font-size);
-  --quadrant-br-count-size: var(--quadrant-count-size);
+  --quadrant-br-bottom:        12%;   /* distance from bottom edge */
+  --quadrant-br-right:         10%;   /* distance from right edge */
+  --quadrant-br-offset-x:      0px;   /* fine-tune: nudge left(-) / right(+) */
+  --quadrant-br-offset-y:      0px;   /* fine-tune: nudge up(-) / down(+) */
+  --quadrant-br-width:         auto;
+  --quadrant-br-max-width:     var(--quadrant-label-max-width);
+  --quadrant-br-font-size:     var(--quadrant-font-size);
+  --quadrant-br-count-size:    var(--quadrant-count-size);
   --quadrant-br-count-padding: var(--quadrant-count-padding);
 
   --quadrant-pill-bg: #E9E9F1;
