@@ -133,36 +133,48 @@
   --quadrant-card-height: 467px;
   --quadrant-chart-size: 380px;
 
-  /* Global defaults — change these to resize all four sections at once */
-  --quadrant-font-size:      1.8rem;      /* label text size for all sections */
-  --quadrant-count-size:     0.75rem;   /* count number size for all sections */
-  --quadrant-count-padding:  4px 12px;  /* count pill padding for all sections */
-  --quadrant-label-gap:      60px;      /* gap between label text and count pill */
+  /* Global defaults — change these to affect all four sections at once */
+  --quadrant-font-size:      1.7rem;    /* label text size */
+  --quadrant-font-weight:    700;       /* label text weight */
+  --quadrant-count-size:     0.8rem;   /* count pill font size */
+  --quadrant-count-weight:   700;      /* count pill font weight */
+  --quadrant-count-padding:  8px 22px; /* count pill padding */
+  --quadrant-label-gap:      20px;     /* gap between label text and count pill */
 
   /* ── AI Generated (top-left) ──────────────────────────── */
   --quadrant-tl-font-size:     var(--quadrant-font-size);
+  --quadrant-tl-font-weight:   450;
   --quadrant-tl-count-size:    var(--quadrant-count-size);
   --quadrant-tl-count-padding: var(--quadrant-count-padding);
+  --quadrant-tl-padding:       30px 4px 0px 0px;    /* cell padding — shifts label within its quadrant */
 
   /* ── MCQ (top-right) ──────────────────────────────────── */
   --quadrant-tr-font-size:     var(--quadrant-font-size);
+  --quadrant-tr-font-weight:   450;
   --quadrant-tr-count-size:    var(--quadrant-count-size);
   --quadrant-tr-count-padding: var(--quadrant-count-padding);
+  --quadrant-tr-padding:       30px 0px 0px 0px;
 
   /* ── Yes/No (bottom-left) ────────────────────────────── */
   --quadrant-bl-font-size:     var(--quadrant-font-size);
+  --quadrant-bl-font-weight:   450;
   --quadrant-bl-count-size:    var(--quadrant-count-size);
   --quadrant-bl-count-padding: var(--quadrant-count-padding);
+  --quadrant-bl-padding:      0px 4px 30px 0px;
 
   /* ── Short Answer (bottom-right) ─────────────────────── */
   --quadrant-br-font-size:     var(--quadrant-font-size);
+  --quadrant-br-font-weight:   450;
   --quadrant-br-count-size:    var(--quadrant-count-size);
   --quadrant-br-count-padding: var(--quadrant-count-padding);
+  --quadrant-br-padding:       0px 0px 30px 4px;;
 
   --quadrant-pill-bg: #E9E9F1;
   --quadrant-pill-color: #21236A;
   --quadrant-pill-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   --quadrant-shapes-scale: 1;
+  --quadrant-line-length:  110%;  /* length of all 4 crosshair arms — use % for relative or px for fixed */
+  --quadrant-diamond-size: 26px;  /* size of the center red square */
 
   /* ── Student Added Chart ────────────────────────────────── */
   --chart-wrapper-height: auto;
