@@ -128,11 +128,17 @@
 
 /* ── Badges (Live / Pending) ─────────────────────────────── */
 .nav-badge {
-  font-size: 0.65rem;
+  font-size: var(--sidebar-badge-font-size);
   font-weight: 700;
-  padding: 1px 6px;
-  border-radius: 99px;
+  padding: var(--sidebar-badge-padding-y) var(--sidebar-badge-padding-x);
+  border-radius: var(--sidebar-badge-radius);
+  height: var(--sidebar-badge-height);
+  width: var(--sidebar-badge-width);
   line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .badge-live    { background: var(--color-red);  color: #fff; }

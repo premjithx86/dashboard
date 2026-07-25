@@ -45,6 +45,12 @@
   --sidebar-chevron-color: #BCBFC5;
   --sidebar-nav-item-padding: 13px 16px;
   --sidebar-nav-item-margin: 1px 8px;
+  --sidebar-badge-radius: 8px;
+  --sidebar-badge-padding-y: 2px;
+  --sidebar-badge-padding-x: 8px;
+  --sidebar-badge-height: auto;
+  --sidebar-badge-width: auto;
+  --sidebar-badge-font-size: 10px;
 
   /* ── Table ──────────────────────────────────────────────── */
   --table-header-bg:       var(--color-navy);      /* [Header background] The dark blue background of the table header card */
@@ -72,7 +78,7 @@
   --table-pagination-arrow-bg:       #DBDCE4;      /* [Arrow background] Background color of the page arrow buttons */
   --table-pagination-arrow-border-width: 2px;      /* [Arrow border thickness] The thickness of the page arrow button outline */
   --table-pagination-arrow-radius:   10px;         /* [Arrow border radius] Rounded corners for the page arrow buttons */
-  --table-pagination-pages-shift:    150px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */
+  --table-pagination-pages-shift:    130px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */
   --table-sort-arrow-color: #FFFFFF;
   --action-btn-border-color: #DBDCE4;
   --action-btn-radius-1: 14px;
