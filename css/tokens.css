@@ -27,7 +27,7 @@
   --stat-number-weight: 700;
   --stat-number-color:  var(--color-navy);
   --stat-label-size:    0.875rem;
-  --stat-label-weight:  500;
+  --stat-label-weight:  100;
   --stat-label-color:   var(--color-white);
   /* ── Topbar ─────────────────────────────────────────────── */
   --topbar-logo-height: 80px;
@@ -100,6 +100,10 @@
   --table-pagination-arrow-radius:   10px;         /* [Arrow border radius] Rounded corners for the page arrow buttons */
   --table-pagination-pages-shift:    130px;          /* [Position page numbers] Shifting page numbers left/right. E.g. set to 20px or -20px */
   --table-sort-arrow-color: #FFFFFF;
+  --table-sort-arrow-width:  10px;  /* Width of the sort icon */
+  --table-sort-arrow-height: 14px;  /* Height of the sort icon */
+  --table-sort-arrow-weight: 3.5;   /* Boldness of arrow lines (stroke-width) */
+  --table-sort-arrow-gap-shift: 0px; /* Adjust gap: positive value pulls arrows closer, negative value pushes them apart */
   --action-btn-border-color: #DBDCE4;
   --action-btn-radius-1: 14px;
   --action-btn-radius-2: 14px;
@@ -144,11 +148,19 @@
   --academies-header-size:  1.2rem;              /* Font size of Top Academies header card */
   --academies-header-weight: 400;                  /* Boldness of Top Academies header card */
   --academies-card-bg: #FFFFFF;
-  --academies-name-color: #21236A;
+  --academies-name-color: #090909;
   --academies-students-color: #888888;
+  --academies-name-size:      0.875rem;            /* Font size of academy name */
+  --academies-name-weight:    400;                 /* Boldness of academy name */
+  --academies-students-size:  0.75rem;             /* Font size of student count text */
+  --academies-students-weight: 400;                /* Boldness of student count text */
   --academies-divider-color: #DBDCE4;
   --academies-view-all-color: #21236A;
   --academies-view-all-dot-color: #2A8BC9;
+  --academies-view-all-size:      0.875rem;        /* Font size of View All link */
+  --academies-view-all-weight:    500;             /* Boldness of View All link */
+  --academies-dots-filter:        brightness(1);   /* CSS filter to color dots (e.g. brightness(0) for solid black) */
+  --academies-dots-opacity:       1.0;             /* Opacity of the three dots menu icon */
 
   /* ── Quadrant Chart ─────────────────────────────────────── */
   --quadrant-card-width: 467px;
@@ -206,7 +218,7 @@
   --chart-wrapper-padding: 24px;
   --chart-card-margin-right: 0px;
   --chart-title-size: 17px;
-  --chart-title-weight: 300;
+  --chart-title-weight: 390;
   --chart-title-line-height: 19px;
   --chart-title-color: #FFFFFF;
   --chart-title-margin-top: 0px;
@@ -340,6 +352,16 @@
   --mobile-pagination-active-size: 26px;
   --mobile-pagination-arrow-size: 28px;
   --mobile-pagination-gap: 6px;
+
+  /* Mobile Exam List Card Spacing & Sizing */
+  --mobile-card-gap: 1px;          /* vertical gap between each exam card */
+  --mobile-table-top-gap: 12px;     /* gap between "Recent Exam List" header and first card */
+  --mobile-table-bottom-gap: 12px;  /* gap between last card and the pagination bar */
+  --mobile-card-height: 5px;       /* min-height of each exam card; set a px value to fix height */
+  --mobile-card-accent-width: 4px;  /* width of the straight left accent bar on each card */
+  --mobile-action-btn-size: 20px;   /* diameter of each circular action button in mobile view */
+  --mobile-action-icon-size: 10px;  /* icon image size inside each action button */
+  --mobile-action-gap: 6px;         /* horizontal gap between the three action buttons */
 
   /* Hamburger Position Customization */
   --mobile-hamburger-position: absolute;

@@ -102,14 +102,28 @@
 }
 
 .sort-icon-svg {
-  display: inline-block;
+  display: inline-flex;
+  align-self: center;
   margin-left: 6px;
   color: var(--table-sort-arrow-color);
-  width: 10px;
-  height: 14px;
-  vertical-align: middle;
+  width: var(--table-sort-arrow-width);
+  height: var(--table-sort-arrow-height);
   cursor: pointer;
   transition: opacity 0.15s;
+}
+
+.sort-icon-svg path {
+  stroke-width: var(--table-sort-arrow-weight) !important;
+}
+
+.sort-icon-svg .arrow-up {
+  transform: translateY(var(--table-sort-arrow-gap-shift));
+  transform-origin: center;
+}
+
+.sort-icon-svg .arrow-down {
+  transform: translateY(calc(-1 * var(--table-sort-arrow-gap-shift)));
+  transform-origin: center;
 }
 
 .sort-icon-svg:hover {

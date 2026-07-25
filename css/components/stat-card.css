@@ -63,7 +63,7 @@
 /* Large metric number */
 .stat-number {
   font-size: var(--stat-number-size);
-  font-weight: 700;
+  font-weight: var(--stat-number-weight);
   color: var(--color-navy); /* #1D2465 */
   line-height: 1;
   margin-bottom: 24px;
@@ -73,7 +73,7 @@
 .stat-label-bar {
   color: var(--stat-label-color);
   font-size: var(--stat-label-size);
-  font-weight: 500;
+  font-weight: var(--stat-label-weight);
   text-align: center;
   padding: 12px var(--space-md);
   margin-top: auto;

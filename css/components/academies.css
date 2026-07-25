@@ -88,13 +88,14 @@
 }
 
 .academy-name {
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: var(--academies-name-size);
+  font-weight: var(--academies-name-weight);
   color: var(--academies-name-color);
 }
 
 .academy-students {
-  font-size: 0.75rem;
+  font-size: var(--academies-students-size);
+  font-weight: var(--academies-students-weight);
   color: var(--academies-students-color);
   margin-top: 2px;
 }
@@ -103,7 +104,8 @@
 .academy-dots img {
   width: 18px;
   height: 18px;
-  opacity: 0.5;
+  filter: var(--academies-dots-filter);
+  opacity: var(--academies-dots-opacity);
   cursor: pointer;
 }
 
@@ -126,8 +128,8 @@
 }
 
 .view-all-text {
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: var(--academies-view-all-size);
+  font-weight: var(--academies-view-all-weight);
   color: var(--academies-view-all-color);
   text-decoration: underline dotted var(--academies-view-all-dot-color); /* dotted underline link */
   text-underline-offset: 4px;
