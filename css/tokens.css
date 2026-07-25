@@ -147,7 +147,7 @@
   --quadrant-shapes-scale: 1;
 
   /* ── Student Added Chart ────────────────────────────────── */
-  --chart-wrapper-height: 290px;
+  --chart-wrapper-height: 20px;
   --chart-wrapper-padding: 24px;
   --chart-card-margin-right: 0px;
   --chart-title-size: 18px;
@@ -165,10 +165,10 @@
   --chart-tab-size: 16px;
   --chart-tab-weight: 500;
   --chart-tab-line-height: 19px;
-  --chart-tab-gap: 10px;
-  --chart-tab-width: 90px;
+  --chart-tab-gap: 40px;
+  --chart-tab-width: 130px;
   --chart-tab-height: 40px;
-  --chart-tab-radius: 9px;
+  --chart-tab-radius: 18px;
   --chart-tab-color: #797979;
   --chart-tab-bg: #F0F1F1;
   --chart-tab-active-color: #FFFFFF;
@@ -208,16 +208,16 @@
   --exams-header-weight: 500;
   --exams-header-line-height: 20px;
   --exams-header-border-color: #DBDCE4;
-  --exams-header-margin-bottom: 8px;
-  --exams-header-min-height: 48px;
-  --exams-header-padding: 10px 16px;
+  --exams-header-margin-bottom: 6px;
+  --exams-header-min-height: 38px;
+  --exams-header-padding: 6px 12px;
   --exams-card-bg: #FFFFFF;
   --exams-card-border-color: #DBDCE4;
   --exams-card-padding: 0px;
-  --exams-item-padding: 8px 16px;
-  --exams-dot-size: 12px;
-  --exams-icon-size: 22px;
-  --exams-count-size: 1.5rem;
+  --exams-item-padding: 4px 12px;
+  --exams-dot-size: 10px;
+  --exams-icon-size: 18px;
+  --exams-count-size: 1.25rem;
   --exams-count-weight: 700;
   --exams-count-color: #21236A;
   --exams-label-size: 0.8125rem;
