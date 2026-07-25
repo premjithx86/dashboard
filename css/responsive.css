@@ -58,18 +58,47 @@
     --exams-label-size: 0.75rem;
   }
 
-  /* ── Sidebar sliding behavior ──────────────────────────── */
+  /* ── Body Scroll Lock when Menu Open ────────────────────── */
+  body.menu-open {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+
+  /* ── Sidebar sliding behavior (Floating Pill Card) ──────── */
   .sidebar {
-    transform: translateX(-100%);
-    width: 260px;
-    z-index: 1000;
+    position: fixed !important;
+    top: 16px !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    height: calc(100vh - 32px) !important;
+    width: 280px !important;
+    background: var(--color-navy) !important;
+    border-radius: 30px !important;
+    z-index: 1000 !important;
+    transform: translateX(-320px) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow-y: auto !important; /* Allows internal scroll inside menu if content is taller than screen */
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25) !important;
+    box-sizing: border-box !important;
   }
+
   .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0) !important;
   }
+
+  /* ── Blur Backdrop Overlay ─────────────────────────────── */
+  .overlay {
+    display: none;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    z-index: 999 !important;
+  }
+
   .overlay.open {
-    display: block;
-    z-index: 999;
+    display: block !important;
   }
 
   /* Hamburger Menu Button (Figma Mobile Design Style - Alternating left-aligned lines) */
