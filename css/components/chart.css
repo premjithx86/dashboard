@@ -43,6 +43,10 @@
   font-weight: var(--chart-title-weight);
   line-height: var(--chart-title-line-height);
   color: var(--chart-title-color);
+  margin-top: var(--chart-title-margin-top);
+  margin-bottom: var(--chart-title-margin-bottom);
+  position: relative;
+  top: var(--chart-title-top);
 }
 
 /* Month / Week / Day tabs */
@@ -120,6 +124,15 @@
   text-align: right;
   padding-right: var(--chart-y-label-padding-right);
   box-sizing: border-box;
+  transform: translateX(var(--chart-y-label-h-shift, 0px)) translateY(var(--chart-y-label-line-gap, 0px));
+}
+
+/* Pull first label up and last label down so each label's CENTER aligns with its grid line */
+.pill-y-labels span:first-child {
+  margin-top: calc(var(--chart-y-label-size) * -0.6);
+}
+.pill-y-labels span:last-child {
+  margin-bottom: calc(var(--chart-y-label-size) * -0.6);
 }
 
 .pill-plot-area {

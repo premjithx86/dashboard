@@ -239,10 +239,14 @@
   /* ── Recent Exam List Card Layout Overrides ────────────── */
   .table-section-container {
     width: 100%;
+    height: auto; /* Reset fixed height — rows stack naturally as block cards on mobile */
   }
 
   .table-wrapper {
     overflow: visible;
+    height: auto;
+    min-height: 0;
+    flex: none;
   }
 
   .exam-table {
@@ -270,8 +274,7 @@
     align-items: center;
     row-gap: 8px;
     column-gap: 8px;
-    padding: 16px !important;
-    padding-bottom: 48px !important; /* Space for absolute positioned actions and code */
+    padding: 16px 20px 56px 20px !important; /* Space for absolute positioned actions and code at the bottom */
     border: 1px solid var(--table-row-border) !important;
     border-radius: 12px !important;
     margin-bottom: 12px !important;
@@ -314,20 +317,21 @@
   }
 
   .exam-date {
-    font-size: 11px !important;
+    font-size: 12px !important;
     font-weight: 500 !important;
     margin: 0 !important;
-    color: #2C2D30 !important;
+    color: #676A72 !important; /* Uniform gray top row text */
   }
 
   .exam-time {
-    font-size: 11px !important;
+    font-size: 12px !important;
     color: #676A72 !important;
     margin: 0 !important;
   }
 
   .exam-time::before {
-    content: " - ";
+    content: " • " !important; /* Bullet separator matching Figma */
+    margin: 0 4px !important;
   }
 
   .td-name-col {
@@ -340,20 +344,24 @@
   }
 
   .exam-name {
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    color: #000000 !important;
+    font-size: 15px !important; /* Stand out size */
+    font-weight: 700 !important; /* Bold font weight */
+    color: #21236A !important;  /* Navy title color */
     white-space: normal !important;
     word-break: break-word !important;
     text-align: left !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
   }
 
   /* Render exam code as bottom-left block */
   .exam-code {
-    font-size: 11px !important;
+    font-size: 12px !important;
     color: #676A72 !important;
-    margin-top: 8px !important;
+    position: absolute !important;
+    bottom: 16px !important;
+    left: 20px !important; /* aligns to border line offset */
+    margin: 0 !important;
+    font-weight: 400 !important;
   }
 
   /* Status badge alignment */
@@ -361,15 +369,35 @@
     grid-area: status;
     justify-content: flex-end !important;
     display: flex !important;
+    align-items: center !important;
+  }
+
+  .status-badge {
+    border-radius: 20px !important; /* Pill style badge matching Figma */
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    padding: 4px 12px !important;
   }
 
   /* Absolutely position Action icons to bottom right of row card */
   .exam-table td:nth-child(5) {
     position: absolute !important;
     bottom: 12px !important;
-    right: 16px !important;
+    right: 20px !important;
     display: flex !important;
     justify-content: flex-end !important;
+    align-items: center !important;
+  }
+
+  .exam-table td:nth-child(5) .action-btn {
+    border-radius: 50% !important; /* Force circle frames */
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .exam-table td:nth-child(5) .action-btn img {
+    width: 12px !important;
+    height: 12px !important;
   }
 
   /* ── Table Pagination Figma Mobile Layout ───────────────── */
@@ -465,6 +493,16 @@
 
   .pagination-info {
     font-size: 11px !important;
+  }
+
+  /* Reset fixed mid-row height — both panels flow naturally on mobile */
+  .academies-section-container {
+    height: auto;
+  }
+
+  .academies-list {
+    overflow: visible;
+    flex: none;
   }
 
   /* ── Stacked Mid and Bottom Rows ───────────────────────── */

@@ -10,7 +10,7 @@
 .quadrant-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: var(--quadrant-card-shadow);
   display: flex;
   align-items: center;
   justify-content: center;

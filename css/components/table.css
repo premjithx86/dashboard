@@ -26,8 +26,8 @@
   background: var(--table-title-bg);
   border-radius: 12px;
   padding: 16px 24px;
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: var(--table-title-size);
+  font-weight: var(--table-title-weight);
   color: var(--table-title-color);
   border: 1px solid var(--table-row-border);
   margin-bottom: 8px; /* Small space before table header pill */
@@ -92,7 +92,7 @@
 .exam-table thead th {
   color: #FFFFFF;
   font-size: var(--table-header-size);
-  font-weight: 700;
+  font-weight: var(--table-header-weight);
   padding: 16px 20px;
   display: flex;
   align-items: center;
@@ -192,6 +192,7 @@
 }
 .exam-table td:nth-child(2) {
   flex-direction: column;
+  justify-content: center;
 }
 
 /* Column 3: Schedule (which contains Exam Name/Code in swapped order) */
@@ -204,6 +205,7 @@
 }
 .exam-table td:nth-child(3) {
   flex-direction: column;
+  justify-content: center;
 }
 
 /* Column 4: Status */

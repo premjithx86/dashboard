@@ -24,8 +24,8 @@
   background: var(--academies-header-bg);
   border-radius: 12px;
   padding: 16px 24px;
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: var(--academies-header-size);
+  font-weight: var(--academies-header-weight);
   color: var(--academies-header-color);
   border: 1px solid var(--table-row-border);
   margin-bottom: 8px; /* space gap before content card */
