@@ -129,7 +129,7 @@
     margin-top: -16px !important; /* Flush align to viewport top edge */
     height: var(--mobile-topbar-height) !important;
     background: #F0F1F1 !important; /* transparent screen background fit */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-bottom: none !important;
     z-index: 998 !important;
     padding: 0 16px !important;
     margin-bottom: var(--mobile-logo-gap-top) !important; /* Gap directly below the logo section header card */
