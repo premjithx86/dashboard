@@ -33,14 +33,17 @@
   --topbar-logo-height: 88px;
 
   /* ── Sidebar ────────────────────────────────────────────── */
-  --sidebar-width:        289px;
-  --sidebar-bg:           var(--color-navy);
-  --sidebar-text-size:    0.755rem;
-  --sidebar-text-color:   #FFFFFF;
-  --sidebar-section-size: 0.75rem;
-  --sidebar-active-bg:    var(--color-red);
-  --sidebar-icon-size:    18px;
-  --sidebar-icon-opacity: 1.0;
+  --sidebar-width:          289px;
+  --sidebar-bg:             var(--color-navy);
+  --sidebar-text-size:      0.91rem;  /* nav item text size */
+  --sidebar-text-weight:    50;       /* nav item text weight */
+  --sidebar-text-color:     #FFFFFF;
+  --sidebar-section-size:   0.65rem;   /* section label text size */
+  --sidebar-section-weight: 50;       /* section label text weight */
+  --sidebar-active-bg:      var(--color-red);
+  --sidebar-active-weight:  600;       /* active nav item text weight */
+  --sidebar-icon-size:      18px;      /* nav icon width & height */
+  --sidebar-icon-opacity:   1.0;
   --sidebar-logout-icon-size: 44px;
   --sidebar-chevron-color: #BCBFC5;
   --sidebar-nav-item-padding: 13px 16px;
@@ -312,4 +315,11 @@
   --mobile-pagination-active-size: 26px;
   --mobile-pagination-arrow-size: 28px;
   --mobile-pagination-gap: 6px;
+
+  /* Hamburger Position Customization */
+  --mobile-hamburger-position: absolute;
+  --mobile-hamburger-left: 25px;
+  --mobile-hamburger-right: auto;
+  --mobile-hamburger-top: 20px;
+  --mobile-hamburger-z-index: 1001;
 }

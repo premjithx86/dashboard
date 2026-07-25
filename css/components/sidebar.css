@@ -49,9 +49,8 @@
 /* Section label (e.g. "EXAM MANAGEMENT") */
 .nav-section-label {
   font-size: var(--sidebar-section-size);
-  font-weight: 600;
+  font-weight: var(--sidebar-section-weight);
   color: rgba(255,255,255,0.45);
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: var(--space-md) var(--space-md) var(--space-xs);
   display: flex;
@@ -94,6 +93,7 @@
   gap: var(--space-sm);
   padding: var(--sidebar-nav-item-padding);
   font-size: var(--sidebar-text-size);
+  font-weight: var(--sidebar-text-weight);
   color: var(--sidebar-text-color);
   border-radius: var(--radius-sm);
   margin: var(--sidebar-nav-item-margin);
@@ -110,7 +110,7 @@
 .nav-item.active {
   background: var(--sidebar-active-bg);
   color: #fff;
-  font-weight: 600;
+  font-weight: var(--sidebar-active-weight);
 }
 
 /* Icon inside nav item */

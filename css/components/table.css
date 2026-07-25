@@ -425,6 +425,15 @@
   opacity: 0.85;
 }
 
+.page-btn.arrow.arrow-disabled,
+.page-btn.arrow.arrow-disabled:hover {
+  color: #BCBFC5;
+  border-color: #BCBFC5;
+  background: var(--table-pagination-arrow-bg);
+  opacity: 1;
+  cursor: default;
+}
+
 .pagination-info {
   color: var(--table-pagination-info-color);
   font-weight: 500;

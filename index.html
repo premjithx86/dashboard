@@ -813,12 +813,25 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 /* ============================================================
    PAGE BUTTONS
    ============================================================ */
+function updatePaginationArrows(pages) {
+  const numBtns = [...pages.querySelectorAll('.page-btn:not(.arrow)')];
+  const prev = pages.querySelector('.page-btn.arrow:first-child');
+  const next = pages.querySelector('.page-btn.arrow:last-child');
+  const activeIdx = numBtns.findIndex(b => b.classList.contains('active'));
+  if (prev) prev.classList.toggle('arrow-disabled', activeIdx === 0);
+  if (next) next.classList.toggle('arrow-disabled', activeIdx === numBtns.length - 1);
+}
+
 document.querySelectorAll('.pagination-pages .page-btn:not(.arrow)').forEach(btn => {
   btn.addEventListener('click', () => {
-    btn.closest('.pagination-pages').querySelectorAll('.page-btn:not(.arrow)').forEach(b => b.classList.remove('active'));
+    const pages = btn.closest('.pagination-pages');
+    pages.querySelectorAll('.page-btn:not(.arrow)').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    updatePaginationArrows(pages);
   });
 });
+
+document.querySelectorAll('.pagination-pages').forEach(updatePaginationArrows);
 
 /* ============================================================
    SIDEBAR COLLAPSIBLE GROUPS

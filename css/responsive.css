@@ -113,10 +113,11 @@
     border: none !important;
     border-radius: 12px !important;
     cursor: pointer;
-    position: absolute !important; /* Scrolls with the topbar header */
-    left: 16px;
-    top: calc((var(--mobile-topbar-height) - 44px) / 2) !important; /* Centers hamburger vertically */
-    z-index: 1001;
+    position: var(--mobile-hamburger-position) !important;
+    left: var(--mobile-hamburger-left) !important;
+    right: var(--mobile-hamburger-right) !important;
+    top: var(--mobile-hamburger-top) !important;
+    z-index: var(--mobile-hamburger-z-index) !important;
     padding: 0 10px; /* Centers lines inside the button block */
     box-sizing: border-box;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
