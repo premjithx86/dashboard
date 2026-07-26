@@ -1,0 +1,467 @@
+/*
+ * css/pages/academy-list-responsive.css
+ * ─────────────────────────────────────────────────────────────
+ * Mobile / tablet overrides for the Academy List page.
+ * Loaded AFTER responsive.css so these rules win via specificity
+ * (body.al-page selectors) or cascade order.
+ * All sizing is driven by --al-mobile-* tokens in tokens.css.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+@media (max-width: 900px) {
+
+  /* ── Topbar (Merged into unified #E9E9F1 top-curved header box) ── */
+  body.al-page .topbar {
+    background: #E9E9F1 !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  body.al-page .topbar-logo img {
+    filter: none !important; /* Original color logo */
+  }
+
+  /* Hide profile photo in the main topbar (moved to academic details header card) */
+  body.al-page .topbar-profile {
+    display: none !important;
+  }
+
+  /* ── Content column ───────────────────────────────────────── */
+  .al-content {
+    gap: var(--al-mobile-controls-gap);
+  }
+
+  /* ── Outer wrapper of page header (part of the #E9E9F1 logo box) ── */
+  .al-mobile-header-outer {
+    background: #E9E9F1 !important;
+    margin-top: 0 !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    width: calc(100% + 32px) !important;
+    padding: 0 16px 16px 16px !important; /* bottom padding sets outer box size */
+    box-sizing: border-box !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important; /* Flat bottom for outer box */
+  }
+
+  /* ── Inner page header box (#21236A, all corners rounded) ── */
+  .al-page-header {
+    background: #21236A !important;
+    border-radius: 12px !important; /* All curved corners */
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .al-header-left {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+
+  .al-page-title {
+    font-size: var(--al-mobile-page-title-size) !important;
+    color: var(--color-white) !important; /* White text on navy background */
+  }
+
+  .al-breadcrumb {
+    font-size: var(--al-mobile-breadcrumb-size) !important;
+    gap: 6px !important;
+    color: rgba(255, 255, 255, 0.7) !important; /* Semi-transparent white breadcrumbs */
+  }
+
+  .al-bc-sep {
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .al-bc-active {
+    color: var(--color-white) !important;
+  }
+
+  /* Superadmin Avatar in page-header (straight/side-by-side with texts) */
+  .al-header-profile {
+    display: block !important;
+    flex-shrink: 0 !important;
+  }
+
+  .al-header-profile img {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .al-outer-card {
+    border-radius: var(--al-mobile-outer-card-radius);
+    padding: var(--al-mobile-outer-card-padding-y) var(--al-mobile-outer-card-padding-x);
+  }
+
+  /* ── Controls Box mobile overrides ────────────────────────── */
+  .al-controls-box {
+    padding: 16px !important;
+    border-radius: 8px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* ── Section top: stack buttons below heading ─────────────── */
+  .al-section-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .al-section-title {
+    font-size: var(--al-mobile-section-title-size);
+  }
+
+  .al-section-subtitle {
+    font-size: var(--al-mobile-section-subtitle-size);
+  }
+
+  /* ── Controls row (Custom Mobile Layout) ──────────────────── */
+  .al-controls-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 14px;
+    margin-bottom: 16px;
+  }
+
+  /* Row 2: Search Input on left (column 1) */
+  .al-search-wrap {
+    grid-row: 2 !important;
+    grid-column: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .al-search-input {
+    height: var(--al-mobile-search-height) !important;
+  }
+
+  /* Row 2: Membership Dropdown on right (column 2) */
+  .al-filter-wrap {
+    grid-row: 2 !important;
+    grid-column: 2 !important;
+    width: 100% !important;
+  }
+
+  .al-filter-select {
+    width: 100% !important;
+    height: var(--al-mobile-search-height) !important;
+  }
+
+  /* Row 1: Action buttons wrapper spanning full-width, aligned right */
+  .al-controls-actions {
+    grid-row: 1 !important;
+    grid-column: span 2 !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Keep buttons small and compact (not stretching) */
+  .al-controls-actions .al-btn {
+    flex: none !important;
+    height: 36px !important;
+    font-size: var(--al-mobile-btn-size) !important;
+    padding: 0 14px !important;
+    width: auto !important;
+    justify-content: center !important;
+  }
+
+  /* ── Table outer: no horizontal scroll on mobile ──────────── */
+  .al-table-outer {
+    overflow-x: visible;
+  }
+
+  /* ── Table border container ───────────────────────────────── */
+  .al-table-border {
+    min-width: 0;
+    border-radius: var(--al-table-header-radius);
+  }
+
+  /* ── Header row: 3-column mobile grid ─────────────────────── */
+  .al-header-row {
+    grid-template-columns:
+      var(--al-mobile-col-num)
+      var(--al-mobile-col-name)
+      var(--al-mobile-col-expand);
+  }
+
+  /* Hide non-essential header cells on mobile */
+  .al-th.al-col-phone,
+  .al-th.al-col-email,
+  .al-th.al-col-exam,
+  .al-th.al-col-students,
+  .al-th.al-col-action {
+    display: none !important;
+  }
+
+  /* Mobile header cell adjustments */
+  .al-th {
+    padding: 12px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Placeholder for the expand column header (no text) */
+  .al-th-expand-placeholder {
+    border-right: none;
+    padding: 0;
+  }
+
+  /* ── Body row: 3-column mobile grid ───────────────────────── */
+  .al-row-main {
+    grid-template-columns:
+      var(--al-mobile-col-num)
+      var(--al-mobile-col-name)
+      var(--al-mobile-col-expand);
+    min-height: 58px;
+    align-items: center;
+  }
+
+  /* Hide non-essential body cells on mobile */
+  .al-td.al-col-phone,
+  .al-td.al-col-email,
+  .al-td.al-col-exam,
+  .al-td.al-col-students,
+  .al-td.al-col-action {
+    display: none !important;
+  }
+
+  /* ── Expand button: shown on mobile ───────────────────────── */
+  .al-expand-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: var(--al-expand-btn-size);
+    height: var(--al-expand-btn-size);
+    border-radius: var(--al-expand-btn-radius);
+    background: var(--al-expand-btn-bg);
+    border: var(--al-expand-btn-border-width) solid var(--al-expand-btn-border-color);
+    color: var(--al-expand-btn-color);
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s;
+    justify-self: center;
+  }
+
+  .al-expand-btn svg {
+    width: var(--al-expand-btn-icon-size);
+    height: var(--al-expand-btn-icon-size);
+  }
+
+  .al-expand-btn:hover {
+    background: var(--color-border);
+    border-color: var(--color-navy);
+  }
+
+  /* ── Number cell on mobile ────────────────────────────────── */
+  .al-td.al-col-num {
+    padding-left: 14px;
+    font-size: 0.8125rem;
+    justify-content: center;
+  }
+
+  /* ── Name cell on mobile ──────────────────────────────────── */
+  .al-td.al-col-name {
+    padding: 10px 10px;
+    overflow: hidden;
+  }
+
+  .al-td.al-col-name .al-center-info {
+    gap: 9px;
+  }
+
+  .al-td.al-col-name .al-center-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .al-td.al-col-name .al-center-avatar img {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ── Expanded row state ───────────────────────────────────── */
+  /* When a row is expanded: hide the main grid, show the detail panel */
+  .al-row.expanded .al-row-main {
+    display: none !important;
+  }
+
+  .al-row.expanded .al-row-detail {
+    display: block !important;
+  }
+
+  /* ── Detail panel (expanded view) ────────────────────────── */
+  .al-row-detail {
+    display: none;
+    padding: var(--al-detail-padding-y) var(--al-detail-padding-x);
+    box-sizing: border-box;
+  }
+
+  .al-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: var(--al-detail-item-padding-y) 0;
+    border-bottom: 1px solid var(--al-detail-divider-color);
+  }
+
+  .al-detail-item:last-of-type {
+    border-bottom: none;
+  }
+
+  .al-detail-label {
+    font-family: var(--font-family);
+    font-size: var(--al-detail-label-size);
+    font-weight: var(--al-detail-label-weight);
+    color: var(--al-detail-label-color);
+    min-width: var(--al-detail-label-min-width);
+    flex-shrink: 0;
+    line-height: 1.4;
+    padding-top: 2px;
+  }
+
+  .al-detail-value {
+    font-family: var(--font-family);
+    font-size: var(--al-detail-value-size);
+    font-weight: var(--al-detail-value-weight);
+    color: var(--al-detail-value-color);
+    flex: 1;
+    min-width: 0;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  /* Action icons inside detail panel */
+  .al-detail-value .action-icons {
+    gap: 6px;
+  }
+
+  .al-detail-value .action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50% !important;
+  }
+
+  .al-detail-value .action-btn img {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Collapse button */
+  .al-collapse-btn {
+    display: block;
+    margin-top: 14px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-family);
+    font-size: var(--al-collapse-btn-size);
+    font-weight: var(--al-collapse-btn-weight);
+    color: var(--al-collapse-btn-color);
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+    transition: opacity 0.15s;
+  }
+
+  .al-collapse-btn:hover { opacity: 0.7; }
+
+  /* ── Pagination on mobile/tablet ──────────────────────────── */
+  .al-outer-card .pagination-bar {
+    border-radius: 0 0 var(--al-mobile-outer-card-radius) var(--al-mobile-outer-card-radius);
+    border-top: 1px solid var(--color-border);
+    margin-top: 0;
+    box-sizing: border-box !important;
+
+    /* Horizontal layout for tablet viewports (601px to 900px) */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Natural layout ordering on tablet viewports */
+  .al-outer-card .pagination-left {
+    order: unset !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+  }
+
+  .al-outer-card .pagination-pages {
+    order: unset !important;
+    margin: 0 !important;
+  }
+
+  .al-outer-card .pagination-info {
+    order: unset !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+  }
+
+  /* Explicitly hide Page 4 and Page 5 on mobile/tablet (only show 1 to 3) by class and index */
+  .al-outer-card .pagination-pages .desktop-only-page,
+  .al-outer-card .pagination-pages button:nth-child(5),
+  .al-outer-card .pagination-pages button:nth-child(6),
+  .desktop-only-page {
+    display: none !important;
+  }
+
+  /* Vertical Stacking on narrow mobile viewports (width <= 600px) */
+  @media (max-width: 600px) {
+    .al-outer-card .pagination-bar {
+      flex-direction: column !important;
+      gap: 12px !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 16px 12px !important;
+    }
+
+    /* Stacking order: left -> pages -> info */
+    .al-outer-card .pagination-left {
+      order: 1 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    .al-outer-card .pagination-pages {
+      order: 2 !important;
+    }
+
+    .al-outer-card .pagination-info {
+      order: 3 !important;
+    }
+  }
+
+}
+
+/* ── Very small viewports ─────────────────────────────────── */
+@media (max-width: 400px) {
+  .al-section-actions {
+    flex-direction: column;
+  }
+
+  .al-btn-export,
+  .al-btn-add {
+    width: 100%;
+  }
+}

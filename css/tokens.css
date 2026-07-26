@@ -446,4 +446,235 @@
   --mobile-hamburger-right: auto;
   --mobile-hamburger-top: 20px;
   --mobile-hamburger-z-index: 1001;
+
+  /* ═══════════════════════════════════════════════════════════
+     Academy List Page  (css/pages/academy-list.css)
+     Prefix: --al-*   Edit values here to restyle the page.
+     ═══════════════════════════════════════════════════════════ */
+
+  /* ── Topbar separator (subtle bottom border) ─────────────── */
+  --al-topbar-sep-thickness:         1px;
+  --al-topbar-sep-color:             rgba(219, 220, 228, 0.7);
+
+  /* ── Content wrapper (page-header + outer-card gap) ─────── */
+  --al-content-gap:                  20px;
+
+  /* ── Page header band ────────────────────────────────────── */
+  --al-page-header-bg:               var(--color-navy);
+  --al-page-header-radius:           12px;
+  --al-page-header-padding-y:        18px;
+  --al-page-header-padding-x:        24px;
+  --al-page-title-size:              1.5rem;
+  --al-page-title-weight:            600;
+  --al-page-title-color:             var(--color-white);
+  --al-page-title-font-style:        normal;
+  --al-breadcrumb-size:              0.875rem;
+  --al-breadcrumb-weight:            400;
+  --al-breadcrumb-color:             rgba(255,255,255,0.65);
+  --al-breadcrumb-sep-color:         rgba(255,255,255,0.45);
+  --al-breadcrumb-active-color:      var(--color-white);
+  --al-breadcrumb-gap:               8px;
+
+  /* ── Outer white card ────────────────────────────────────── */
+  --al-outer-card-bg:                var(--color-white);
+  --al-outer-card-radius:            16px;
+  --al-outer-card-padding-y:         24px;
+  --al-outer-card-padding-x:         24px;
+  --al-outer-card-shadow:            0 2px 12px rgba(0,0,0,0.07);
+
+  /* ── Controls Box (Custom Background Wrapper) ─────────────── */
+  --al-controls-box-bg:              #E5E6EE;
+  --al-controls-box-radius:          12px;
+  --al-controls-box-height:          auto;
+  --al-controls-box-width:           100%;
+  --al-controls-box-padding-y:       20px;
+  --al-controls-box-padding-x:       20px;
+  --al-controls-box-border-width:    0px;
+  --al-controls-box-border-color:    transparent;
+  --al-controls-box-margin-bottom:   24px;
+
+  /* ── Section header (Center's List title) ────────────────── */
+  --al-section-title-size:           1.5rem;                    /* [Title font size] "Center's List" heading */
+  --al-section-title-weight:         700;                       /* [Title font weight] */
+  --al-section-title-color:          var(--color-navy);         /* [Title color] */
+  --al-section-title-font-style:     normal;
+  --al-section-subtitle-size:        0.875rem;                  /* [Subtitle font size] count text */
+  --al-section-subtitle-weight:      400;
+  --al-section-subtitle-color:       #888888;
+  --al-section-header-margin-bottom: 20px;                      /* [Gap] below title+count before controls */
+  --al-section-top-gap:              12px;                      /* [Gap] between title block and action buttons */
+
+  /* ── Export button ───────────────────────────────────────── */
+  --al-export-btn-bg:                var(--color-white);
+  --al-export-btn-color:             var(--color-navy);
+  --al-export-btn-border-color:      var(--color-navy);
+  --al-export-btn-border-width:      1.5px;
+  --al-export-btn-radius:            10px;
+  --al-export-btn-padding-y:         0px;
+  --al-export-btn-padding-x:         16px;
+  --al-export-btn-height:            42px;
+  --al-export-btn-size:              0.875rem;
+  --al-export-btn-weight:            500;
+  --al-export-btn-icon-size:         17px;
+  --al-export-btn-gap:               8px;
+
+  /* ── Add Center button ───────────────────────────────────── */
+  --al-add-btn-bg:                   var(--color-navy);
+  --al-add-btn-color:                var(--color-white);
+  --al-add-btn-radius:               10px;
+  --al-add-btn-padding-y:            0px;
+  --al-add-btn-padding-x:            16px;
+  --al-add-btn-height:               42px;
+  --al-add-btn-size:                 0.875rem;
+  --al-add-btn-weight:               500;
+  --al-add-btn-gap:                  8px;
+
+  /* ── Controls row (search + filter) ─────────────────────── */
+  --al-controls-gap:                 12px;
+  --al-controls-margin-top:          16px;
+  --al-controls-margin-bottom:       20px;
+
+  /* Search box */
+  --al-search-bg:                    var(--color-white);
+  --al-search-border-color:          var(--color-border);
+  --al-search-border-width:          1px;
+  --al-search-radius:                10px;
+  --al-search-height:                42px;
+  --al-search-padding-left:          42px;
+  --al-search-placeholder-color:     #BBBBBB;
+  --al-search-text-color:            var(--color-navy);
+  --al-search-text-size:             0.875rem;
+  --al-search-text-weight:           400;
+  --al-search-icon-color:            #AAAAAA;
+  --al-search-icon-size:             16px;
+
+  /* Filter dropdown */
+  --al-filter-bg:                    var(--color-white);
+  --al-filter-border-color:          var(--color-border);
+  --al-filter-border-width:          1px;
+  --al-filter-radius:                10px;
+  --al-filter-height:                42px;
+  --al-filter-text-color:            var(--color-navy);
+  --al-filter-text-size:             0.875rem;
+  --al-filter-text-weight:           400;
+  --al-filter-padding-x:             14px;
+  --al-filter-width:                 170px;
+  --al-filter-arrow-color:           var(--color-navy);
+
+  /* ── Table ───────────────────────────────────────────────── */
+  --al-table-min-width:              720px;                      /* [Min table width] triggers horizontal scroll below this */
+  --al-table-header-bg:              var(--color-navy);
+  --al-table-header-color:           var(--color-white);
+  --al-table-header-size:            0.875rem;
+  --al-table-header-weight:          400;
+  --al-table-header-radius:          10px;                       /* [Table border radius] applies to container border */
+  --al-table-header-padding-y:       16px;
+  --al-table-header-padding-x:       16px;
+  --al-table-col-sep-color:          rgba(255,255,255,0.22);    /* [Header column lines] */
+  --al-table-col-sep-width:          1px;
+
+  /* Sort icon */
+  --al-sort-icon-width:              10px;
+  --al-sort-icon-height:             14px;
+  --al-sort-icon-stroke:             2.5;
+  --al-sort-icon-gap:                -2px;
+
+  /* ── Table column widths ─────────────────────────────────── */
+  --al-col-num:                      54px;
+  --al-col-name:                     minmax(180px, 1fr);
+  --al-col-phone:                    150px;
+  --al-col-email:                    210px;
+  --al-col-exam:                     80px;
+  --al-col-students:                 130px;
+  --al-col-action:                   140px;
+
+  /* ── Table body rows ─────────────────────────────────────── */
+  --al-row-odd-bg:                   #F0F1F1;                   /* [Odd row background] rows 1, 3, 5 … */
+  --al-row-even-bg:                  #E5E6EE;                   /* [Even row background] rows 2, 4, 6 … */
+  --al-row-hover-bg:                 rgba(29,36,101,0.05);
+  --al-row-sep-color:                var(--color-border);       /* [Horizontal row separator] */
+  --al-row-col-sep-color:            rgba(255,255,255,0.65);    /* [Vertical column lines in rows] */
+  --al-row-col-sep-width:            1px;
+  --al-row-min-height:               66px;
+
+  /* Cell text */
+  --al-cell-padding-y:               14px;
+  --al-cell-padding-x:               16px;
+  --al-cell-text-color:              var(--color-navy);
+  --al-cell-text-size:               0.875rem;
+  --al-cell-text-weight:             400;
+
+  /* Center (name column) */
+  --al-center-name-size:             0.875rem;
+  --al-center-name-weight:           500;
+  --al-center-name-color:            var(--color-navy);
+  --al-center-code-size:             0.75rem;
+  --al-center-code-weight:           400;
+  --al-center-code-color:            rgba(33,35,106,0.6);
+  --al-center-gap:                   12px;
+
+  /* Avatar circle */
+  --al-avatar-size:                  38px;
+  --al-avatar-radius:                50%;
+  --al-avatar-bg:                    #E8E9EE;
+  --al-avatar-border-color:          var(--color-border);
+  --al-avatar-border-width:          1px;
+  --al-avatar-icon-size:             22px;
+
+  /* Exam count badge */
+  --al-exam-badge-bg:                #E8EAFA;
+  --al-exam-badge-color:             var(--color-navy);
+  --al-exam-badge-size:              0.875rem;
+  --al-exam-badge-weight:            600;
+  --al-exam-badge-radius:            8px;
+  --al-exam-badge-padding-y:         4px;
+  --al-exam-badge-padding-x:         10px;
+  --al-exam-badge-min-width:         32px;
+
+  /* ── Mobile expand / collapse ────────────────────────────── */
+  --al-expand-btn-size:              30px;
+  --al-expand-btn-radius:            8px;
+  --al-expand-btn-bg:                var(--color-bg);
+  --al-expand-btn-border-color:      var(--color-border);
+  --al-expand-btn-border-width:      1px;
+  --al-expand-btn-icon-size:         14px;
+  --al-expand-btn-color:             var(--color-navy);
+
+  /* Mobile detail panel */
+  --al-detail-padding-y:             16px;
+  --al-detail-padding-x:             16px;
+  --al-detail-item-padding-y:        9px;
+  --al-detail-divider-color:         var(--color-border);
+  --al-detail-label-color:           #888888;
+  --al-detail-label-size:            0.8125rem;
+  --al-detail-label-weight:          400;
+  --al-detail-label-min-width:       80px;
+  --al-detail-value-color:           var(--color-navy);
+  --al-detail-value-size:            0.875rem;
+  --al-detail-value-weight:          500;
+  --al-collapse-btn-color:           var(--color-red);
+  --al-collapse-btn-size:            0.875rem;
+  --al-collapse-btn-weight:          500;
+
+  /* ── Mobile layout tokens ────────────────────────────────── */
+  --al-mobile-col-num:               42px;
+  --al-mobile-col-name:              1fr;
+  --al-mobile-col-expand:            42px;
+  --al-mobile-outer-card-padding-y:  16px;
+  --al-mobile-outer-card-padding-x:  14px;
+  --al-mobile-outer-card-radius:     12px;
+  --al-mobile-section-title-size:    1.2rem;
+  --al-mobile-section-subtitle-size: 0.8rem;
+  --al-mobile-page-header-radius:    8px;
+  --al-mobile-page-header-padding-y: 14px;
+  --al-mobile-page-header-padding-x: 16px;
+  --al-mobile-page-title-size:       1.1rem;
+  --al-mobile-breadcrumb-size:       0.72rem;
+  --al-mobile-controls-gap:          10px;
+  --al-mobile-search-height:         40px;
+  --al-mobile-filter-width:          100%;
+  --al-mobile-btn-height:            40px;
+  --al-mobile-btn-size:              0.8125rem;
+  --al-mobile-topbar-bg:             var(--color-navy);
+  --al-mobile-topbar-logo-filter:    brightness(0) invert(1);
 }

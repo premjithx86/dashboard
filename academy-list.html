@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Academy List – IQAF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<!-- 1. Design tokens -->
+<link rel="stylesheet" href="css/tokens.css" />
+<!-- 2. Global reset -->
+<link rel="stylesheet" href="css/base.css" />
+<!-- 3. Page shell -->
+<link rel="stylesheet" href="css/layout.css" />
+<!-- 4. Shared components -->
+<link rel="stylesheet" href="css/components/sidebar.css" />
+<link rel="stylesheet" href="css/components/topbar.css" />
+<link rel="stylesheet" href="css/components/table.css" />
+<!-- 5. Academy List page styles (desktop) -->
+<link rel="stylesheet" href="css/pages/academy-list.css" />
+<!-- 6. Global responsive overrides -->
+<link rel="stylesheet" href="css/responsive.css" />
+<!-- 7. Academy List mobile overrides (must be last to win) -->
+<link rel="stylesheet" href="css/pages/academy-list-responsive.css" />
+</head>
+<body class="al-page">
+
+<!-- Hamburger (mobile) -->
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">
+  <span></span><span></span><span></span><span></span>
+</button>
+<div class="overlay" id="overlay"></div>
+
+<div class="layout">
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav">
+
+      <!-- Dashboard -->
+      <a class="nav-item active" href="index.html">
+        <img src="images/icon/Dashboard.svg" alt="" />
+        Dashboard
+      </a>
+
+      <!-- Exam Management -->
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Exam Managment
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/ExamList.svg" alt="" />
+            Exam List
+            <span class="nav-badge badge-live">1 Live</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/ExamReport.svg" alt="" />
+            Exam Report
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/ExamValuation.svg" alt="" />
+            Exam Valuation
+            <span class="nav-badge badge-pending">3 Pending</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/QuestionBank.svg" alt="" />
+            Question Bank
+          </a>
+        </div>
+      </div>
+
+      <!-- Student -->
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Student
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/StudentList.svg" alt="" />
+            Student List
+          </a>
+        </div>
+      </div>
+
+      <!-- Center's Management -->
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Center's Management
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/Create.svg" alt="" />
+            Create
+          </a>
+          <a class="nav-item" href="academy-list.html">
+            <img src="images/icon/List.svg" alt="" />
+            List
+          </a>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="sidebar-group">
+        <div class="nav-section-label">
+          Settings
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="sidebar-group-content">
+          <a class="nav-item" href="#">
+            <img src="images/icon/Applyforqualification.svg" alt="" />
+            Apply for qualification
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/Location.svg" alt="" />
+            Location
+          </a>
+          <a class="nav-item" href="#">
+            <img src="images/icon/CoursesBook.svg" alt="" />
+            Courses
+          </a>
+        </div>
+      </div>
+
+      <!-- Log Out -->
+      <a class="nav-item logout" href="#">
+        <img src="images/icon/LogOut.svg" alt="" />
+        Log Out
+      </a>
+
+    </nav>
+  </aside>
+
+  <!-- ==================== MAIN ==================== -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-logo">
+        <img src="images/logo/logo.svg" alt="IQAF Logo" />
+      </div>
+      <div class="topbar-profile">
+        <img src="images/people/SuperAdmin.jpg" alt="Admin" />
+        <div>
+          <div class="topbar-name">Name</div>
+          <div class="topbar-role">Super Administrator</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <div class="al-content">
+
+      <!-- Page header band wrapper -->
+      <div class="al-mobile-header-outer">
+        <div class="al-page-header">
+          <div class="al-header-left">
+            <h1 class="al-page-title">Academy List</h1>
+            <nav class="al-breadcrumb" aria-label="Breadcrumb">
+              <span>Home</span>
+              <span class="al-bc-sep">&#8250;</span>
+              <span>Academy</span>
+              <span class="al-bc-sep">&#8250;</span>
+              <span class="al-bc-active">Academy List</span>
+            </nav>
+          </div>
+          <div class="al-header-profile">
+            <img src="images/people/SuperAdmin.jpg" alt="Super Admin" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Outer white card -->
+      <div class="al-outer-card">
+
+        <!-- Section Controls Box -->
+        <div class="al-controls-box">
+          <!-- Section top: title + count -->
+          <div class="al-section-top">
+            <div class="al-section-heading">
+              <h2 class="al-section-title">Center's List</h2>
+              <p class="al-section-subtitle">1424 Center's found. 10 of are showing.</p>
+            </div>
+          </div>
+
+          <!-- Controls: search + membership filter + export + add center (4-column grid) -->
+          <div class="al-controls-row">
+            <div class="al-search-wrap">
+              <span class="al-search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </span>
+              <input class="al-search-input" type="search" placeholder="Search" aria-label="Search centers" />
+            </div>
+            <div class="al-filter-wrap">
+              <select class="al-filter-select" aria-label="Filter by membership">
+                <option value="">Membership : All</option>
+                <option value="basic">Basic</option>
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+              </select>
+            </div>
+            <div class="al-controls-actions">
+              <button class="al-btn al-btn-export" type="button">
+                <!-- Export / upload icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                Export
+              </button>
+              <button class="al-btn al-btn-add" type="button">
+                <!-- Plus icon (SVG for consistent sizing) -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                Add Center
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table wrapper (scrollable on narrow viewports) -->
+        <div class="al-table-outer">
+          <div class="al-table-border">
+            <div class="al-table" role="table" aria-label="Centers List">
+
+              <!-- ── HEADER ── -->
+              <div class="al-thead" role="rowgroup">
+                <div class="al-header-row" role="row">
+                  <div class="al-th al-col-num" role="columnheader">
+                    #
+                    <svg class="al-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path class="al-sort-up"   d="M4 9l8-6 8 6"/>
+                      <path class="al-sort-down" d="M4 15l8 6 8-6"/>
+                    </svg>
+                  </div>
+                  <div class="al-th al-col-name" role="columnheader">
+                    Name
+                    <svg class="al-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path class="al-sort-up"   d="M4 9l8-6 8 6"/>
+                      <path class="al-sort-down" d="M4 15l8 6 8-6"/>
+                    </svg>
+                  </div>
+                  <div class="al-th al-col-phone" role="columnheader">
+                    Phone
+                    <svg class="al-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path class="al-sort-up"   d="M4 9l8-6 8 6"/>
+                      <path class="al-sort-down" d="M4 15l8 6 8-6"/>
+                    </svg>
+                  </div>
+                  <div class="al-th al-col-email" role="columnheader">
+                    Email
+                    <svg class="al-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path class="al-sort-up"   d="M4 9l8-6 8 6"/>
+                      <path class="al-sort-down" d="M4 15l8 6 8-6"/>
+                    </svg>
+                  </div>
+                  <div class="al-th al-col-exam" role="columnheader">
+                    Exam
+                    <svg class="al-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path class="al-sort-up"   d="M4 9l8-6 8 6"/>
+                      <path class="al-sort-down" d="M4 15l8 6 8-6"/>
+                    </svg>
+                  </div>
+                  <div class="al-th al-col-students" role="columnheader">
+                    Students
+                    <svg class="al-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path class="al-sort-up"   d="M4 9l8-6 8 6"/>
+                      <path class="al-sort-down" d="M4 15l8 6 8-6"/>
+                    </svg>
+                  </div>
+                  <div class="al-th al-col-action" role="columnheader">
+                    Action
+                    <svg class="al-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path class="al-sort-up"   d="M4 9l8-6 8 6"/>
+                      <path class="al-sort-down" d="M4 15l8 6 8-6"/>
+                    </svg>
+                  </div>
+                </div>
+              </div><!-- /al-thead -->
+
+              <!-- ── BODY ── -->
+              <div class="al-tbody" role="rowgroup">
+
+                <!-- ── ROW 1 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">1</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar">
+                          <img src="images/icon/TopAcademies1.svg" alt="" />
+                        </div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Ballsy Group Foundation ...</div>
+                          <div class="al-center-code">Code: 1001</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 1</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Ballsy Group Foundation ...</div>
+                            <div class="al-center-code">Code: 1001</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 2 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">2</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Quantum Physics Institute</div>
+                          <div class="al-center-code">Code: 1002</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 2</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Quantum Physics Institute</div>
+                            <div class="al-center-code">Code: 1002</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 3 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">3</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Stellar Science Academy</div>
+                          <div class="al-center-code">Code: 1003</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 3</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Stellar Science Academy</div>
+                            <div class="al-center-code">Code: 1003</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 4 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">4</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Prime Scholars Academy</div>
+                          <div class="al-center-code">Code: 1004</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 4</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Prime Scholars Academy</div>
+                            <div class="al-center-code">Code: 1004</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 5 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">5</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Excel Core Academy</div>
+                          <div class="al-center-code">Code: 1005</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 5</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Excel Core Academy</div>
+                            <div class="al-center-code">Code: 1005</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 6 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">6</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Nexus Learning Hub</div>
+                          <div class="al-center-code">Code: 1006</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 6</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Nexus Learning Hub</div>
+                            <div class="al-center-code">Code: 1006</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 7 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">7</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Summit Science Centre</div>
+                          <div class="al-center-code">Code: 1007</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 7</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Summit Science Centre</div>
+                            <div class="al-center-code">Code: 1007</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 8 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">8</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Elite Equation Academy</div>
+                          <div class="al-center-code">Code: 1008</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 8</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Elite Equation Academy</div>
+                            <div class="al-center-code">Code: 1008</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 9 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">9</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Pioneer Physics Lab</div>
+                          <div class="al-center-code">Code: 1009</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 9</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies1.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Pioneer Physics Lab</div>
+                            <div class="al-center-code">Code: 1009</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+                <!-- ── ROW 10 ── -->
+                <div class="al-row" role="row">
+                  <div class="al-row-main">
+                    <div class="al-td al-col-num" role="cell">10</div>
+                    <div class="al-td al-col-name" role="cell">
+                      <div class="al-center-info">
+                        <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                        <div class="al-center-text">
+                          <div class="al-center-name">Horizon Academic Institute</div>
+                          <div class="al-center-code">Code: 1010</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="al-td al-col-phone" role="cell">(202) 555-0143</div>
+                    <div class="al-td al-col-email" role="cell">olivia.johnson@example.com</div>
+                    <div class="al-td al-col-exam"  role="cell"><span class="al-exam-badge">8</span></div>
+                    <div class="al-td al-col-students" role="cell">12 Students</div>
+                    <div class="al-td al-col-action" role="cell">
+                      <div class="action-icons">
+                        <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                        <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                      </div>
+                    </div>
+                    <button class="al-expand-btn" aria-label="Expand row" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                  <div class="al-row-detail">
+                    <div class="al-detail-item"><span class="al-detail-label">Sl</span><span class="al-detail-value">: 10</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Name</span>
+                      <span class="al-detail-value">
+                        <div class="al-center-info">
+                          <div class="al-center-avatar"><img src="images/icon/TopAcademies2.svg" alt="" /></div>
+                          <div class="al-center-text">
+                            <div class="al-center-name">Horizon Academic Institute</div>
+                            <div class="al-center-code">Code: 1010</div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="al-detail-item"><span class="al-detail-label">Phone</span><span class="al-detail-value">(202) 555-0143</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Email</span><span class="al-detail-value">olivia.johnson@example.com</span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Exam</span><span class="al-detail-value"><span class="al-exam-badge">8</span></span></div>
+                    <div class="al-detail-item"><span class="al-detail-label">Students</span><span class="al-detail-value">12 Students</span></div>
+                    <div class="al-detail-item">
+                      <span class="al-detail-label">Action</span>
+                      <span class="al-detail-value">
+                        <div class="action-icons">
+                          <button class="action-btn" aria-label="View"><img src="images/icon/ActionEye.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="Edit"><img src="images/icon/ActionPen.svg" alt="" /></button>
+                          <button class="action-btn" aria-label="More"><img src="images/icon/ActionDots.svg" alt="" /></button>
+                        </div>
+                      </span>
+                    </div>
+                    <button class="al-collapse-btn" type="button">Collapse Table</button>
+                  </div>
+                </div>
+
+              </div><!-- /al-tbody -->
+            </div><!-- /al-table -->
+          </div><!-- /al-table-border -->
+        </div><!-- /al-table-outer -->
+
+        <!-- Pagination (reuses existing shared styles from table.css) -->
+        <div class="pagination-bar">
+          <div class="pagination-left">
+            Show
+            <div class="select-wrapper">
+              <select aria-label="Rows per page">
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+              </select>
+            </div>
+            per page
+          </div>
+          <div class="pagination-pages">
+            <button class="page-btn arrow" aria-label="Previous page">&lt;</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn desktop-only-page">4</button>
+            <button class="page-btn desktop-only-page">5</button>
+            <button class="page-btn arrow" aria-label="Next page">&gt;</button>
+          </div>
+          <div class="pagination-info">1–10 of 52</div>
+        </div>
+
+      </div><!-- /al-outer-card -->
+    </div><!-- /al-content -->
+
+  </main>
+</div><!-- /layout -->
+
+<script>
+/* ============================================================
+   SIDEBAR TOGGLE
+   ============================================================ */
+const hamburger = document.getElementById('hamburger');
+const sidebar   = document.getElementById('sidebar');
+const overlay   = document.getElementById('overlay');
+
+hamburger.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+  document.body.classList.toggle('menu-open');
+});
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.classList.remove('menu-open');
+});
+
+/* ============================================================
+   PAGINATION PAGE BUTTONS
+   ============================================================ */
+function updatePaginationArrows(pages) {
+  const numBtns  = [...pages.querySelectorAll('.page-btn:not(.arrow)')];
+  const prev     = pages.querySelector('.page-btn.arrow:first-child');
+  const next     = pages.querySelector('.page-btn.arrow:last-child');
+  const activeIdx = numBtns.findIndex(b => b.classList.contains('active'));
+  if (prev) prev.classList.toggle('arrow-disabled', activeIdx === 0);
+  if (next) next.classList.toggle('arrow-disabled', activeIdx === numBtns.length - 1);
+}
+
+document.querySelectorAll('.pagination-pages .page-btn:not(.arrow)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pages = btn.closest('.pagination-pages');
+    pages.querySelectorAll('.page-btn:not(.arrow)').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updatePaginationArrows(pages);
+  });
+});
+
+document.querySelectorAll('.pagination-pages').forEach(updatePaginationArrows);
+
+/* ============================================================
+   SIDEBAR COLLAPSIBLE GROUPS
+   ============================================================ */
+document.querySelectorAll('.nav-section-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const group = label.closest('.sidebar-group');
+    if (group) group.classList.toggle('collapsed');
+  });
+});
+
+/* ============================================================
+   ACADEMY LIST — ROW EXPAND / COLLAPSE  (mobile only)
+   Clicking the expand button shows the row detail panel and
+   hides the main row. Clicking "Collapse Table" reverses it.
+   ============================================================ */
+document.querySelectorAll('.al-expand-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const row = btn.closest('.al-row');
+    row.classList.add('expanded');
+    btn.setAttribute('aria-expanded', 'true');
+  });
+});
+
+document.querySelectorAll('.al-collapse-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const row = btn.closest('.al-row');
+    row.classList.remove('expanded');
+    const expandBtn = row.querySelector('.al-expand-btn');
+    if (expandBtn) expandBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+</body>
+</html>
