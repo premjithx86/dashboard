@@ -163,11 +163,14 @@
 /* ── Footer (Log Out) ────────────────────────────────────── */
 .nav-item.logout {
   margin-top: 40px; /* Gap separating Log Out from main sections list */
+  font-size: var(--sidebar-logout-text-size);
 }
 
 .nav-item.logout img {
   width: var(--sidebar-logout-icon-size);
   height: var(--sidebar-logout-icon-size);
+  min-width: var(--sidebar-logout-icon-size);
+  max-width: var(--sidebar-logout-icon-size);
 }
 
 /* ── Hamburger button (hidden on desktop) ────────────────── */

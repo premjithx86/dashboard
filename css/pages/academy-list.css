@@ -469,6 +469,7 @@ body.al-page .topbar {
 
 /* Column-specific overrides */
 .al-col-num    { padding-left: 20px; }
+.al-col-email  { justify-content: center; }
 .al-col-exam   { justify-content: center; }
 .al-col-action { justify-content: center; }
 

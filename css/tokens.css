@@ -61,7 +61,6 @@
   --sidebar-dashboard-weight: 200;    /* dashboard link weight */
   --sidebar-icon-size:      18px;      /* nav icon width & height */
   --sidebar-icon-opacity:   1.0;
-  --sidebar-logout-icon-size: 44px;
   --sidebar-chevron-color: #BCBFC5;
   --sidebar-nav-item-padding: 13px 16px;
   --sidebar-nav-item-margin: 1px 8px;
@@ -630,14 +629,14 @@
   --al-avatar-icon-size:             22px;
 
   /* Exam count badge */
-  --al-exam-badge-bg:                #E8EAFA;
+  --al-exam-badge-bg:                #DBDCF3;
   --al-exam-badge-color:             var(--color-navy);
   --al-exam-badge-size:              0.875rem;
-  --al-exam-badge-weight:            600;
-  --al-exam-badge-radius:            8px;
+  --al-exam-badge-weight:            500;
+  --al-exam-badge-radius:            6px;
   --al-exam-badge-padding-y:         4px;
-  --al-exam-badge-padding-x:         10px;
-  --al-exam-badge-min-width:         32px;
+  --al-exam-badge-padding-x:         5px;
+  --al-exam-badge-min-width:         5px;
 
   /* ── Mobile expand / collapse ────────────────────────────── */
   --al-expand-btn-size:              30px;

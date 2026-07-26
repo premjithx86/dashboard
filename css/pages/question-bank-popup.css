@@ -2,72 +2,274 @@
    question-bank-popup.css
    "Select Question From Question Bank" modal overlay
 
-   ── ADJUSTABLE TOKENS ──────────────────────────────────────────
-   Edit values in :root to tune the UI without touching HTML.
+   ── HOW TO USE ─────────────────────────────────────────────────
+   All visual properties are CSS custom properties (tokens).
+   Edit the values inside :root for desktop, and inside the
+   @media blocks for tablet / mobile.  No HTML changes needed.
+
+   HEADING GAP NOTE:
+   --qb-header-gap-x controls left & right padding of the header
+   section. Increasing it narrows the text area so the title and
+   subtitle naturally wrap at a shorter width — same visual result
+   as wrapping them in an inner <div> but with zero extra markup.
    ═══════════════════════════════════════════════════════════════ */
 
+/* ───────────────────────────────────────────────────────────────
+   DESKTOP TOKENS  (> 768 px)
+   ─────────────────────────────────────────────────────────────── */
 :root {
   /* ── Modal positioning & sizing ─────────────────────────────── */
-  --qb-modal-gap-x:       80px;     /* left / right gap from viewport edge */
-  --qb-modal-gap-y:       40px;     /* top / bottom gap from viewport edge */
-  --qb-modal-max-width:   780px;    /* maximum width of the popup */
-  --qb-modal-padding-x:   32px;     /* internal horizontal padding */
-  --qb-modal-padding-top: 32px;     /* internal top padding */
-  --qb-modal-padding-bot: 28px;     /* internal bottom padding */
+  --qb-modal-gap-x:        80px;    /* left / right gap from viewport edge */
+  --qb-modal-gap-y:        40px;    /* top / bottom gap from viewport edge */
+  --qb-modal-max-width:    980px;   /* maximum popup width */
+  --qb-modal-padding-x:    32px;    /* internal horizontal padding */
+  --qb-modal-padding-top:  32px;    /* internal top padding */
+  --qb-modal-padding-bot:  28px;    /* internal bottom padding */
 
   /* ── Modal shadow ────────────────────────────────────────────── */
   --qb-modal-shadow:        0 8px 32px rgba(0,0,0,0.16), 0 2px 8px rgba(0,0,0,0.08);
   --qb-modal-shadow-mobile: 0 20px 60px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.12);
 
+  /* ── Heading section gap ─────────────────────────────────────── */
+  /* Increase to indent title & subtitle from the sides.
+     Text shrinks to fit the remaining width automatically.       */
+  --qb-header-gap-x: 40px;   /* desktop left/right heading indentation */
+
   /* ── Close button ────────────────────────────────────────────── */
-  --qb-close-size:        34px;     /* width & height of close button */
-  --qb-close-scale:       1;        /* scale the close button (1 = normal) */
-  --qb-close-icon-color:  #BCBFC5;  /* X icon colour */
+  --qb-close-size:             34px;     /* width & height */
+  --qb-close-scale:            1;        /* scale factor (1 = 100 %) */
+  --qb-close-icon-color:       #BCBFC5;  /* X icon colour */
+  --qb-close-shadow:           none;     /* desktop: no shadow */
+  --qb-close-shadow-mobile:    0 4px 14px rgba(0,0,0,0.18); /* mobile shadow */
 
   /* ── Controls section scale ──────────────────────────────────── */
-  /* Change --qb-controls-scale to resize search, filters, summary
-     and the Add button all at once. 1 = 100%, 1.1 = 110%, etc.    */
-  --qb-controls-scale:     1;
+  /* One lever that resizes search, filters, summary & button.    */
+  --qb-controls-scale:     0.85;
 
-  /* Per-control heights (desktop) */
+  /* Search / filter widths as percentages of the controls row.
+     The calc in the CSS rules subtracts each item's share of the
+     gap so all three items add up to exactly 100 %.             */
+  --qb-search-basis:    58%;     /* search target width (% of row) */
+  --qb-filter-basis:    18%;     /* each filter target width (% of row) */
+
+  /* Limit the controls row width and center it within the modal  */
+  --qb-controls-max-width: 80%;  /* e.g. 90% to not fill edge-to-edge */
+
+  /* Per-control heights */
   --qb-search-height:      42px;
   --qb-filter-height:      42px;
-  --qb-filter-width:       auto;    /* override individual filter width */
-  --qb-search-font-size:   0.875rem;
-  --qb-filter-font-size:   0.875rem;
-  --qb-controls-gap:       12px;    /* gap between search / filter controls */
-  --qb-controls-mb:        14px;    /* margin-bottom of controls row */
+  --qb-filter-width:       auto;   /* override a filter's fixed width */
+  --qb-controls-gap:       12px;   /* gap between the three controls */
+  --qb-controls-mb:        14px;   /* margin-bottom of controls row */
 
   /* ── Add Selected button ─────────────────────────────────────── */
-  --qb-btn-height:         auto;    /* e.g. 46px — or leave 'auto' */
-  --qb-btn-width:          auto;    /* e.g. 220px — or leave 'auto' */
-  --qb-btn-font-size:      0.9375rem;
+  --qb-btn-height:         42px;
+  --qb-btn-width:          250px;
   --qb-btn-padding-y:      11px;
   --qb-btn-padding-x:      44px;
-  --qb-btn-radius:         8px;     /* all four corners */
+  --qb-btn-radius-tl:      8px;    /* top-left corner */
+  --qb-btn-radius-tr:      8px;    /* top-right corner */
+  --qb-btn-radius-br:      8px;    /* bottom-right corner */
+  --qb-btn-radius-bl:      0px;    /* bottom-left corner */
 
-  /* ── Question cards (desktop) ────────────────────────────────── */
-  --qb-card-min-height:    72px;    /* minimum card height on desktop */
-  --qb-card-gap:           8px;     /* vertical gap between cards */
-  --qb-card-padding-y:     16px;    /* card top / bottom padding */
-  --qb-card-padding-x:     18px;    /* card left / right padding */
-  --qb-card-bg:            #F9F9F9; /* card background colour */
-  --qb-card-radius:        12px;    /* card corner radius */
-  --qb-card-border:        #DBDCE4; /* unselected border colour */
-  --qb-card-sel-border:    #1D2465; /* selected border colour */
+  /* ── Question cards ──────────────────────────────────────────── */
+  --qb-card-min-height:    72px;   /* desktop minimum card height */
+  --qb-card-gap:           8px;    /* vertical gap between cards */
+  --qb-card-padding-y:     16px;
+  --qb-card-padding-x:     18px;
+  --qb-card-bg:            #F9F9F9;
+  --qb-card-radius:        12px;
+  --qb-card-border:        #DBDCE4;
+  --qb-card-sel-border:    #1D2465;
 
-  /* ── Colours ─────────────────────────────────────────────────── */
-  --qb-correct-color:          #0EA935;  /* correct / last answer option */
-  --qb-selected-count-color:   #1D2465;  /* "3 Questions are selected" text */
-  --qb-view-more-color:        #21236A;  /* View More — desktop */
-  --qb-view-more-mobile-color: #D10032;  /* View More — mobile */
+  /* ── Correct-answer & misc colours ──────────────────────────── */
+  --qb-correct-color:          #0EA935;
+  --qb-selected-count-color:   #1D2465;
+  --qb-view-more-color:        #21236A;  /* desktop */
+  --qb-view-more-mobile-color: #D10032;  /* mobile */
+
+  /* ══════════════════════════════════════════════════════════════
+     TYPOGRAPHY — DESKTOP
+     Change *-desktop values to restyle desktop text.
+     ══════════════════════════════════════════════════════════════ */
+
+  /* Title */
+  --qb-title-size-desktop:          1.1rem;
+  --qb-title-weight-desktop:        400;
+  --qb-title-color-desktop:         #1a1a2e;
+
+  /* Subtitle */
+  --qb-subtitle-size-desktop:       0.8rem;
+  --qb-subtitle-weight-desktop:     400;
+  --qb-subtitle-color-desktop:      #888888;
+
+  /* Search input */
+  --qb-search-size-desktop:         0.875rem;
+  --qb-search-weight-desktop:       300;
+  --qb-search-color-desktop:        #333333;
+  --qb-search-placeholder-desktop:  #AAAAAA;
+
+  /* Filter dropdowns */
+  --qb-filter-size-desktop:         0.875rem;
+  --qb-filter-weight-desktop:       300;
+  --qb-filter-color-desktop:        #555555;
+
+  /* Summary line — "Total 200 Questions" */
+  --qb-summary-size-desktop:        0.875rem;
+  --qb-summary-weight-desktop:      300;
+  --qb-summary-color-desktop:       #555555;
+
+  /* Selected count — "3 Questions are selected" */
+  --qb-sel-count-size-desktop:      0.875rem;
+  --qb-sel-count-weight-desktop:    400;
+  --qb-sel-count-color-desktop:     #1D2465;
+
+  /* Add button */
+  --qb-btn-size-desktop:            0.9375rem;
+  --qb-btn-weight-desktop:          400;
+
+  /* Question text */
+  --qb-card-q-size-desktop:         0.875rem;
+  --qb-card-q-weight-desktop:       300;
+  --qb-card-q-color-desktop:        #000000;
+
+  /* Answer-type label (Short Answer) */
+  --qb-card-type-size-desktop:      0.8125rem;
+  --qb-card-type-weight-desktop:    300;
+  --qb-card-type-color-desktop:     #888888;
+
+  /* MCQ option text */
+  --qb-card-choices-size-desktop:   0.8125rem;
+  --qb-card-choices-weight-desktop: 300;
+  --qb-card-choices-color-desktop:  #444444;
+
+  /* View More */
+  --qb-view-more-size-desktop:      0.9375rem;
+  --qb-view-more-weight-desktop:    300;
+
+  /* ══════════════════════════════════════════════════════════════
+     TYPOGRAPHY — TABLET  (≤ 768 px)
+     ══════════════════════════════════════════════════════════════ */
+  --qb-title-size-tablet:           1.15rem;
+  --qb-title-weight-tablet:         600;
+  --qb-title-color-tablet:          #1a1a2e;
+  --qb-subtitle-size-tablet:        0.85rem;
+  --qb-subtitle-weight-tablet:      400;
+  --qb-subtitle-color-tablet:       #888888;
+
+  /* ══════════════════════════════════════════════════════════════
+     TYPOGRAPHY — MOBILE  (≤ 480 px)
+     Change *-mobile values to restyle mobile text independently.
+     ══════════════════════════════════════════════════════════════ */
+
+  /* Title */
+  --qb-title-size-mobile:           1rem;
+  --qb-title-weight-mobile:         500;
+  --qb-title-color-mobile:          #1a1a2e;
+
+  /* Subtitle */
+  --qb-subtitle-size-mobile:        0.8rem;
+  --qb-subtitle-weight-mobile:      400;
+  --qb-subtitle-color-mobile:       #888888;
+
+  /* Search */
+  --qb-search-size-mobile:          0.875rem;
+  --qb-search-weight-mobile:        300;
+  --qb-search-color-mobile:         #333333;
+  --qb-search-placeholder-mobile:   #AAAAAA;
+
+  /* Filters */
+  --qb-filter-size-mobile:          0.875rem;
+  --qb-filter-weight-mobile:        300;
+  --qb-filter-color-mobile:         #555555;
+
+  /* Summary */
+  --qb-summary-size-mobile:         0.8125rem;
+  --qb-summary-weight-mobile:       400;
+  --qb-summary-color-mobile:        #555555;
+
+  /* Selected count — mobile */
+  --qb-sel-count-size-mobile:       0.8125rem;
+  --qb-sel-count-weight-mobile:     400;
+  --qb-sel-count-color-mobile:      #1D2465;
+
+  /* Add button */
+  --qb-btn-size-mobile:             0.875rem;
+  --qb-btn-weight-mobile:           500;
+
+  /* Question text */
+  --qb-card-q-size-mobile:          0.8125rem;
+  --qb-card-q-weight-mobile:        400;
+  --qb-card-q-color-mobile:         #1a1a2e;
+
+  /* Answer-type label */
+  --qb-card-type-size-mobile:       0.8125rem;
+  --qb-card-type-weight-mobile:     300;
+  --qb-card-type-color-mobile:      #888888;
+
+  /* MCQ option text */
+  --qb-card-choices-size-mobile:    0.75rem;
+  --qb-card-choices-weight-mobile:  300;
+  --qb-card-choices-color-mobile:   #444444;
+
+  /* View More */
+  --qb-view-more-size-mobile:       0.9375rem;
+  --qb-view-more-weight-mobile:     500;
+
+  /* ── Mobile close / header tuning ───────────────────────────── */
+  --qb-mobile-close-size:           38px;
+  --qb-mobile-close-top:            14px;
+  --qb-mobile-close-right:          14px;
+  --qb-mobile-title-gap-from-close: -20px;
+
+  /* ── Mobile selected tick tuning ────────────────────────────── */
+  --qb-mobile-check-size:           28px;
+  --qb-mobile-check-icon-size:      13px;
+  --qb-mobile-check-top-offset:     2px;
+
+  /* ── ACTIVE typography variables ─────────────────────────────── */
+  /* These are what the CSS rules actually reference.
+     At desktop they point to the -desktop values above.
+     Media queries below switch them to -tablet or -mobile.      */
+  --qb-title-size:            var(--qb-title-size-desktop);
+  --qb-title-weight:          var(--qb-title-weight-desktop);
+  --qb-title-color:           var(--qb-title-color-desktop);
+  --qb-subtitle-size:         var(--qb-subtitle-size-desktop);
+  --qb-subtitle-weight:       var(--qb-subtitle-weight-desktop);
+  --qb-subtitle-color:        var(--qb-subtitle-color-desktop);
+  --qb-search-size:           var(--qb-search-size-desktop);
+  --qb-search-weight:         var(--qb-search-weight-desktop);
+  --qb-search-color:          var(--qb-search-color-desktop);
+  --qb-search-placeholder:    var(--qb-search-placeholder-desktop);
+  --qb-filter-size:           var(--qb-filter-size-desktop);
+  --qb-filter-weight:         var(--qb-filter-weight-desktop);
+  --qb-filter-color:          var(--qb-filter-color-desktop);
+  --qb-summary-size:          var(--qb-summary-size-desktop);
+  --qb-summary-weight:        var(--qb-summary-weight-desktop);
+  --qb-summary-color:         var(--qb-summary-color-desktop);
+  --qb-sel-count-size:        var(--qb-sel-count-size-desktop);
+  --qb-sel-count-weight:      var(--qb-sel-count-weight-desktop);
+  --qb-sel-count-color:       var(--qb-sel-count-color-desktop);
+  --qb-btn-size:              var(--qb-btn-size-desktop);
+  --qb-btn-weight:            var(--qb-btn-weight-desktop);
+  --qb-card-q-size:           var(--qb-card-q-size-desktop);
+  --qb-card-q-weight:         var(--qb-card-q-weight-desktop);
+  --qb-card-q-color:          var(--qb-card-q-color-desktop);
+  --qb-card-type-size:        var(--qb-card-type-size-desktop);
+  --qb-card-type-weight:      var(--qb-card-type-weight-desktop);
+  --qb-card-type-color:       var(--qb-card-type-color-desktop);
+  --qb-card-choices-size:     var(--qb-card-choices-size-desktop);
+  --qb-card-choices-weight:   var(--qb-card-choices-weight-desktop);
+  --qb-card-choices-color:    var(--qb-card-choices-color-desktop);
+  --qb-view-more-size:        var(--qb-view-more-size-desktop);
+  --qb-view-more-weight:      var(--qb-view-more-weight-desktop);
 }
 
 
 /* ── Page shell ───────────────────────────────────────────────── */
 .qb-page {
-  display: block;          /* override body flex from base.css */
-  overflow-y: auto;        /* body scrolls — no internal modal scrollbar */
+  display: block;        /* override body flex from base.css */
+  overflow-y: auto;      /* body scrolls — modal has no internal scrollbar */
   min-height: 100vh;
 }
 
@@ -99,16 +301,12 @@
 }
 
 /* ── Modal centering wrapper ──────────────────────────────────── */
-/* Sits above the backdrop; page body scrolls this wrapper.
-   The wrapper fills at least the full viewport so the modal
-   appears vertically centred when it's shorter than 100vh,
-   and the page scrolls naturally when the modal is taller.   */
 .qb-modal-wrap {
   position: relative;
   z-index: 10;
   display: flex;
   justify-content: center;
-  align-items: center;           /* vertical centre when modal fits */
+  align-items: center;
   min-height: 100vh;
   padding: var(--qb-modal-gap-y) var(--qb-modal-gap-x);
   box-sizing: border-box;
@@ -116,13 +314,13 @@
 
 /* ── Modal card ───────────────────────────────────────────────── */
 .qb-modal {
-  position: relative;            /* containing block for close button */
+  position: relative;
   width: 100%;
   max-width: var(--qb-modal-max-width);
-  align-self: flex-start;        /* don't stretch vertically */
+  align-self: flex-start;
 
   background: var(--color-white);
-  border-radius: var(--radius-lg);               /* 16px */
+  border-radius: var(--radius-lg);
   box-shadow: var(--qb-modal-shadow);
 
   padding:
@@ -143,11 +341,12 @@
   justify-content: center;
 
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);               /* 6px */
+  border-radius: var(--radius-sm);
   background: var(--color-white);
   cursor: pointer;
   padding: 0;
   z-index: 2;
+  box-shadow: var(--qb-close-shadow);
 
   transform: scale(var(--qb-close-scale));
   transform-origin: top right;
@@ -168,50 +367,62 @@
 }
 
 /* ── Header ───────────────────────────────────────────────────── */
+/*
+  --qb-header-gap-x controls how far the title & subtitle are
+  indented from each side.  No extra <div> needed — increasing
+  the padding narrows the text area and the browser wraps text
+  automatically, giving the same visual effect as an inner wrapper.
+*/
 .qb-header {
   text-align: center;
-  padding: 4px 40px 0;
+  padding: 4px var(--qb-header-gap-x) 0;
   margin-bottom: 24px;
 }
 
 .qb-title {
   font-family: var(--font-family);
-  font-size: 1.3125rem;
-  font-weight: 600;
-  color: #1a1a2e;
+  font-size:   var(--qb-title-size);
+  font-weight: var(--qb-title-weight);
+  color:       var(--qb-title-color);
   line-height: 1.3;
   margin-bottom: 8px;
 }
 
 .qb-subtitle {
   font-family: var(--font-family);
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #888;
+  font-size:   var(--qb-subtitle-size);
+  font-weight: var(--qb-subtitle-weight);
+  color:       var(--qb-subtitle-color);
   line-height: 1.45;
 }
 
 /* ══════════════════════════════════════════════════════════════
-   CONTROLS SECTION — search, filters, summary, Add button
-   Change --qb-controls-scale in :root to resize all at once.
+   CONTROLS SECTION
+   All three controls (search + 2 filters) share this container.
+   --qb-controls-scale resizes everything proportionally.
+   --qb-controls-max-width + margin-inline: auto centres the row.
    ══════════════════════════════════════════════════════════════ */
 .qb-controls-section {
-  /* font-size is the single scale lever:
-     all em-based children scale proportionally.               */
   font-size: calc(1rem * var(--qb-controls-scale));
+  width: 100%;
+  margin-inline: auto;
 }
 
-/* ── Controls row (search + 2 filters) ───────────────────────── */
+/* ── Controls row ─────────────────────────────────────────────── */
 .qb-controls {
   display: flex;
-  gap: var(--qb-controls-gap);
-  margin-bottom: var(--qb-controls-mb);
+  gap: calc(var(--qb-controls-gap) * var(--qb-controls-scale));
+  margin-bottom: calc(var(--qb-controls-mb) * var(--qb-controls-scale));
+  max-width: var(--qb-controls-max-width);  /* narrows row; centered by margin-inline */
+  margin-left: auto;
+  margin-right: auto;
   align-items: stretch;
 }
 
-/* — Search — */
+/* — Search input — */
 .qb-search {
-  flex: 3;
+  /* flex-basis = target% minus search's share of the total gap (2 gaps × 50%) */
+  flex: 0 0 calc(var(--qb-search-basis) - calc(var(--qb-controls-gap) * var(--qb-controls-scale)));
   position: relative;
   display: flex;
   align-items: center;
@@ -222,7 +433,7 @@
   left: 0.875em;
   width:  0.9375em;
   height: 0.9375em;
-  color: #AAAAAA;
+  color: var(--qb-search-placeholder);
   pointer-events: none;
   flex-shrink: 0;
 }
@@ -235,43 +446,43 @@
   border-radius: 6px;
   background: var(--color-white);
   font-family: var(--font-family);
-  font-size: var(--qb-search-font-size);
-  font-weight: 300;
-  color: #333;
+  font-size: var(--qb-search-size);
+  font-weight: var(--qb-search-weight);
+  color: var(--qb-search-color);
   outline: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
   -webkit-appearance: none;
   appearance: none;
 }
 
-.qb-search__input::placeholder            { color: #AAAAAA; }
+.qb-search__input::placeholder            { color: var(--qb-search-placeholder); }
 .qb-search__input::-webkit-search-cancel-button { display: none; }
 .qb-search__input:focus                   { border-color: var(--color-blue-mid); }
 
 /* — Filter dropdowns — */
 .qb-filter {
-  flex: 1;
-  min-width: 138px;          /* prevents label truncation at narrow widths */
+  /* flex-basis = target% minus filter's share of the total gap (2 gaps × 25%) */
+  flex: 0 0 calc(var(--qb-filter-basis) - calc(var(--qb-controls-gap) * var(--qb-controls-scale)) / 2);
+  min-width: calc(138px * var(--qb-controls-scale));
   width: var(--qb-filter-width);
 }
 
 .qb-filter__select {
   width: 100%;
   height: calc(var(--qb-filter-height) * var(--qb-controls-scale));
-  padding: 0 1.75em 0 0.875em;   /* right: 28px | left: 14px */
+  padding: 0 1.75em 0 0.875em;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   background: var(--color-white);
   font-family: var(--font-family);
-  font-size: var(--qb-filter-font-size);
-  font-weight: 300;
-  color: #555;
+  font-size: var(--qb-filter-size);
+  font-weight: var(--qb-filter-weight);
+  color: var(--qb-filter-color);
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   outline: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  /* Inline chevron */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238E9198' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.625em center;
@@ -284,16 +495,17 @@
 .qb-summary {
   text-align: center;
   font-family: var(--font-family);
-  font-size: 0.875em;           /* em → scales with controls-section */
-  font-weight: 400;
-  color: #555;
+  font-size: calc(var(--qb-summary-size) * var(--qb-controls-scale));
+  font-weight: var(--qb-summary-weight);
+  color: var(--qb-summary-color);
   margin-bottom: 0.875em;
   line-height: 1.5;
 }
 
 .qb-summary__selected {
-  font-weight: 600;
-  color: var(--qb-selected-count-color);
+  font-size:   calc(var(--qb-sel-count-size) * var(--qb-controls-scale));
+  font-weight: var(--qb-sel-count-weight);
+  color:       var(--qb-sel-count-color);
 }
 
 /* ── Add button ───────────────────────────────────────────────── */
@@ -304,22 +516,26 @@
 }
 
 .qb-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-navy);
   color: var(--color-white);
   font-family: var(--font-family);
-  font-size: var(--qb-btn-font-size);
-  font-weight: 500;
-  /* All four corners explicitly rounded */
-  border-radius: var(--qb-btn-radius) var(--qb-btn-radius) var(--qb-btn-radius) var(--qb-btn-radius);
+  font-size: calc(var(--qb-btn-size) * var(--qb-controls-scale));
+  font-weight: var(--qb-btn-weight);
+  border-radius: var(--qb-btn-radius-tl) var(--qb-btn-radius-tr) var(--qb-btn-radius-br) var(--qb-btn-radius-bl);
   border: none;
   cursor: pointer;
   letter-spacing: 0.01em;
   white-space: nowrap;
   transition: opacity 0.15s ease;
-  /* Adjustable dimensions */
-  height:  var(--qb-btn-height);
-  width:   var(--qb-btn-width);
-  padding: var(--qb-btn-padding-y) var(--qb-btn-padding-x);
+  height:  calc(var(--qb-btn-height) * var(--qb-controls-scale));
+  width:   calc(var(--qb-btn-width)  * var(--qb-controls-scale));
+  padding:
+    calc(var(--qb-btn-padding-y) * var(--qb-controls-scale))
+    calc(var(--qb-btn-padding-x) * var(--qb-controls-scale));
+  line-height: 1;
 }
 
 .qb-add-btn:hover { opacity: 0.88; }
@@ -346,47 +562,38 @@
   transition: border-color 0.15s;
 }
 
-.qb-card:hover:not(.qb-card--sel) {
-  border-color: #ACAEC5;
-}
+.qb-card:hover:not(.qb-card--sel) { border-color: #ACAEC5; }
 
-.qb-card--sel {
-  border: 1.5px solid var(--qb-card-sel-border);
-}
+.qb-card--sel { border: 1.5px solid var(--qb-card-sel-border); }
 
-/* Card body */
-.qb-card__body {
-  flex: 1;
-  min-width: 0;
-}
+.qb-card__body { flex: 1; min-width: 0; }
 
 .qb-card__q {
   font-family: var(--font-family);
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #1a1a2e;
+  font-size:   var(--qb-card-q-size);
+  font-weight: var(--qb-card-q-weight);
+  color:       var(--qb-card-q-color);
   line-height: 1.5;
   margin-bottom: 5px;
 }
 
 .qb-card__type {
   font-family: var(--font-family);
-  font-size: 0.8125rem;
-  font-weight: 300;
-  color: #888;
+  font-size:   var(--qb-card-type-size);
+  font-weight: var(--qb-card-type-weight);
+  color:       var(--qb-card-type-color);
   margin: 0;
 }
 
-/* MCQ choices */
 .qb-card__choices {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   row-gap: 4px;
   font-family: var(--font-family);
-  font-size: 0.8125rem;
-  font-weight: 300;
-  color: #444;
+  font-size:   var(--qb-card-choices-size);
+  font-weight: var(--qb-card-choices-weight);
+  color:       var(--qb-card-choices-color);
 }
 
 .qb-sep {
@@ -399,10 +606,7 @@
   flex-shrink: 0;
 }
 
-/* Last / correct answer is green */
-.qb-correct {
-  color: var(--qb-correct-color);
-}
+.qb-correct { color: var(--qb-correct-color); }
 
 /* ── Selected checkmark ───────────────────────────────────────── */
 .qb-check {
@@ -435,9 +639,9 @@
 
 .qb-view-more {
   font-family: var(--font-family);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--qb-view-more-color);       /* #21236A desktop */
+  font-size:   var(--qb-view-more-size);
+  font-weight: var(--qb-view-more-weight);
+  color: var(--qb-view-more-color);
   text-decoration: none;
   letter-spacing: 0.01em;
   transition: opacity 0.15s;
@@ -447,107 +651,157 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   TABLET  (≤ 768px)
+   TABLET  (≤ 768 px)
+   Edit the :root values below to restyle tablet independently.
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   :root {
+    /* Layout */
     --qb-modal-gap-x:      24px;
     --qb-modal-gap-y:      28px;
     --qb-modal-padding-x:  22px;
+    --qb-header-gap-x:     32px;   /* tablet heading indentation */
     --qb-search-height:    40px;
     --qb-filter-height:    40px;
     --qb-card-padding-y:   13px;
     --qb-card-padding-x:   14px;
     --qb-card-min-height:  62px;
+
+    /* Typography — switch active vars to tablet values */
+    --qb-title-size:       var(--qb-title-size-tablet);
+    --qb-title-weight:     var(--qb-title-weight-tablet);
+    --qb-title-color:      var(--qb-title-color-tablet);
+    --qb-subtitle-size:    var(--qb-subtitle-size-tablet);
+    --qb-subtitle-weight:  var(--qb-subtitle-weight-tablet);
+    --qb-subtitle-color:   var(--qb-subtitle-color-tablet);
   }
 
-  .qb-title    { font-size: 1.15rem; }
-  .qb-subtitle { font-size: 0.85rem; }
-  .qb-header   { padding: 2px 32px 0; margin-bottom: 20px; }
+  .qb-header { margin-bottom: 20px; }
 }
 
+
 /* ═══════════════════════════════════════════════════════════════
-   MOBILE  (≤ 480px)
+   MOBILE  (≤ 480 px)
+   Edit the :root values below to restyle mobile independently.
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
   :root {
     /* ── Modal ──────────────────────────────────────────────── */
-    --qb-modal-gap-x:       10px;   /* side gap on mobile */
-    --qb-modal-gap-y:       16px;   /* top/bottom gap on mobile */
-    --qb-modal-padding-x:   14px;
-    --qb-modal-padding-top: 20px;
-    --qb-modal-padding-bot: 16px;
+    --qb-modal-gap-x:        10px;
+    --qb-modal-gap-y:        16px;
+    --qb-modal-padding-x:    14px;
+    --qb-modal-padding-top:  20px;
+    --qb-modal-padding-bot:  16px;
+
+    /* ── Heading gap on mobile ──────────────────────────────── */
+    /* Increase to indent title/subtitle from the sides.
+       Text wraps automatically to fit the narrower area.       */
+    --qb-header-gap-x:       20px;
 
     /* ── Controls ───────────────────────────────────────────── */
-    --qb-search-height:     40px;
-    --qb-filter-height:     40px;
-    --qb-controls-gap:      10px;
+    --qb-search-height:      40px;
+    --qb-filter-height:      40px;
+    --qb-controls-gap:       10px;
 
     /* ── Cards ──────────────────────────────────────────────── */
-    --qb-card-padding-y:    11px;
-    --qb-card-padding-x:    12px;
-    --qb-card-min-height:   54px;
-    --qb-card-gap:          7px;
+    --qb-card-padding-y:     11px;
+    --qb-card-padding-x:     12px;
+    --qb-card-min-height:    54px;
+    --qb-card-gap:           7px;
 
     /* ── Button ─────────────────────────────────────────────── */
-    --qb-btn-padding-x:     24px;
-    --qb-btn-font-size:     0.875rem;
+    --qb-btn-padding-x:      24px;
 
-    /* ── Shadow (more pronounced at bottom on mobile) ───────── */
-    /* Override via --qb-modal-shadow-mobile in :root above     */
+    /* ── Typography — switch active vars to mobile values ───── */
+    --qb-title-size:            var(--qb-title-size-mobile);
+    --qb-title-weight:          var(--qb-title-weight-mobile);
+    --qb-title-color:           var(--qb-title-color-mobile);
+    --qb-subtitle-size:         var(--qb-subtitle-size-mobile);
+    --qb-subtitle-weight:       var(--qb-subtitle-weight-mobile);
+    --qb-subtitle-color:        var(--qb-subtitle-color-mobile);
+    --qb-search-size:           var(--qb-search-size-mobile);
+    --qb-search-weight:         var(--qb-search-weight-mobile);
+    --qb-search-color:          var(--qb-search-color-mobile);
+    --qb-search-placeholder:    var(--qb-search-placeholder-mobile);
+    --qb-filter-size:           var(--qb-filter-size-mobile);
+    --qb-filter-weight:         var(--qb-filter-weight-mobile);
+    --qb-filter-color:          var(--qb-filter-color-mobile);
+    --qb-summary-size:          var(--qb-summary-size-mobile);
+    --qb-summary-weight:        var(--qb-summary-weight-mobile);
+    --qb-summary-color:         var(--qb-summary-color-mobile);
+    --qb-sel-count-size:        var(--qb-sel-count-size-mobile);
+    --qb-sel-count-weight:      var(--qb-sel-count-weight-mobile);
+    --qb-sel-count-color:       var(--qb-sel-count-color-mobile);
+    --qb-btn-size:              var(--qb-btn-size-mobile);
+    --qb-btn-weight:            var(--qb-btn-weight-mobile);
+    --qb-card-q-size:           var(--qb-card-q-size-mobile);
+    --qb-card-q-weight:         var(--qb-card-q-weight-mobile);
+    --qb-card-q-color:          var(--qb-card-q-color-mobile);
+    --qb-card-type-size:        var(--qb-card-type-size-mobile);
+    --qb-card-type-weight:      var(--qb-card-type-weight-mobile);
+    --qb-card-type-color:       var(--qb-card-type-color-mobile);
+    --qb-card-choices-size:     var(--qb-card-choices-size-mobile);
+    --qb-card-choices-weight:   var(--qb-card-choices-weight-mobile);
+    --qb-card-choices-color:    var(--qb-card-choices-color-mobile);
+    --qb-view-more-size:        var(--qb-view-more-size-mobile);
+    --qb-view-more-weight:      var(--qb-view-more-weight-mobile);
   }
 
+  /* Modal */
   .qb-modal {
-    border-radius: var(--radius-md);    /* 12px on mobile */
+    border-radius: var(--radius-md);
     box-shadow: var(--qb-modal-shadow-mobile);
   }
 
+  /* Close button — shadow on mobile */
   .qb-close {
-    top: 14px;
-    right: 14px;
-    --qb-close-size: 30px;
+    top:   var(--qb-mobile-close-top);
+    right: var(--qb-mobile-close-right);
+    --qb-close-size:   var(--qb-mobile-close-size);
+    --qb-close-shadow: var(--qb-close-shadow-mobile);
   }
 
+  /* Header — top padding clears the absolutely-positioned close btn */
   .qb-header {
-    padding: 0 32px 0 0;
-    text-align: center;
+    padding-top: calc(
+      var(--qb-mobile-close-top) +
+      var(--qb-mobile-close-size) +
+      var(--qb-mobile-title-gap-from-close)
+    );
     margin-bottom: 16px;
+    text-align: center;
   }
 
-  .qb-title    { font-size: 1.05rem; }
-  .qb-subtitle { font-size: 0.8rem; text-align: center; }
+  .qb-subtitle { text-align: center; }
 
-  /* Search full-width, filters 50/50 on next row */
-  .qb-controls {
-    flex-wrap: wrap;
-  }
+  /* Search full-width; filters side-by-side 50/50 */
+  .qb-controls { flex-wrap: wrap; }
 
   .qb-search { flex: 1 1 100%; }
   .qb-filter { flex: 1 1 calc(50% - calc(var(--qb-controls-gap) / 2)); }
 
-  .qb-summary {
-    font-size: 0.8125rem;
-    white-space: normal;
-    line-height: 1.6;
-  }
+  .qb-summary { white-space: normal; line-height: 1.6; }
 
-  .qb-add-btn {
-    width: 100%;
-    max-width: 260px;
-  }
+  .qb-add-btn { width: 100%; max-width: 260px; }
 
-  .qb-card__q       { font-size: 0.8125rem; }
-  .qb-card__choices { font-size: 0.75rem; row-gap: 3px; }
-
+  .qb-card__choices { row-gap: 3px; }
   .qb-sep { margin: 0 5px; height: 11px; }
 
-  .qb-check       { width: 26px; height: 26px; }
-  .qb-check svg   { width: 12px; height: 12px; }
+  .qb-card--sel { align-items: flex-start; }
+
+  .qb-check {
+    width:  var(--qb-mobile-check-size);
+    height: var(--qb-mobile-check-size);
+    margin-top: var(--qb-mobile-check-top-offset);
+  }
+
+  .qb-check svg {
+    width:  var(--qb-mobile-check-icon-size);
+    height: var(--qb-mobile-check-icon-size);
+  }
 
   .qb-footer { padding-top: 16px; }
 
-  /* View More is red on mobile */
-  .qb-view-more {
-    color: var(--qb-view-more-mobile-color);
-  }
+  /* View More — red on mobile */
+  .qb-view-more { color: var(--qb-view-more-mobile-color); }
 }
