@@ -65,26 +65,45 @@
   .al-header-left {
     display: flex !important;
     flex-direction: column !important;
-    gap: 6px !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    flex: 1 !important;
+    margin-right: 16px !important;
   }
 
   .al-page-title {
     font-size: var(--al-mobile-page-title-size) !important;
     color: var(--color-white) !important; /* White text on navy background */
+    order: 1 !important;
   }
 
+  .al-breadcrumbs,
   .al-breadcrumb {
     font-size: var(--al-mobile-breadcrumb-size) !important;
     gap: 6px !important;
-    color: rgba(255, 255, 255, 0.7) !important; /* Semi-transparent white breadcrumbs */
+    color: var(--color-white) !important; /* White breadcrumbs */
+    display: flex !important;
+    align-items: center !important;
+    order: 2 !important;
+    margin-left: 0 !important; /* Start directly below page title */
   }
 
-  .al-bc-sep {
-    color: rgba(255, 255, 255, 0.4) !important;
+  .al-breadcrumbs a,
+  .al-breadcrumb a {
+    color: var(--color-white) !important;
+    font-size: var(--al-mobile-breadcrumb-size) !important;
+    font-weight: var(--al-breadcrumb-weight) !important;
   }
 
+  .al-breadcrumbs span,
+  .al-breadcrumb span,
+  .al-breadcrumb-separator,
+  .al-bc-sep,
+  .al-breadcrumb-active,
   .al-bc-active {
     color: var(--color-white) !important;
+    font-size: var(--al-mobile-breadcrumb-size) !important;
+    font-weight: var(--al-breadcrumb-weight) !important;
   }
 
   /* Superadmin Avatar in page-header (straight/side-by-side with texts) */
@@ -108,7 +127,7 @@
 
   /* ── Controls Box mobile overrides ────────────────────────── */
   .al-controls-box {
-    padding: 16px !important;
+    padding: var(--al-mobile-controls-box-padding-y) var(--al-mobile-controls-box-padding-x) !important;
     border-radius: 8px !important;
     margin-bottom: 16px !important;
   }
@@ -122,17 +141,19 @@
 
   .al-section-title {
     font-size: var(--al-mobile-section-title-size);
+    font-weight: var(--al-mobile-section-title-weight);
   }
 
   .al-section-subtitle {
     font-size: var(--al-mobile-section-subtitle-size);
+    font-weight: var(--al-mobile-section-subtitle-weight);
   }
 
   /* ── Controls row (Custom Mobile Layout) ──────────────────── */
   .al-controls-row {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+    grid-template-columns: 1.8fr 1.2fr !important;
+    gap: 12px !important;
     margin-top: 14px;
     margin-bottom: 16px;
   }
@@ -173,10 +194,9 @@
     margin-bottom: 8px !important;
   }
 
-  /* Keep buttons small and compact (not stretching) */
   .al-controls-actions .al-btn {
     flex: none !important;
-    height: 36px !important;
+    height: var(--al-mobile-btn-height) !important;
     font-size: var(--al-mobile-btn-size) !important;
     padding: 0 14px !important;
     width: auto !important;
@@ -190,8 +210,11 @@
 
   /* ── Table border container ───────────────────────────────── */
   .al-table-border {
-    min-width: 0;
-    border-radius: var(--al-table-header-radius);
+    min-width: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
 
   /* ── Header row: 3-column mobile grid ─────────────────────── */
@@ -386,9 +409,10 @@
 
   /* ── Pagination on mobile/tablet ──────────────────────────── */
   .al-outer-card .pagination-bar {
-    border-radius: 0 0 var(--al-mobile-outer-card-radius) var(--al-mobile-outer-card-radius);
-    border-top: 1px solid var(--color-border);
-    margin-top: 0;
+    border-radius: 12px !important;
+    border: 1px solid var(--table-row-border) !important;
+    margin-top: var(--table-pagination-gap-top) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
     box-sizing: border-box !important;
 
     /* Horizontal layout for tablet viewports (601px to 900px) */

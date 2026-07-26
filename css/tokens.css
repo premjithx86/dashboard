@@ -88,6 +88,7 @@
   --table-title-size:      1.2rem;               /* [Title card text size] Font size of Recent Exam List */
   --table-title-weight:    500;                    /* [Title card text weight] Boldness of Recent Exam List */
   --table-pagination-bg:   #DBDCE4;                /* [Pagination card background] Background of the bottom page selection footer card */
+  --table-pagination-gap-top: 16px;                 /* [Pagination top gap] Spacing between the table rows and the pagination card */
   --table-pagination-select-color: #000107;
   --table-pagination-select-weight: 200;            /* [Dropdown weight] Boldness of show-limit select dropdown numbers */
   --table-pagination-info-color:     #999BA3;      /* [Pagination info text color] Text color of '1-10 of 52' info label */
@@ -464,12 +465,12 @@
   --al-page-header-radius:           12px;
   --al-page-header-padding-y:        18px;
   --al-page-header-padding-x:        24px;
-  --al-page-title-size:              1.5rem;
-  --al-page-title-weight:            600;
+  --al-page-title-size:              1.25rem;
+  --al-page-title-weight:            300;
   --al-page-title-color:             var(--color-white);
   --al-page-title-font-style:        normal;
   --al-breadcrumb-size:              0.875rem;
-  --al-breadcrumb-weight:            400;
+  --al-breadcrumb-weight:            300;
   --al-breadcrumb-color:             rgba(255,255,255,0.65);
   --al-breadcrumb-sep-color:         rgba(255,255,255,0.45);
   --al-breadcrumb-active-color:      var(--color-white);
@@ -478,8 +479,8 @@
   /* ── Outer white card ────────────────────────────────────── */
   --al-outer-card-bg:                var(--color-white);
   --al-outer-card-radius:            16px;
-  --al-outer-card-padding-y:         24px;
-  --al-outer-card-padding-x:         24px;
+  --al-outer-card-padding-y:         8px;
+  --al-outer-card-padding-x:         8px;
   --al-outer-card-shadow:            0 2px 12px rgba(0,0,0,0.07);
 
   /* ── Controls Box (Custom Background Wrapper) ─────────────── */
@@ -495,24 +496,27 @@
 
   /* ── Section header (Center's List title) ────────────────── */
   --al-section-title-size:           1.5rem;                    /* [Title font size] "Center's List" heading */
-  --al-section-title-weight:         700;                       /* [Title font weight] */
-  --al-section-title-color:          var(--color-navy);         /* [Title color] */
+  --al-section-title-weight:         500;                       /* [Title font weight] (Lighter weight) */
+  --al-section-title-color:          #000000;                   /* [Title color] (Black) */
   --al-section-title-font-style:     normal;
   --al-section-subtitle-size:        0.875rem;                  /* [Subtitle font size] count text */
-  --al-section-subtitle-weight:      400;
+  --al-section-subtitle-weight:      300;                       /* [Subtitle weight] (Lighter weight) */
   --al-section-subtitle-color:       #888888;
   --al-section-header-margin-bottom: 20px;                      /* [Gap] below title+count before controls */
   --al-section-top-gap:              12px;                      /* [Gap] between title block and action buttons */
+
+  /* ── Buttons styling ─────────────────────────────────────── */
+  --al-btn-border-radius:            8px 8px 8px 0;             /* [Custom Radius] bottom-left corner is sharp/flat */
 
   /* ── Export button ───────────────────────────────────────── */
   --al-export-btn-bg:                var(--color-white);
   --al-export-btn-color:             var(--color-navy);
   --al-export-btn-border-color:      var(--color-navy);
   --al-export-btn-border-width:      1.5px;
-  --al-export-btn-radius:            10px;
+  --al-export-btn-radius:            var(--al-btn-border-radius);
   --al-export-btn-padding-y:         0px;
   --al-export-btn-padding-x:         16px;
-  --al-export-btn-height:            42px;
+  --al-export-btn-height:            44px;                      /* Slightly taller */
   --al-export-btn-size:              0.875rem;
   --al-export-btn-weight:            500;
   --al-export-btn-icon-size:         17px;
@@ -521,12 +525,12 @@
   /* ── Add Center button ───────────────────────────────────── */
   --al-add-btn-bg:                   var(--color-navy);
   --al-add-btn-color:                var(--color-white);
-  --al-add-btn-radius:               10px;
+  --al-add-btn-radius:               var(--al-btn-border-radius);
   --al-add-btn-padding-y:            0px;
   --al-add-btn-padding-x:            16px;
-  --al-add-btn-height:               42px;
+  --al-add-btn-height:               44px;                      /* Slightly taller */
   --al-add-btn-size:                 0.875rem;
-  --al-add-btn-weight:               500;
+  --al-add-btn-weight:               400;                       /* Less weight */
   --al-add-btn-gap:                  8px;
 
   /* ── Controls row (search + filter) ─────────────────────── */
@@ -538,28 +542,32 @@
   --al-search-bg:                    var(--color-white);
   --al-search-border-color:          var(--color-border);
   --al-search-border-width:          1px;
-  --al-search-radius:                10px;
-  --al-search-height:                42px;
-  --al-search-padding-left:          42px;
-  --al-search-placeholder-color:     #BBBBBB;
-  --al-search-text-color:            var(--color-navy);
-  --al-search-text-size:             0.875rem;
-  --al-search-text-weight:           400;
+  --al-search-radius:                4px;                       /* Only a little bit rounded */
+  --al-search-height:                36px;                      /* Smaller height */
+  --al-search-width:                 320px;                     /* Longer search box on desktop */
+  --al-search-padding-left:          46px;                      /* Larger gap between icon and text */
+  --al-search-placeholder-color:     #8E9198;                   /* Placeholder color #8E9198 */
+  --al-search-text-color:            #8E9198;                   /* Text color #8E9198 */
+  --al-search-text-size:             0.72rem;                   /* Smaller text size */
+  --al-search-text-weight:           300;                       /* Small weight */
   --al-search-icon-color:            #AAAAAA;
-  --al-search-icon-size:             16px;
+  --al-search-icon-size:             18px;                      /* Slightly larger icon */
+  --al-search-icon-left:             14px;                      /* Push icon slightly right */
+  --al-search-shadow:                0 2px 6px rgba(0, 0, 0, 0.04); /* Subtly floats the search box */
 
   /* Filter dropdown */
   --al-filter-bg:                    var(--color-white);
   --al-filter-border-color:          var(--color-border);
   --al-filter-border-width:          1px;
-  --al-filter-radius:                10px;
-  --al-filter-height:                42px;
-  --al-filter-text-color:            var(--color-navy);
-  --al-filter-text-size:             0.875rem;
-  --al-filter-text-weight:           400;
+  --al-filter-radius:                4px;                       /* Only a little bit rounded */
+  --al-filter-height:                36px;                      /* Smaller height */
+  --al-filter-text-color:            #8E9198;                   /* Text color #8E9198 */
+  --al-filter-text-size:             0.72rem;                   /* Smaller text size */
+  --al-filter-text-weight:           300;                       /* Small weight */
   --al-filter-padding-x:             14px;
-  --al-filter-width:                 170px;
-  --al-filter-arrow-color:           var(--color-navy);
+  --al-filter-width:                 180px;                     /* Longer membership box on desktop */
+  --al-filter-arrow-color:           #8E9198;                   /* Arrow color #8E9198 */
+  --al-filter-shadow:                0 2px 6px rgba(0, 0, 0, 0.04); /* Subtly floats the dropdown select */
 
   /* ── Table ───────────────────────────────────────────────── */
   --al-table-min-width:              720px;                      /* [Min table width] triggers horizontal scroll below this */
@@ -660,20 +668,24 @@
   --al-mobile-col-num:               42px;
   --al-mobile-col-name:              1fr;
   --al-mobile-col-expand:            42px;
-  --al-mobile-outer-card-padding-y:  16px;
-  --al-mobile-outer-card-padding-x:  14px;
+  --al-mobile-outer-card-padding-y:  6px;                      /* Tighter card padding on mobile */
+  --al-mobile-outer-card-padding-x:  6px;                      /* Tighter card padding on mobile */
   --al-mobile-outer-card-radius:     12px;
-  --al-mobile-section-title-size:    1.2rem;
+  --al-mobile-section-title-size:    1.4rem;                    /* Larger section title */
+  --al-mobile-section-title-weight:  700;                       /* Larger section title weight */
   --al-mobile-section-subtitle-size: 0.8rem;
+  --al-mobile-section-subtitle-weight: 400;                     /* Regular subtitle weight */
+  --al-mobile-controls-box-padding-y: 20px;                     /* Taller box padding */
+  --al-mobile-controls-box-padding-x: 16px;
   --al-mobile-page-header-radius:    8px;
   --al-mobile-page-header-padding-y: 14px;
   --al-mobile-page-header-padding-x: 16px;
   --al-mobile-page-title-size:       1.1rem;
-  --al-mobile-breadcrumb-size:       0.72rem;
+  --al-mobile-breadcrumb-size:       0.65rem;                   /* Smart small breadcrumbs */
   --al-mobile-controls-gap:          10px;
-  --al-mobile-search-height:         40px;
+  --al-mobile-search-height:         34px;                      /* Smaller height */
   --al-mobile-filter-width:          100%;
-  --al-mobile-btn-height:            40px;
+  --al-mobile-btn-height:            42px;                      /* Slightly taller buttons */
   --al-mobile-btn-size:              0.8125rem;
   --al-mobile-topbar-bg:             var(--color-navy);
   --al-mobile-topbar-logo-filter:    brightness(0) invert(1);

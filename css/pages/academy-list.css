@@ -39,6 +39,15 @@ body.al-page .topbar {
   padding: var(--al-page-header-padding-y) var(--al-page-header-padding-x);
 }
 
+.al-header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
 .al-page-title {
   font-family: var(--font-family);
   font-size: var(--al-page-title-size);
@@ -47,8 +56,10 @@ body.al-page .topbar {
   color: var(--al-page-title-color);
   margin: 0;
   line-height: 1.2;
+  order: 1;
 }
 
+.al-breadcrumbs,
 .al-breadcrumb {
   display: flex;
   align-items: center;
@@ -56,15 +67,34 @@ body.al-page .topbar {
   font-family: var(--font-family);
   font-size: var(--al-breadcrumb-size);
   font-weight: var(--al-breadcrumb-weight);
-  color: var(--al-breadcrumb-color);
+  color: var(--color-white);
+  order: 2;
+  margin-left: auto;
 }
 
-.al-bc-sep {
-  color: var(--al-breadcrumb-sep-color);
+.al-breadcrumbs a,
+.al-breadcrumb a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: opacity 0.15s;
+  font-size: var(--al-breadcrumb-size);
+  font-weight: var(--al-breadcrumb-weight);
 }
 
+.al-breadcrumbs a:hover,
+.al-breadcrumb a:hover {
+  opacity: 0.8;
+}
+
+.al-breadcrumbs span,
+.al-breadcrumb span,
+.al-breadcrumb-separator,
+.al-bc-sep,
+.al-breadcrumb-active,
 .al-bc-active {
-  color: var(--al-breadcrumb-active-color);
+  color: var(--color-white);
+  font-size: var(--al-breadcrumb-size);
+  font-weight: var(--al-breadcrumb-weight);
 }
 
 .al-header-profile {
@@ -196,7 +226,7 @@ body.al-page .topbar {
 /* Search wrapper */
 .al-search-wrap {
   position: relative;
-  width: 280px; /* Clean, fixed size as in reference image */
+  width: var(--al-search-width);
   min-width: 160px;
 }
 
@@ -226,7 +256,7 @@ body.al-page .topbar {
 
 .al-search-icon {
   position: absolute;
-  left: 13px;
+  left: var(--al-search-icon-left);
   top: 50%;
   transform: translateY(-50%);
   color: var(--al-search-icon-color);
@@ -252,6 +282,7 @@ body.al-page .topbar {
   font-size: var(--al-search-text-size);
   font-weight: var(--al-search-text-weight);
   color: var(--al-search-text-color);
+  box-shadow: var(--al-search-shadow);
   outline: none;
   box-sizing: border-box;
   transition: border-color 0.15s;
@@ -290,6 +321,7 @@ body.al-page .topbar {
   font-size: var(--al-filter-text-size);
   font-weight: var(--al-filter-text-weight);
   color: var(--al-filter-text-color);
+  box-shadow: var(--al-filter-shadow);
   outline: none;
   cursor: pointer;
   appearance: none;
@@ -311,9 +343,10 @@ body.al-page .topbar {
 
 /* Bordered container — clips header's top corners and last row's bottom corners */
 .al-table-border {
-  border: 1px solid var(--color-border);
-  border-radius: var(--al-table-header-radius);
-  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
   min-width: var(--al-table-min-width);
 }
 
@@ -338,7 +371,11 @@ body.al-page .topbar {
 /* ── Header row ──────────────────────────────────────────── */
 .al-header-row {
   background: var(--al-table-header-bg);
+  border-radius: 12px;
+  border: 1px solid var(--table-row-border);
+  margin-bottom: var(--table-row-margin-bottom);
   align-items: stretch;
+  overflow: hidden;
 }
 
 .al-th {
@@ -382,7 +419,19 @@ body.al-page .topbar {
 .al-tbody { display: block; width: 100%; }
 
 /* Row wrapper — holds row-main and row-detail, carries background color */
-.al-row { box-sizing: border-box; }
+.al-row {
+  border-radius: 12px;
+  border: 1px solid var(--table-row-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  margin-bottom: var(--table-row-margin-bottom);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+.al-row:last-child {
+  margin-bottom: 0;
+}
 
 .al-row:nth-child(odd)  { background: var(--al-row-odd-bg); }
 .al-row:nth-child(even) { background: var(--al-row-even-bg); }
@@ -391,12 +440,12 @@ body.al-page .topbar {
 .al-row-main {
   align-items: center;
   min-height: var(--al-row-min-height);
-  border-top: 1px solid var(--al-row-sep-color);
+  border-top: none !important;
   transition: background 0.12s;
   cursor: default;
 }
 
-.al-row-main:hover { background: var(--al-row-hover-bg); }
+.al-row-main:hover { background: var(--table-row-hover-bg) !important; }
 
 /* ── Table cells ─────────────────────────────────────────── */
 .al-td {
@@ -490,11 +539,12 @@ body.al-page .topbar {
 .al-expand-btn  { display: none !important; }
 .al-row-detail  { display: none !important; }
 
-/* ── Pagination reset for academy-list context ───────────── */
+/* ── Pagination styling for academy-list context ─────────── */
 .al-outer-card .pagination-bar {
-  margin-top: 0;
-  border-top: 1px solid var(--color-border);
-  border-radius: 0 0 var(--al-table-header-radius) var(--al-table-header-radius);
+  margin-top: var(--table-pagination-gap-top) !important;
+  border: 1px solid var(--table-row-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
 }
 
 /* Remove the horizontal shift that the exam-list pagination uses */

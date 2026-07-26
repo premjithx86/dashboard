@@ -92,7 +92,7 @@
 .nav-item {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 0;
   padding: var(--sidebar-nav-item-padding);
   font-size: var(--sidebar-text-size);
   font-weight: var(--sidebar-text-weight);
@@ -128,6 +128,9 @@
 .nav-item img {
   width: var(--sidebar-icon-size);
   height: var(--sidebar-icon-size);
+  min-width: var(--sidebar-icon-size);
+  max-width: var(--sidebar-icon-size);
+  margin-right: var(--space-sm);
   object-fit: contain;
   flex-shrink: 0;
   filter: brightness(0) invert(1) opacity(var(--sidebar-icon-opacity));
@@ -150,6 +153,8 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  margin-left: 8px !important;
+  flex-shrink: 0 !important;
 }
 
 .badge-live    { background: var(--color-red);  color: #fff; }
