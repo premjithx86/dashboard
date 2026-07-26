@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Question From Question Bank – IQAF</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages/question-bank-popup.css" />
+</head>
+
+<body class="qb-page">
+
+  <!-- ── Fixed blurred backdrop ─────────────────────────────── -->
+  <div class="qb-backdrop" aria-hidden="true">
+    <iframe
+      class="qb-backdrop__frame"
+      src="index.html"
+      tabindex="-1"
+      title="background"
+    ></iframe>
+    <div class="qb-backdrop__dim"></div>
+  </div>
+
+  <!-- ── Modal centering wrapper (scrolls with page) ─────────── -->
+  <div class="qb-modal-wrap">
+    <div class="qb-modal" role="dialog" aria-modal="true" aria-labelledby="qb-title">
+
+      <!-- Close button -->
+      <button class="qb-close" aria-label="Close dialog" id="qbCloseBtn">
+        <svg class="qb-close__icon" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 14 14" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="1" y1="1" x2="13" y2="13"/>
+          <line x1="13" y1="1" x2="1"  y2="13"/>
+        </svg>
+      </button>
+
+      <!-- Header -->
+      <header class="qb-header">
+        <h2 class="qb-title" id="qb-title">Select Question From Question bank</h2>
+        <p class="qb-subtitle">Select below options to create questions and answers</p>
+      </header>
+
+      <!-- ══════════════════════════════════════════════════════
+           CONTROLS SECTION — scale everything by changing
+           --qb-controls-scale in question-bank-popup.css
+           ══════════════════════════════════════════════════════ -->
+      <div class="qb-controls-section">
+
+        <!-- Search & Filters row -->
+        <div class="qb-controls">
+          <div class="qb-search">
+            <svg class="qb-search__icon" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input class="qb-search__input" type="search" placeholder="Search" />
+          </div>
+
+          <div class="qb-filter">
+            <select class="qb-filter__select" aria-label="Filter by course">
+              <option value="">Filter : Course</option>
+              <option>Mathematics</option>
+              <option>English</option>
+              <option>Science</option>
+              <option>History</option>
+            </select>
+          </div>
+
+          <div class="qb-filter">
+            <select class="qb-filter__select" aria-label="Filter by type">
+              <option value="">Filter : Type</option>
+              <option>MCQ</option>
+              <option>Short Answer</option>
+              <option>Yes / No</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <p class="qb-summary">
+          Total 200 Questions&ensp;<span class="qb-summary__selected">3 Questions are selected</span>
+        </p>
+
+        <!-- Add button -->
+        <div class="qb-action-row">
+          <button class="qb-add-btn">Add Selected Quesions</button>
+        </div>
+
+      </div><!-- /qb-controls-section -->
+
+      <!-- ── Question list ──────────────────────────────────── -->
+      <div class="qb-list">
+
+        <!-- Q1 — SELECTED · Short Answer -->
+        <article class="qb-card qb-card--sel">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q1 : What role do transitional phrases play at the end of paragraphs in English academic writing?</p>
+            <p class="qb-card__type">Short Answer</p>
+          </div>
+          <div class="qb-check" aria-label="Selected">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </article>
+
+        <!-- Q2 — Unselected · MCQ -->
+        <article class="qb-card">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q2 : How does rising intonation signal questions at the end of sentences in spoken English?</p>
+            <div class="qb-card__choices">
+              <span>a. I finished</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>b. the correct</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>c. relaxation claim</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span class="qb-correct">d. could drive</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Q3 — Unselected · MCQ -->
+        <article class="qb-card">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q3 : In what contexts is "though" used casually at the end of English sentences for soft disagreement?</p>
+            <div class="qb-card__choices">
+              <span>a. I finished</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>b. the correct</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>c. relaxation claim</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span class="qb-correct">d. could drive</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Q4 — SELECTED · Short Answer -->
+        <article class="qb-card qb-card--sel">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q4 : Why do some programming languages influenced by English syntax end code blocks with "end"?</p>
+            <p class="qb-card__type">Short Answer</p>
+          </div>
+          <div class="qb-check" aria-label="Selected">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </article>
+
+        <!-- Q5 — Unselected · Short Answer -->
+        <article class="qb-card">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q5 : What distinguishes "end" as a noun versus a verb in English dictionary definitions?</p>
+            <p class="qb-card__type">Short Answer</p>
+          </div>
+        </article>
+
+        <!-- Q6 — SELECTED · MCQ -->
+        <article class="qb-card qb-card--sel">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q6 : How does rising intonation signal questions at the end of sentences in spoken English?</p>
+            <div class="qb-card__choices">
+              <span>a. I finished</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>b. the correct</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>c. relaxation claim</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span class="qb-correct">d. could drive</span>
+            </div>
+          </div>
+          <div class="qb-check" aria-label="Selected">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </article>
+
+        <!-- Q7 — Unselected · Yes/No -->
+        <article class="qb-card">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q7 : What distinguishes "end" as a noun versus a verb in English dictionary definitions?</p>
+            <div class="qb-card__choices">
+              <span>a. Yes</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span class="qb-correct">b. No</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Q9 — Unselected · MCQ -->
+        <article class="qb-card">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q9 : How does rising intonation signal questions at the end of sentences in spoken English?</p>
+            <div class="qb-card__choices">
+              <span>a. I finished</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>b. the correct</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>c. relaxation claim</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span class="qb-correct">d. could drive</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Q10 — Unselected · MCQ -->
+        <article class="qb-card">
+          <div class="qb-card__body">
+            <p class="qb-card__q">Q10 : What distinguishes "end" as a noun versus a verb in English dictionary definitions?</p>
+            <div class="qb-card__choices">
+              <span>a. I finished</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>b. the correct</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span>c. relaxation claim</span>
+              <span class="qb-sep" aria-hidden="true"></span>
+              <span class="qb-correct">d. could drive</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /qb-list -->
+
+      <!-- View More -->
+      <div class="qb-footer">
+        <a class="qb-view-more" href="#">View More</a>
+      </div>
+
+    </div><!-- /qb-modal -->
+  </div><!-- /qb-modal-wrap -->
+
+  <script>
+    // Close button: go back in history, or fall back to index.html
+    document.getElementById('qbCloseBtn').addEventListener('click', function () {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+
+</body>
+</html>
