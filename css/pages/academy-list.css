@@ -1,0 +1,603 @@
+/*
+ * css/pages/academy-list.css
+ * ─────────────────────────────────────────────────────────────
+ * Desktop styles for the Academy List page.
+ * All visual properties are driven by --al-* tokens in tokens.css.
+ * Loaded between the component CSS files and responsive.css.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* ── Topbar separator for this page ─────────────────────────
+   Adds a subtle bottom border to the topbar and removes the
+   large default margin-bottom (the .main flex gap handles spacing). */
+body.al-page .topbar {
+  margin-bottom: 0;
+  border-bottom: var(--al-topbar-sep-thickness) solid var(--al-topbar-sep-color);
+}
+
+/* ── Content column (direct child of .main) ──────────────────
+   Holds page-header + outer-card as a vertical flex column.    */
+.al-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--al-content-gap);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE HEADER BAND
+   ═══════════════════════════════════════════════════════════ */
+.al-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--al-page-header-bg);
+  border-radius: var(--al-page-header-radius);
+  padding: var(--al-page-header-padding-y) var(--al-page-header-padding-x);
+}
+
+.al-header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+.al-page-title {
+  font-family: var(--font-family);
+  font-size: var(--al-page-title-size);
+  font-weight: var(--al-page-title-weight);
+  font-style: var(--al-page-title-font-style);
+  color: var(--al-page-title-color);
+  margin: 0;
+  line-height: 1.2;
+  order: 1;
+}
+
+.al-breadcrumbs,
+.al-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--al-breadcrumb-gap);
+  font-family: var(--font-family);
+  font-size: var(--al-breadcrumb-size);
+  font-weight: var(--al-breadcrumb-weight);
+  color: var(--color-white);
+  order: 2;
+  margin-left: auto;
+}
+
+.al-breadcrumbs a,
+.al-breadcrumb a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: opacity 0.15s;
+  font-size: var(--al-breadcrumb-size);
+  font-weight: var(--al-breadcrumb-weight);
+}
+
+.al-breadcrumbs a:hover,
+.al-breadcrumb a:hover {
+  opacity: 0.8;
+}
+
+.al-breadcrumbs span,
+.al-breadcrumb span,
+.al-breadcrumb-separator,
+.al-bc-sep,
+.al-breadcrumb-active,
+.al-bc-active {
+  color: var(--color-white);
+  font-size: var(--al-breadcrumb-size);
+  font-weight: var(--al-breadcrumb-weight);
+}
+
+.al-header-profile {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   OUTER WHITE CARD  (acts as white frame around table)
+   ═══════════════════════════════════════════════════════════ */
+.al-outer-card {
+  background: var(--al-outer-card-bg);
+  border-radius: var(--al-outer-card-radius);
+  padding: var(--al-outer-card-padding-y) var(--al-outer-card-padding-x);
+  box-shadow: var(--al-outer-card-shadow);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ── Controls Box container ───────────────────────────────── */
+.al-controls-box {
+  background: var(--al-controls-box-bg);
+  border-radius: var(--al-controls-box-radius);
+  height: var(--al-controls-box-height);
+  width: var(--al-controls-box-width);
+  padding: var(--al-controls-box-padding-y) var(--al-controls-box-padding-x);
+  border: var(--al-controls-box-border-width) solid var(--al-controls-box-border-color);
+  margin-bottom: var(--al-controls-box-margin-bottom);
+  box-sizing: border-box;
+}
+
+.al-controls-box .al-controls-row {
+  margin-bottom: 0 !important;
+}
+
+
+/* ── Section top: "Center's List" heading + action buttons ── */
+.al-section-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--al-section-top-gap);
+  margin-bottom: var(--al-section-header-margin-bottom);
+  flex-wrap: wrap;
+}
+
+.al-section-heading { flex: 1; min-width: 0; }
+
+.al-section-title {
+  font-family: var(--font-family);
+  font-size: var(--al-section-title-size);
+  font-weight: var(--al-section-title-weight);
+  font-style: var(--al-section-title-font-style);
+  color: var(--al-section-title-color);
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.al-section-subtitle {
+  font-family: var(--font-family);
+  font-size: var(--al-section-subtitle-size);
+  font-weight: var(--al-section-subtitle-weight);
+  color: var(--al-section-subtitle-color);
+  margin: 0;
+}
+
+.al-section-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.al-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.15s, background 0.15s;
+  line-height: 1;
+}
+
+.al-btn:hover { opacity: 0.82; }
+
+.al-btn-export {
+  background: var(--al-export-btn-bg);
+  color: var(--al-export-btn-color);
+  border: var(--al-export-btn-border-width) solid var(--al-export-btn-border-color);
+  border-radius: var(--al-export-btn-radius);
+  padding: var(--al-export-btn-padding-y) var(--al-export-btn-padding-x);
+  height: var(--al-export-btn-height);
+  font-size: var(--al-export-btn-size);
+  font-weight: var(--al-export-btn-weight);
+  gap: var(--al-export-btn-gap);
+}
+
+.al-btn-export svg {
+  width: var(--al-export-btn-icon-size);
+  height: var(--al-export-btn-icon-size);
+  flex-shrink: 0;
+}
+
+.al-btn-add {
+  background: var(--al-add-btn-bg);
+  color: var(--al-add-btn-color);
+  border: none;
+  border-radius: var(--al-add-btn-radius);
+  padding: var(--al-add-btn-padding-y) var(--al-add-btn-padding-x);
+  height: var(--al-add-btn-height);
+  font-size: var(--al-add-btn-size);
+  font-weight: var(--al-add-btn-weight);
+  gap: var(--al-add-btn-gap);
+}
+
+/* ── Controls row (search + filter + actions wrapper) ──────────────── */
+.al-controls-row {
+  display: flex;
+  align-items: center;
+  gap: var(--al-controls-gap);
+  margin-top: var(--al-controls-margin-top);
+  margin-bottom: var(--al-controls-margin-bottom);
+}
+
+/* Search wrapper */
+.al-search-wrap {
+  position: relative;
+  width: var(--al-search-width);
+  min-width: 160px;
+}
+
+.al-filter-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.al-filter-select {
+  width: var(--al-filter-width) !important;
+  height: var(--al-filter-height);
+}
+
+/* Actions wrapper for buttons (Desktop: side-by-side and small, pushed to right) */
+.al-controls-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  margin-left: auto; /* Pushes buttons to the far right, leaving spacer gap */
+}
+
+.al-controls-actions .al-btn {
+  width: auto !important; /* Keep natural width (small) */
+}
+
+
+.al-search-icon {
+  position: absolute;
+  left: var(--al-search-icon-left);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--al-search-icon-color);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.al-search-icon svg {
+  width: var(--al-search-icon-size);
+  height: var(--al-search-icon-size);
+}
+
+.al-search-input {
+  width: 100%;
+  height: var(--al-search-height);
+  background: var(--al-search-bg);
+  border: var(--al-search-border-width) solid var(--al-search-border-color);
+  border-radius: var(--al-search-radius);
+  padding: 0 12px 0 var(--al-search-padding-left);
+  font-family: var(--font-family);
+  font-size: var(--al-search-text-size);
+  font-weight: var(--al-search-text-weight);
+  color: var(--al-search-text-color);
+  box-shadow: var(--al-search-shadow);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.al-search-input::placeholder { color: var(--al-search-placeholder-color); }
+.al-search-input:focus        { border-color: var(--color-navy); }
+
+/* Filter select wrapper */
+.al-filter-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.al-filter-wrap::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--al-filter-arrow-color);
+  border-bottom: 1.5px solid var(--al-filter-arrow-color);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.al-filter-select {
+  width: var(--al-filter-width);
+  height: var(--al-filter-height);
+  background: var(--al-filter-bg);
+  border: var(--al-filter-border-width) solid var(--al-filter-border-color);
+  border-radius: var(--al-filter-radius);
+  padding: 0 36px 0 var(--al-filter-padding-x);
+  font-family: var(--font-family);
+  font-size: var(--al-filter-text-size);
+  font-weight: var(--al-filter-text-weight);
+  color: var(--al-filter-text-color);
+  box-shadow: var(--al-filter-shadow);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABLE  (div-based for full CSS grid control)
+   ═══════════════════════════════════════════════════════════ */
+
+/* Outer scroll wrapper — allows horizontal scroll on narrow viewports */
+.al-table-outer {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+/* Bordered container — clips header's top corners and last row's bottom corners */
+.al-table-border {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  min-width: var(--al-table-min-width);
+}
+
+/* The table itself */
+.al-table { width: 100%; box-sizing: border-box; }
+
+/* ── Grid template shared by header and body rows ────────── */
+.al-header-row,
+.al-row-main {
+  display: grid;
+  grid-template-columns:
+    var(--al-col-num)
+    var(--al-col-name)
+    var(--al-col-phone)
+    var(--al-col-email)
+    var(--al-col-exam)
+    var(--al-col-students)
+    var(--al-col-action);
+  box-sizing: border-box;
+}
+
+/* ── Header row ──────────────────────────────────────────── */
+.al-header-row {
+  background: var(--al-table-header-bg);
+  border-radius: 12px;
+  border: 1px solid var(--table-row-border);
+  margin-bottom: var(--table-row-margin-bottom);
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.al-th {
+  font-family: var(--font-family);
+  font-size: var(--al-table-header-size);
+  font-weight: var(--al-table-header-weight);
+  color: var(--al-table-header-color);
+  padding: var(--al-table-header-padding-y) var(--al-table-header-padding-x);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-right: var(--al-table-col-sep-width) solid var(--al-table-col-sep-color);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.al-th:last-child {
+  border-right: none;
+  justify-content: center;
+}
+
+/* Sort icon (double-arrow) */
+.al-sort-icon {
+  width: var(--al-sort-icon-width);
+  height: var(--al-sort-icon-height);
+  flex-shrink: 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  display: inline-flex;
+}
+
+.al-sort-icon:hover { opacity: 0.55; }
+
+.al-sort-icon path { stroke-width: var(--al-sort-icon-stroke) !important; }
+
+.al-sort-up   { transform: translateY(var(--al-sort-icon-gap)); transform-origin: center; }
+.al-sort-down { transform: translateY(calc(-1 * var(--al-sort-icon-gap))); transform-origin: center; }
+
+/* ── Body ────────────────────────────────────────────────── */
+.al-tbody { display: block; width: 100%; }
+
+/* Row wrapper — holds row-main and row-detail, carries background color */
+.al-row {
+  border-radius: 12px;
+  border: 1px solid var(--table-row-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  margin-bottom: var(--table-row-margin-bottom);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+.al-row:last-child {
+  margin-bottom: 0;
+}
+
+.al-row:nth-child(odd)  { background: var(--al-row-odd-bg); }
+.al-row:nth-child(even) { background: var(--al-row-even-bg); }
+
+/* Row main grid */
+.al-row-main {
+  align-items: center;
+  min-height: var(--al-row-min-height);
+  border-top: none !important;
+  transition: background 0.12s;
+  cursor: default;
+}
+
+.al-row-main:hover { background: var(--table-row-hover-bg) !important; }
+
+/* ── Table cells ─────────────────────────────────────────── */
+.al-td {
+  padding: var(--al-cell-padding-y) var(--al-cell-padding-x);
+  font-family: var(--font-family);
+  font-size: var(--al-cell-text-size);
+  font-weight: var(--al-cell-text-weight);
+  color: var(--al-cell-text-color);
+  border-right: var(--al-row-col-sep-width) solid var(--al-row-col-sep-color);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-height: var(--al-row-min-height);
+  overflow: hidden;
+}
+
+.al-td:last-child {
+  border-right: none;
+  justify-content: center;
+}
+
+/* Column-specific overrides */
+.al-col-num    { padding-left: 20px; }
+.al-col-exam   { justify-content: center; }
+.al-col-action { justify-content: center; }
+
+/* ── Center info (avatar + name + code) ──────────────────── */
+.al-center-info {
+  display: flex;
+  align-items: center;
+  gap: var(--al-center-gap);
+  width: 100%;
+  overflow: hidden;
+}
+
+.al-center-avatar {
+  width: var(--al-avatar-size);
+  height: var(--al-avatar-size);
+  border-radius: var(--al-avatar-radius);
+  background: var(--al-avatar-bg);
+  border: var(--al-avatar-border-width) solid var(--al-avatar-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.al-center-avatar img {
+  width: var(--al-avatar-icon-size);
+  height: var(--al-avatar-icon-size);
+  object-fit: contain;
+}
+
+.al-center-text { overflow: hidden; flex: 1; min-width: 0; }
+
+.al-center-name {
+  font-size: var(--al-center-name-size);
+  font-weight: var(--al-center-name-weight);
+  color: var(--al-center-name-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.al-center-code {
+  font-size: var(--al-center-code-size);
+  font-weight: var(--al-center-code-weight);
+  color: var(--al-center-code-color);
+  margin-top: 3px;
+}
+
+/* ── Exam count badge ────────────────────────────────────── */
+.al-exam-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--al-exam-badge-bg);
+  color: var(--al-exam-badge-color);
+  font-family: var(--font-family);
+  font-size: var(--al-exam-badge-size);
+  font-weight: var(--al-exam-badge-weight);
+  border-radius: var(--al-exam-badge-radius);
+  padding: var(--al-exam-badge-padding-y) var(--al-exam-badge-padding-x);
+  min-width: var(--al-exam-badge-min-width);
+  line-height: 1;
+}
+
+/* ── Mobile-only elements (hidden on desktop) ────────────── */
+.al-expand-btn  { display: none !important; }
+.al-row-detail  { display: none !important; }
+
+/* ── Pagination styling for academy-list context ─────────── */
+.al-outer-card .pagination-bar {
+  margin-top: var(--table-pagination-gap-top) !important;
+  border: 1px solid var(--table-row-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Remove the horizontal shift that the exam-list pagination uses */
+.al-outer-card .pagination-pages {
+  transform: none !important;
+}
+
+/* ── Tablet / Mobile Pagination overrides (max-width: 1024px) ──────── */
+@media (max-width: 1024px) {
+  /* Explicitly hide Page 4 and Page 5 (only show 1 to 3) by class and index */
+  .al-outer-card .pagination-pages .desktop-only-page,
+  .al-outer-card .pagination-pages button:nth-child(5),
+  .al-outer-card .pagination-pages button:nth-child(6),
+  .desktop-only-page {
+    display: none !important;
+  }
+}
+
+/* ── Mobile Stacking for Pagination (max-width: 600px) ──────────────── */
+@media (max-width: 600px) {
+  /* Rearrange as vertical stack for clean responsive layout on small screens */
+  .al-outer-card .pagination-bar {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px 12px !important;
+  }
+
+  /* Arrange in vertical order: 
+     1. "Show 10 per pages" (.pagination-left)
+     2. Page selection options (.pagination-pages)
+     3. "1–10 of 52" (.pagination-info) */
+  .al-outer-card .pagination-left {
+    order: 1 !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .al-outer-card .pagination-pages {
+    order: 2 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .al-outer-card .pagination-info {
+    order: 3 !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+  }
+}

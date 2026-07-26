@@ -1,0 +1,553 @@
+/* ═══════════════════════════════════════════════════════════════
+   question-bank-popup.css
+   "Select Question From Question Bank" modal overlay
+
+   ── ADJUSTABLE TOKENS ──────────────────────────────────────────
+   Edit values in :root to tune the UI without touching HTML.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Modal positioning & sizing ─────────────────────────────── */
+  --qb-modal-gap-x:       80px;     /* left / right gap from viewport edge */
+  --qb-modal-gap-y:       40px;     /* top / bottom gap from viewport edge */
+  --qb-modal-max-width:   780px;    /* maximum width of the popup */
+  --qb-modal-padding-x:   32px;     /* internal horizontal padding */
+  --qb-modal-padding-top: 32px;     /* internal top padding */
+  --qb-modal-padding-bot: 28px;     /* internal bottom padding */
+
+  /* ── Modal shadow ────────────────────────────────────────────── */
+  --qb-modal-shadow:        0 8px 32px rgba(0,0,0,0.16), 0 2px 8px rgba(0,0,0,0.08);
+  --qb-modal-shadow-mobile: 0 20px 60px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.12);
+
+  /* ── Close button ────────────────────────────────────────────── */
+  --qb-close-size:        34px;     /* width & height of close button */
+  --qb-close-scale:       1;        /* scale the close button (1 = normal) */
+  --qb-close-icon-color:  #BCBFC5;  /* X icon colour */
+
+  /* ── Controls section scale ──────────────────────────────────── */
+  /* Change --qb-controls-scale to resize search, filters, summary
+     and the Add button all at once. 1 = 100%, 1.1 = 110%, etc.    */
+  --qb-controls-scale:     1;
+
+  /* Per-control heights (desktop) */
+  --qb-search-height:      42px;
+  --qb-filter-height:      42px;
+  --qb-filter-width:       auto;    /* override individual filter width */
+  --qb-search-font-size:   0.875rem;
+  --qb-filter-font-size:   0.875rem;
+  --qb-controls-gap:       12px;    /* gap between search / filter controls */
+  --qb-controls-mb:        14px;    /* margin-bottom of controls row */
+
+  /* ── Add Selected button ─────────────────────────────────────── */
+  --qb-btn-height:         auto;    /* e.g. 46px — or leave 'auto' */
+  --qb-btn-width:          auto;    /* e.g. 220px — or leave 'auto' */
+  --qb-btn-font-size:      0.9375rem;
+  --qb-btn-padding-y:      11px;
+  --qb-btn-padding-x:      44px;
+  --qb-btn-radius:         8px;     /* all four corners */
+
+  /* ── Question cards (desktop) ────────────────────────────────── */
+  --qb-card-min-height:    72px;    /* minimum card height on desktop */
+  --qb-card-gap:           8px;     /* vertical gap between cards */
+  --qb-card-padding-y:     16px;    /* card top / bottom padding */
+  --qb-card-padding-x:     18px;    /* card left / right padding */
+  --qb-card-bg:            #F9F9F9; /* card background colour */
+  --qb-card-radius:        12px;    /* card corner radius */
+  --qb-card-border:        #DBDCE4; /* unselected border colour */
+  --qb-card-sel-border:    #1D2465; /* selected border colour */
+
+  /* ── Colours ─────────────────────────────────────────────────── */
+  --qb-correct-color:          #0EA935;  /* correct / last answer option */
+  --qb-selected-count-color:   #1D2465;  /* "3 Questions are selected" text */
+  --qb-view-more-color:        #21236A;  /* View More — desktop */
+  --qb-view-more-mobile-color: #D10032;  /* View More — mobile */
+}
+
+
+/* ── Page shell ───────────────────────────────────────────────── */
+.qb-page {
+  display: block;          /* override body flex from base.css */
+  overflow-y: auto;        /* body scrolls — no internal modal scrollbar */
+  min-height: 100vh;
+}
+
+/* ── Fixed blurred backdrop ───────────────────────────────────── */
+.qb-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.qb-backdrop__frame {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  border: none;
+  display: block;
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.qb-backdrop__dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 40, 0.44);
+}
+
+/* ── Modal centering wrapper ──────────────────────────────────── */
+/* Sits above the backdrop; page body scrolls this wrapper.
+   The wrapper fills at least the full viewport so the modal
+   appears vertically centred when it's shorter than 100vh,
+   and the page scrolls naturally when the modal is taller.   */
+.qb-modal-wrap {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;           /* vertical centre when modal fits */
+  min-height: 100vh;
+  padding: var(--qb-modal-gap-y) var(--qb-modal-gap-x);
+  box-sizing: border-box;
+}
+
+/* ── Modal card ───────────────────────────────────────────────── */
+.qb-modal {
+  position: relative;            /* containing block for close button */
+  width: 100%;
+  max-width: var(--qb-modal-max-width);
+  align-self: flex-start;        /* don't stretch vertically */
+
+  background: var(--color-white);
+  border-radius: var(--radius-lg);               /* 16px */
+  box-shadow: var(--qb-modal-shadow);
+
+  padding:
+    var(--qb-modal-padding-top)
+    var(--qb-modal-padding-x)
+    var(--qb-modal-padding-bot);
+}
+
+/* ── Close button ─────────────────────────────────────────────── */
+.qb-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width:  var(--qb-close-size);
+  height: var(--qb-close-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);               /* 6px */
+  background: var(--color-white);
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+
+  transform: scale(var(--qb-close-scale));
+  transform-origin: top right;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.qb-close:hover {
+  background: var(--color-bg);
+  border-color: #ACAEC5;
+}
+
+.qb-close__icon {
+  width:  calc(var(--qb-close-size) * 0.4);
+  height: calc(var(--qb-close-size) * 0.4);
+  color: var(--qb-close-icon-color);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.qb-header {
+  text-align: center;
+  padding: 4px 40px 0;
+  margin-bottom: 24px;
+}
+
+.qb-title {
+  font-family: var(--font-family);
+  font-size: 1.3125rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.qb-subtitle {
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #888;
+  line-height: 1.45;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CONTROLS SECTION — search, filters, summary, Add button
+   Change --qb-controls-scale in :root to resize all at once.
+   ══════════════════════════════════════════════════════════════ */
+.qb-controls-section {
+  /* font-size is the single scale lever:
+     all em-based children scale proportionally.               */
+  font-size: calc(1rem * var(--qb-controls-scale));
+}
+
+/* ── Controls row (search + 2 filters) ───────────────────────── */
+.qb-controls {
+  display: flex;
+  gap: var(--qb-controls-gap);
+  margin-bottom: var(--qb-controls-mb);
+  align-items: stretch;
+}
+
+/* — Search — */
+.qb-search {
+  flex: 3;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.qb-search__icon {
+  position: absolute;
+  left: 0.875em;
+  width:  0.9375em;
+  height: 0.9375em;
+  color: #AAAAAA;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.qb-search__input {
+  width: 100%;
+  height: calc(var(--qb-search-height) * var(--qb-controls-scale));
+  padding: 0 0.875em 0 2.5em;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--qb-search-font-size);
+  font-weight: 300;
+  color: #333;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.qb-search__input::placeholder            { color: #AAAAAA; }
+.qb-search__input::-webkit-search-cancel-button { display: none; }
+.qb-search__input:focus                   { border-color: var(--color-blue-mid); }
+
+/* — Filter dropdowns — */
+.qb-filter {
+  flex: 1;
+  min-width: 138px;          /* prevents label truncation at narrow widths */
+  width: var(--qb-filter-width);
+}
+
+.qb-filter__select {
+  width: 100%;
+  height: calc(var(--qb-filter-height) * var(--qb-controls-scale));
+  padding: 0 1.75em 0 0.875em;   /* right: 28px | left: 14px */
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--qb-filter-font-size);
+  font-weight: 300;
+  color: #555;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  /* Inline chevron */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238E9198' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.625em center;
+  background-size: 0.625em 0.375em;
+}
+
+.qb-filter__select:focus { border-color: var(--color-blue-mid); }
+
+/* ── Selection summary ────────────────────────────────────────── */
+.qb-summary {
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: 0.875em;           /* em → scales with controls-section */
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 0.875em;
+  line-height: 1.5;
+}
+
+.qb-summary__selected {
+  font-weight: 600;
+  color: var(--qb-selected-count-color);
+}
+
+/* ── Add button ───────────────────────────────────────────────── */
+.qb-action-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25em;
+}
+
+.qb-add-btn {
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--qb-btn-font-size);
+  font-weight: 500;
+  /* All four corners explicitly rounded */
+  border-radius: var(--qb-btn-radius) var(--qb-btn-radius) var(--qb-btn-radius) var(--qb-btn-radius);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+  /* Adjustable dimensions */
+  height:  var(--qb-btn-height);
+  width:   var(--qb-btn-width);
+  padding: var(--qb-btn-padding-y) var(--qb-btn-padding-x);
+}
+
+.qb-add-btn:hover { opacity: 0.88; }
+
+
+/* ── Question card list ───────────────────────────────────────── */
+.qb-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--qb-card-gap);
+}
+
+/* ── Question card ────────────────────────────────────────────── */
+.qb-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: var(--qb-card-min-height);
+  padding: var(--qb-card-padding-y) var(--qb-card-padding-x);
+  border: 1px solid var(--qb-card-border);
+  border-radius: var(--qb-card-radius);
+  background: var(--qb-card-bg);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.qb-card:hover:not(.qb-card--sel) {
+  border-color: #ACAEC5;
+}
+
+.qb-card--sel {
+  border: 1.5px solid var(--qb-card-sel-border);
+}
+
+/* Card body */
+.qb-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.qb-card__q {
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #1a1a2e;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.qb-card__type {
+  font-family: var(--font-family);
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: #888;
+  margin: 0;
+}
+
+/* MCQ choices */
+.qb-card__choices {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 4px;
+  font-family: var(--font-family);
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: #444;
+}
+
+.qb-sep {
+  display: inline-flex;
+  align-self: center;
+  width: 1px;
+  height: 13px;
+  background: var(--color-border);
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+/* Last / correct answer is green */
+.qb-correct {
+  color: var(--qb-correct-color);
+}
+
+/* ── Selected checkmark ───────────────────────────────────────── */
+.qb-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.qb-check svg {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── View More ────────────────────────────────────────────────── */
+.qb-footer {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 4px;
+}
+
+.qb-view-more {
+  font-family: var(--font-family);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--qb-view-more-color);       /* #21236A desktop */
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s;
+}
+
+.qb-view-more:hover { opacity: 0.75; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   TABLET  (≤ 768px)
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --qb-modal-gap-x:      24px;
+    --qb-modal-gap-y:      28px;
+    --qb-modal-padding-x:  22px;
+    --qb-search-height:    40px;
+    --qb-filter-height:    40px;
+    --qb-card-padding-y:   13px;
+    --qb-card-padding-x:   14px;
+    --qb-card-min-height:  62px;
+  }
+
+  .qb-title    { font-size: 1.15rem; }
+  .qb-subtitle { font-size: 0.85rem; }
+  .qb-header   { padding: 2px 32px 0; margin-bottom: 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE  (≤ 480px)
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  :root {
+    /* ── Modal ──────────────────────────────────────────────── */
+    --qb-modal-gap-x:       10px;   /* side gap on mobile */
+    --qb-modal-gap-y:       16px;   /* top/bottom gap on mobile */
+    --qb-modal-padding-x:   14px;
+    --qb-modal-padding-top: 20px;
+    --qb-modal-padding-bot: 16px;
+
+    /* ── Controls ───────────────────────────────────────────── */
+    --qb-search-height:     40px;
+    --qb-filter-height:     40px;
+    --qb-controls-gap:      10px;
+
+    /* ── Cards ──────────────────────────────────────────────── */
+    --qb-card-padding-y:    11px;
+    --qb-card-padding-x:    12px;
+    --qb-card-min-height:   54px;
+    --qb-card-gap:          7px;
+
+    /* ── Button ─────────────────────────────────────────────── */
+    --qb-btn-padding-x:     24px;
+    --qb-btn-font-size:     0.875rem;
+
+    /* ── Shadow (more pronounced at bottom on mobile) ───────── */
+    /* Override via --qb-modal-shadow-mobile in :root above     */
+  }
+
+  .qb-modal {
+    border-radius: var(--radius-md);    /* 12px on mobile */
+    box-shadow: var(--qb-modal-shadow-mobile);
+  }
+
+  .qb-close {
+    top: 14px;
+    right: 14px;
+    --qb-close-size: 30px;
+  }
+
+  .qb-header {
+    padding: 0 32px 0 0;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .qb-title    { font-size: 1.05rem; }
+  .qb-subtitle { font-size: 0.8rem; text-align: center; }
+
+  /* Search full-width, filters 50/50 on next row */
+  .qb-controls {
+    flex-wrap: wrap;
+  }
+
+  .qb-search { flex: 1 1 100%; }
+  .qb-filter { flex: 1 1 calc(50% - calc(var(--qb-controls-gap) / 2)); }
+
+  .qb-summary {
+    font-size: 0.8125rem;
+    white-space: normal;
+    line-height: 1.6;
+  }
+
+  .qb-add-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .qb-card__q       { font-size: 0.8125rem; }
+  .qb-card__choices { font-size: 0.75rem; row-gap: 3px; }
+
+  .qb-sep { margin: 0 5px; height: 11px; }
+
+  .qb-check       { width: 26px; height: 26px; }
+  .qb-check svg   { width: 12px; height: 12px; }
+
+  .qb-footer { padding-top: 16px; }
+
+  /* View More is red on mobile */
+  .qb-view-more {
+    color: var(--qb-view-more-mobile-color);
+  }
+}

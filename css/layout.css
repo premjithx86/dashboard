@@ -24,24 +24,6 @@
   gap: var(--space-lg);
 }
 
-/* Reusable white card wrapper used by table, academies, etc. */
-.section-card {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  overflow: hidden;
-}
-
-/* Card title bar (light-bg strip at the top of each section) */
-.section-header {
-  padding: var(--space-md) var(--space-lg);
-  font-size: var(--section-heading-size);
-  font-weight: var(--section-heading-weight);
-  color: var(--section-heading-color);
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-bg);
-}
-
 /* ── Row grids ───────────────────────────────────────────── */
 
 /* Stats (4 cards) + quadrant side-by-side */

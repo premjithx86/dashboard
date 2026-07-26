@@ -219,15 +219,6 @@
   white-space: nowrap;
 }
 
-/* Responsive title styling */
-.desktop-title {
-  display: block;
-}
-
-.mobile-title {
-  display: none;
-}
-
 /* ── Live Exams counter ───────────────────────────────────── */
 .live-exams-block {
   display: flex;

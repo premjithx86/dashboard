@@ -368,7 +368,7 @@
   background: var(--table-pagination-bg); /* Footer background */
   border-radius: 12px; /* rounded corners on all four sides */
   border: 1px solid var(--table-row-border);
-  margin-top: 8px; /* space/gap above the pagination card footer */
+  margin-top: var(--table-pagination-gap-top); /* space/gap above the pagination card footer */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   font-size: 0.8125rem;
   color: var(--table-pagination-label-color);
